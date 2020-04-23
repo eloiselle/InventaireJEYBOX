@@ -1,6 +1,17 @@
 /* Auteur: Émile Loiselle */
 /* Date: 23 avr 2020 */
 
+*{
+  font-family: 'Roboto Slab', serif;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: white;
+  margin: 0;
+  border: 0;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -32,4 +43,141 @@ li img {
   width: 18%;
   height: 18%;
   padding-left: 160px;
+}
+
+div{
+  text-align: center;
+  display: block;
+}
+
+div ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+div li {
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #ddd;
+}
+
+h1{
+  font-size: 25px;
+}
+
+.informationstitles{
+  width: 100%;
+}
+
+.paddingTop{
+  padding-top: 100px;
+}
+
+.center{
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.logo{
+    max-width:10%;
+    padding-bottom: 50px;
+}
+
+.login{
+  border-radius: 1px solid black;
+  max-width: 300px;
+  max-height: 600px;
+  margin: auto;
+  background: white;
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 40px;
+  padding-bottom: 10px;
+}
+
+.labelLeft{
+  text-align: left;
+  font-size: 15px;
+}
+
+­­­­/* Padding for log in pages */
+­
+.customPadding1{
+  padding-right: 176px;
+
+}
+.customPadding2{
+  padding-right: 158px;
+}
+
+.customPadding3{
+  padding-right: 185px;
+}
+
+.customPadding4{
+  padding-right: 84px;
+}
+
+.customPadding5{
+  padding-right: 58px;
+}
+
+/*End of padding */
+
+.txtbox{
+  height:30px;
+  font-size:14pt;
+}
+
+.btnLog{
+  background-color: #f0b634;
+  font-weight: bold;
+  font-size: 25px;
+  height: 50px;
+  width: 200px;
+  border-radius: 12px;
+  border-color:  black;
+  border-width: medium;
+}
+
+.btnLog:hover{
+  cursor: pointer;
+}
+
+.forgot{
+  color: blue;
+  text-decoration: underline;
+  font-size: 10px;
+}
+
+/*Search bar*/
+.search-container {
+float: left;
+padding: 6px;
+border: none;
+margin-top: 8px;
+margin-right: 16px;
+font-size: 17px;
+}
+
+.searchtxt{
+  border-radius: 4px 4px 4px 4px;
+}
+
+.searchbtn{
+  height : 22px;
+  width: 25px;
+  float: right;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
 }

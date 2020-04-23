@@ -1,7 +1,7 @@
 /* Auteur: Émile Loiselle */
 /* Date: 23 avr 2020 */
 
-*{
+{
   font-family: 'Roboto Slab', serif;
   box-sizing: border-box;
 }
@@ -9,7 +9,11 @@
 body{
   background-color: white;
   margin: 0;
-  border: 0;
+  margin: 0 !important;
+}
+
+nav {
+  background-color: #223142;
 }
 
 ul {
@@ -17,7 +21,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #223142;
+
 }
 
 li {
@@ -27,6 +31,7 @@ li {
 li a {
   display: block;
   color: white;
+  ali
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -40,9 +45,8 @@ li a:hover {
 }
 
 li img {
-  width: 18%;
-  height: 18%;
   padding-left: 160px;
+  padding-right: 60px;
 }
 
 div{

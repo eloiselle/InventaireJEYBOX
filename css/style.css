@@ -15,37 +15,6 @@ nav {
   background-color: #223142;
 }
 
-.menuUl {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-
-}
-
-.menuLi {
-float: left;
-}
-
-.menuButton {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 22px;
-}
-
-.menuButton:hover {
-  background-color: #dce2e2;
-  color: #223142
-}
-
-.imgLogo {
-  padding-left: 160px;
-  padding-right: 60px;
-}
-
 div {
   text-align: center;
   display: block;
@@ -70,6 +39,39 @@ h1 {
   font-size: 25px;
 }
 
+/* Navigation bar */
+/* Begin */
+.menuUl {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.menuLi {
+  float: left;
+}
+
+.menuButton {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.menuButton:hover {
+  background-color: #dce2e2;
+  color: #223142
+}
+
+.imgLogo {
+  padding-left: 160px;
+  padding-right: 60px;
+}
+/* End */
+
 .informationstitles {
   width: 100%;
 }
@@ -79,14 +81,14 @@ h1 {
 }
 
 .center {
-display: block;
-margin-left: auto;
-margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo {
-    max-width:10%;
-    padding-bottom: 50px;
+  max-width:10%;
+  padding-bottom: 50px;
 }
 
 .login {
@@ -162,12 +164,12 @@ margin-right: auto;
 
 /*Search bar*/
 .search-container {
-float: left;
-padding: 6px;
-border: none;
-margin-top: 8px;
-margin-right: 16px;
-font-size: 17px;
+  float: left;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
 }
 
 .searchtxt {

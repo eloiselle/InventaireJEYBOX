@@ -145,6 +145,7 @@ nav ul li img {
 }
 /* End of nav bar */
 
+/* Start of itemSelection table */
 .itemSelection {
   background-color: white;
 
@@ -173,6 +174,7 @@ nav ul li img {
   right: 60%;
   left: 100px;
 }
+/* End of itemSelection table */
 
 .informationstitles {
   width: 100%;

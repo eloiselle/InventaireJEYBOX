@@ -50,9 +50,6 @@
     </table>
 
     <br><br>
-
-
-
     <div class="lstArticle">
       <table style="width=100%">
 

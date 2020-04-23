@@ -8,6 +8,7 @@
     <title>JEYBOX - Réservations</title>
   </head>
   <body>
+    <div class="container">
     <nav>
       <ul class="menuUl">
         <li class="menuLi"><img class="imgLogo" src="images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></li>
@@ -24,7 +25,7 @@
     <br><br>
     <!-- Search bar -->
     <div class="search-container">
-      <form action="/action_page.php" class="searchformh">
+      <form action="/action_page.php" class="searchform">
         <input type="text" placeholder="Recherche.." name="search" class="searchtxt">
         <button type="submit" class="searchbtn"><i class="fa fa-search"></i></button>
       </form>
@@ -38,5 +39,7 @@
             <li>En cours</li>
           </ul>
         </div>
+          </div>
+  </div>
       </body>
 </html>

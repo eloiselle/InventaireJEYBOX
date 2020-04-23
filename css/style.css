@@ -16,7 +16,7 @@ nav {
   background-color: #223142;
 }
 
-ul {
+.menuUl {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -24,27 +24,25 @@ ul {
 
 }
 
-li {
-  float: left;
+.menuLi {
+float: left;
 }
 
-li a {
+.menuButton {
   display: block;
   color: white;
-  ali
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 22px;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
+.menuButton:hover {
   background-color: #dce2e2;
   color: #223142
 }
 
-li img {
+.imgLogo {
   padding-left: 160px;
   padding-right: 60px;
 }

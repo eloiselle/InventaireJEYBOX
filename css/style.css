@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: white;
   margin: 0;
 }
@@ -46,12 +46,12 @@ float: left;
   padding-right: 60px;
 }
 
-div{
+div {
   text-align: center;
   display: block;
 }
 
-div ul{
+div ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -66,30 +66,30 @@ div li {
   color: #ddd;
 }
 
-h1{
+h1 {
   font-size: 25px;
 }
 
-.informationstitles{
+.informationstitles {
   width: 100%;
 }
 
-.paddingTop{
+.paddingTop {
   padding-top: 100px;
 }
 
-.center{
+.center {
 display: block;
 margin-left: auto;
 margin-right: auto;
 }
 
-.logo{
+.logo {
     max-width:10%;
     padding-bottom: 50px;
 }
 
-.login{
+.login {
   border-radius: 1px solid black;
   max-width: 300px;
   max-height: 600px;
@@ -99,47 +99,47 @@ margin-right: auto;
   padding-bottom: 60px;
 }
 
-.title{
+.title {
   font-weight: bold;
   font-size: 40px;
   padding-bottom: 10px;
 }
 
-.labelLeft{
+.labelLeft {
   text-align: left;
   font-size: 15px;
 }
 
 ­­­­/* Padding for log in pages */
 ­
-.customPadding1{
+.customPadding1 {
   padding-right: 176px;
-
 }
-.customPadding2{
+
+.customPadding2 {
   padding-right: 158px;
 }
 
-.customPadding3{
+.customPadding3 {
   padding-right: 185px;
 }
 
-.customPadding4{
+.customPadding4 {
   padding-right: 84px;
 }
 
-.customPadding5{
+.customPadding5 {
   padding-right: 58px;
 }
 
 /*End of padding */
 
-.txtbox{
+.txtbox {
   height:30px;
   font-size:14pt;
 }
 
-.btnLog{
+.btnLog {
   background-color: #f0b634;
   font-weight: bold;
   font-size: 25px;
@@ -150,11 +150,11 @@ margin-right: auto;
   border-width: medium;
 }
 
-.btnLog:hover{
+.btnLog:hover {
   cursor: pointer;
 }
 
-.forgot{
+.forgot {
   color: blue;
   text-decoration: underline;
   font-size: 10px;
@@ -170,11 +170,11 @@ margin-right: 16px;
 font-size: 17px;
 }
 
-.searchtxt{
+.searchtxt {
   border-radius: 4px 4px 4px 4px;
 }
 
-.searchbtn{
+.searchbtn {
   height : 22px;
   width: 25px;
   float: right;

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-        <link rel="stylesheet" href="css/Style.css">
+        <link rel="stylesheet" href="css/style.css">
         <!-- Allows to find search icon for search bar -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>JEYBOX - Réservations</title>

@@ -1,5 +1,6 @@
 /* Auteur: Émile Loiselle, Jérôme Nadeau et Yannick Plourde  */
 /* Date: 23 avr 2020 */
+
 /* Code snippet that allows consistency between browsers. */
 /* ====================================================== */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -63,8 +64,12 @@ table {
 }
 
 body {
-  background-color: white;
+  background-color: #223142;
   margin: 0;
+}
+
+.container{
+  background-color: white;
 }
 
 nav {
@@ -74,6 +79,7 @@ nav {
 div {
   text-align: center;
   display: block;
+
 }
 
 div ul {
@@ -179,15 +185,14 @@ nav ul li img {
   font-size: 15px;
 }
 
-­­­­
 
 /* Padding for log in pages */
-­ .customPadding1 {
-  padding-right: 176px;
+.customPadding1 {
+  padding-right: 185px;
 }
 
 .customPadding2 {
-  padding-right: 158px;
+  padding-right: 145px;
 }
 
 .customPadding3 {
@@ -251,3 +256,4 @@ nav ul li img {
   border: none;
   cursor: pointer;
 }
+/*End of search bar*/

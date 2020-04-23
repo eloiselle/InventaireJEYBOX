@@ -8,35 +8,54 @@
   <body>
     <nav>
       <ul>
-        <li><img src="images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></li>
+        <li><a href="index.html"><img src="images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></a></li>
         <li><a class="button" href="categorie.php">Catégories</a></li>
         <li><a class="active_button" href="article.php">Articles</a></li>
         <li><a class="button" href="consulter_reservation.php">Réservations</a></li>
         <li style="float:right"><a class="button" href="#compte">Mon compte</a></li>
       </ul>
     </nav>
-    <br>
-    <hr>
-    <br>
-    <h1>Articles</h1>
+
+    <table class="itemSelection">
+      <!-- Purely here for aesthetic purposes -->
+      <tr>
+        <th><div class="halfBorderTop"></div></th>
+      </tr>
+
+      <!-- Title -->
+      <tr>
+        <th><h1>Articles</h1></th>
+      </tr>
+
+      <!-- Search bar -->
+      <tr>
+        <th>
+          <div class="search-container">
+            <form action="/action_page.php" class="searchformh">
+              <input type="text" placeholder="Recherche.." name="search" class="searchtxt">
+              <button type="submit" class="searchbtn"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+        </th>
+      </tr>
+
+      <!-- Table -->
+      <tr>
+        <th>Sélection</th>
+        <th>Identifiant</th>
+        <th>Nom</th>
+        <th>Catégorie</th>
+        <th>Disponibles</th>
+      </tr>
+    </table>
+
     <br><br>
-    <!-- Search bar -->
-    <div class="search-container">
-      <form action="/action_page.php" class="searchformh">
-        <input type="text" placeholder="Recherche.." name="search" class="searchtxt">
-        <button type="submit" class="searchbtn"><i class="fa fa-search"></i></button>
-      </form>
-    </div>
+
+
 
     <div class="lstArticle">
       <table style="width=100%">
-        <tr>
-          <th ="200">Sélection</th>
-          <th width="200">Identifiant</th>
-          <th width="200">Nom</th>
-          <th width="200">Catégorie</th>
-          <th width="200">Disponibles</th>
-        </tr>
+
       </table>
   </body>
 </html>

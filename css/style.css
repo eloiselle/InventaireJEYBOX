@@ -145,6 +145,32 @@ nav ul li img {
 }
 /* End of nav bar */
 
+.itemSelection {
+  padding-top: 80px;
+  margin-left: 100px;
+  display:inline-block;
+}
+
+.itemSelection tr {
+  border-left: 2px solid grey;
+}
+
+.itemSelection tr th h1 {
+    padding-top: 20px;
+}
+
+.itemSelection tr th {
+  width: 20%;
+}
+
+/* Purely here for aesthetic purposes */
+.halfBorderTop {
+  border-top: 2px solid grey;
+  position: absolute;
+  right: 60%;
+  left: 100px;
+}
+
 .informationstitles {
   width: 100%;
 }

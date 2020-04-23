@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <style>
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #223142;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 22px;
+      }
+
+      /* Change the link color to #111 (black) on hover */
+      li a:hover {
+        background-color: #dce2e2;
+        color: #223142
+      }
+
+      li img {
+        width: 18%;
+        height: 18%;
+        padding-left: 160px;
+      }
+
+    </style>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <img src="/images/JEYBOX_Logo_1037x300.png" alt="Jeybox logo"><br>
+    <nav>
+      <ul>
+        <li><img src="images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX"></li>
+        <li><a class="active" href="#categorie">Catégories</a></li>
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#reservation">Réservations</a></li>
+        <li style="float:right"><a href="#compte">Mon compte</a></li>
+      </ul>
+    </nav>
+    <br>
     <p>Ceci est la page de JEYBOX</p><br>
     <p>Elle est en construction! Revenez plus tard.</p>
     <p>Test modification 18th</p>

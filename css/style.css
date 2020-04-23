@@ -1,6 +1,5 @@
 /* Auteur: Émile Loiselle, Jérôme Nadeau et Yannick Plourde  */
 /* Date: 23 avr 2020 */
-
 /* Code snippet that allows consistency between browsers. */
 /* ====================================================== */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -20,39 +19,45 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
+
 body {
-	line-height: 1;
+  line-height: 1;
 }
+
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
+
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-/* End of style reset */
 
-{
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* End of style reset */
+  {
   font-family: 'Roboto Slab', serif;
   box-sizing: border-box;
 }
@@ -92,18 +97,18 @@ h1 {
 
 /* Navigation bar */
 /* Start of nav bar */
-.menuUl {
+nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
 
-.menuLi {
+nav ul li {
   float: left;
 }
 
-.menuButton {
+nav ul li .button {
   display: block;
   color: white;
   text-align: center;
@@ -112,12 +117,23 @@ h1 {
   font-size: 22px;
 }
 
-.menuButton:hover {
+nav ul li .active_button {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 22px;
   background-color: #dce2e2;
   color: #223142
 }
 
-.imgLogo {
+nav ul li .button:hover {
+  background-color: #dce2e2;
+  color: #223142
+}
+
+nav ul li img {
   padding-left: 160px;
   padding-right: 60px;
 }
@@ -138,7 +154,7 @@ h1 {
 }
 
 .logo {
-  max-width:10%;
+  max-width: 10%;
   padding-bottom: 50px;
 }
 
@@ -163,9 +179,10 @@ h1 {
   font-size: 15px;
 }
 
-­­­­/* Padding for log in pages */
-­
-.customPadding1 {
+­­­­
+
+/* Padding for log in pages */
+­ .customPadding1 {
   padding-right: 176px;
 }
 
@@ -184,12 +201,11 @@ h1 {
 .customPadding5 {
   padding-right: 58px;
 }
-
 /*End of padding */
 
 .txtbox {
-  height:30px;
-  font-size:14pt;
+  height: 30px;
+  font-size: 14pt;
 }
 
 .btnLog {
@@ -199,7 +215,7 @@ h1 {
   height: 50px;
   width: 200px;
   border-radius: 12px;
-  border-color:  black;
+  border-color: black;
   border-width: medium;
 }
 
@@ -228,7 +244,7 @@ h1 {
 }
 
 .searchbtn {
-  height : 22px;
+  height: 22px;
   width: 25px;
   float: right;
   background: #ddd;

@@ -9,7 +9,7 @@
   <body>
 <main>
   <article class="paddingTop">
-    <img src="images/small_logo.png" class="logo center" alt="Jey Box">
+    <img src="images/small_logo.png" class="logo center" alt="Jey Box" >
   </article>
   <div class="window">
     <form class="login" action="index.html" method="get">

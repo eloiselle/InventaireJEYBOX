@@ -7,8 +7,12 @@
 }
 
 body {
-  background-color: white;
+  background-color: #223142;
   margin: 0;
+}
+
+.container{
+  background-color: white;
 }
 
 nav {
@@ -18,6 +22,7 @@ nav {
 div {
   text-align: center;
   display: block;
+
 }
 
 div ul {
@@ -115,11 +120,11 @@ h1 {
 ­­­­/* Padding for log in pages */
 ­
 .customPadding1 {
-  padding-right: 176px;
+  padding-right: 185px;
 }
 
 .customPadding2 {
-  padding-right: 158px;
+  padding-right: 145px;
 }
 
 .customPadding3 {
@@ -184,3 +189,4 @@ h1 {
   border: none;
   cursor: pointer;
 }
+/*End of search bar*/

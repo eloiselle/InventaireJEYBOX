@@ -8,13 +8,13 @@
     <title>JEYBOX - Catégories</title>
   </head>
   <body>
-    <nav class="nav">
+    <nav>
       <ul>
         <li><img src="images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></li>
         <li><a class="active_button" href="categorie.php">Catégories</a></li>
         <li><a class="button" href="article.php">Articles</a></li>
         <li><a class="button" href="consulter_reservation.php">Réservations</a></li>
-        <li style="float:right"><a class="menuButton" href="#compte">Mon compte</a></li>
+        <li style="float:right"><a class="button" href="#compte">Mon compte</a></li>
       </ul>
     </nav>
     <br>

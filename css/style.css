@@ -1,6 +1,18 @@
 /* Auteur: Émile Loiselle, Jérôme Nadeau et Yannick Plourde  */
 /* Date: 23 avr 2020 */
 
+/*
+Example usage:
+color: var(--red-color);
+*/
+:root {
+  --blue-color: #223142;
+  --yellow-color: #f0b634;
+  --red-color: #d64439;
+  --green-color: #3aa68a;
+  --grey-color: #dce2e2;
+}
+
 /* Code snippet that allows consistency between browsers. */
 /* ====================================================== */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -64,7 +76,7 @@ table {
 }
 
 body {
-  background-color: #223142;
+  background-color: var(--blue-color);
   margin: 0;
 }
 
@@ -73,7 +85,7 @@ body {
 }
 
 nav {
-  background-color: #223142;
+  background-color: var(--blue-color);
 }
 
 div {
@@ -125,18 +137,18 @@ nav ul li .button {
 
 nav ul li .active_button {
   display: block;
-  color: white;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
   font-size: 22px;
-  background-color: #dce2e2;
-  color: #223142
+  background-color: var(--grey-color);
+  color: var(--blue-color);
+
+  padding: 14px 16px;
 }
 
 nav ul li .button:hover {
-  background-color: #dce2e2;
-  color: #223142
+  background-color: var(--grey-color);
+  color: var(--blue-color);
 }
 
 nav ul li img {
@@ -147,32 +159,47 @@ nav ul li img {
 
 /* Start of itemSelection table */
 .itemSelection {
-  background-color: white;
-
   display:inline-block;
-  padding-top: 80px;
-  padding-left: 100px;
+  background-color: white;
   width: 100%;
+  padding-top: 80px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .itemSelection tr {
-  border-left: 2px solid grey;
+  border-left: 2px solid var(--grey-color);
+  text-align: left;
 }
 
 .itemSelection tr th h1 {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .itemSelection tr th {
   width: 20%;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.itemSelection .button {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  background-color: var(--red-color);
+
+  padding: 14px 16px;
+  border-radius: 30px;
 }
 
 /* Purely here for aesthetic purposes */
 .halfBorderTop {
-  border-top: 2px solid grey;
+  border-top: 2px solid var(--grey-color);
   position: absolute;
-  right: 60%;
-  left: 100px;
+  right: 40%;
+  left: 10%;
 }
 /* End of itemSelection table */
 

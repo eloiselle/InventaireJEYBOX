@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <!-- Allows to find search icon for search bar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>index</title>
+    <title>JEYBOX - Réservations</title>
   </head>
   <body>
 

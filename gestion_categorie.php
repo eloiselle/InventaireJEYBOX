@@ -40,7 +40,7 @@
       </tr>
 
       <!-- En-tête de table -->
-      <tr class="itemSelection">
+      <tr class="entete">
         <th>Identifiant</th>
         <th>Nom</th>
         <th>Description</th>

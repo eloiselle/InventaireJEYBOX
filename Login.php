@@ -32,7 +32,7 @@
       <input type="submit" name="btnlogin" class="btnLog" value="Se connecter">
       <br>
       <br>
-      <a href="ForgotPass.php" title = "Récupérez votre mot de passe" class="forgot">Mot de passe oublié ?</a>
+      <a href="forgotPass.php" title = "Récupérez votre mot de passe" class="forgot">Mot de passe oublié ?</a>
     </form>
   </div>
 

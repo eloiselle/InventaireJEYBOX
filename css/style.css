@@ -110,7 +110,7 @@ div li {
 }
 
 h1 {
-  font-size: 25px;
+  font-size: 40px;
 }
 
 /* Navigation bar */
@@ -177,21 +177,36 @@ nav ul li img {
 }
 
 .itemSelection tr th {
-  width: 20%;
   padding-bottom: 10px;
   padding-left: 20px;
+}
+
+.itemSelection tr .dispo {
+  text-align: center;
 }
 
 .itemSelection .item {
   border-bottom: 2px solid var(--grey-color);
 }
 
+.itemSelection .entete {
+  border-bottom: 2px solid var(--grey-color);
+  color: grey;
+  font-weight: bold;
+}
+
 .itemSelection .item th {
   padding-top: 10px;
 }
 
+.itemSelection .amountSelection {
+  width: 55px;
+}
+
 .itemSelection .button {
   display: block;
+  width: 100px;
+  height: 13px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;

@@ -74,11 +74,5 @@
         <th><a class="button" href="categorie.php">Modifier</a></th>
       </tr>
     </table>
-
-    <br><br>
-    <div class="lstArticle">
-      <table style="width=100%">
-
-      </table>
   </body>
 </html>

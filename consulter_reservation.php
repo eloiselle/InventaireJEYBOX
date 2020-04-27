@@ -2,13 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-        <link rel="stylesheet" href="css/style.css">
-        <!-- Allows to find search icon for search bar -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>JEYBOX - Réservations</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Allows to find search icon for search bar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>index</title>
   </head>
   <body>
-    <nav>
+
+    <nav class="col-m-12 col-12">
       <ul>
         <li><a href="index.html"><img src="images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></a></li>
         <li><a class="button" href="categorie.php">Catégories</a></li>
@@ -17,26 +18,120 @@
         <li style="float:right"><a class="button" href="#compte">Mon compte</a></li>
       </ul>
     </nav>
-    <br>
-    <hr>
-    <br>
-    <h1>Réservations</h1>
-    <br><br>
-    <!-- Search bar -->
-    <div class="search-container">
-      <form action="/action_page.php" class="searchformh">
-        <input type="text" placeholder="Recherche.." name="search" class="searchtxt">
-        <button type="submit" class="searchbtn"><i class="fa fa-search"></i></button>
-      </form>
 
-        <div class="informationstitles">
-          <ul>
-            <li>Identifiant</li>
-            <li>Date</li>
-            <li>Utilisateur</li>
-            <li>Identifiant article</li>
-            <li>En cours</li>
-          </ul>
-        </div>
-      </body>
+    <table class="itemSelection col-m-12 col-t-12 col-12">
+      <!-- Purely here for aesthetic purposes -->
+      <tr>
+        <th><div class="halfBorderTop"></div></th>
+      </tr>
+
+      <!-- Title -->
+      <tr>
+        <th><h1>Réservations</h1></th>
+      </tr>
+
+      <!-- Search bar -->
+      <tr>
+        <th>
+          <div class="search-container">
+            <form action="/action_page.php" class="searchformh">
+              <input type="text" placeholder="Recherche.." name="search" class="searchtxt">
+              <button type="submit" class="searchbtn"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+        </th>
+      </tr>
+
+      <!-- En-tête de table -->
+      <tr class="item">
+        <th>Identifiant</th>
+        <th>Date</th>
+        <th>Utilisateur</th>
+        <th>Identifiant Article</th>
+        <th>En cours</th>
+      </tr>
+
+      <!-- Réservation #1 -->
+      <tr class="item">
+        <th>1-0085</th>
+        <th>19-04-2020</th>
+        <th>JspanLeto</th>
+        <th>ITM-URPI2010-10001</th>
+        <th>
+          <form action="/action_page.php">
+            <input type="checkbox" id="inprogress" name="inprogress" >
+          </form>
+        </th>
+      </tr>
+
+      <!-- Réservation #2 -->
+      <tr class="item">
+        <th>1-0086</th>
+        <th>19-04-2020</th>
+        <th>RogueIMvader</th>
+        <th>ITM-URPI2010-10003</th>
+        <th>
+          <form action="/action_page.php">
+            <input type="checkbox" id="inprogress" name="inprogress" >
+          </form>
+        </th>
+      </tr>
+
+      <!-- Réservation #3 -->
+      <tr class="item">
+        <th>1-0087</th>
+        <th>19-04-2020</th>
+        <th>BaclavaAreGud</th>
+        <th>ITM-URPI2010-10006</th>
+        <th>
+          <form action="/action_page.php">
+            <input type="checkbox" id="inprogress" name="inprogress" >
+          </form>
+        </th>
+      </tr>
+
+      <!-- Réservation #4 -->
+      <tr class="item">
+        <th>1-0088</th>
+        <th>20-04-2020</th>
+        <th>HumptyDumpty</th>
+        <th>ITM-URPI3010-10055</th>
+        <th>
+          <form action="/action_page.php">
+            <input type="checkbox" id="inprogress" name="inprogress" >
+          </form>
+        </th>
+      </tr>
+
+      <!-- Réservation #5 -->
+      <tr class="item">
+        <th>1-0089</th>
+        <th>20-04-2020</th>
+        <th>RetroQCbuyer</th>
+        <th>ITM-URPI2020-10062</th>
+        <th>
+          <form action="/action_page.php">
+            <input type="checkbox" id="inprogress" name="inprogress" >
+          </form>
+        </th>
+      </tr>
+
+      <!-- Réservation #6 -->
+      <tr class="item">
+        <th>1-0090</th>
+        <th>22-04-2020</th>
+        <th>UnforgivingForgiver</th>
+        <th>ITM-URPI3020-10081</th>
+        <th>
+          <form action="/action_page.php">
+            <input type="checkbox" id="inprogress" class="checkboxprog" name="inprogress" >
+          </form>
+        </th>
+      </tr>
+
+    </table>
+
+    <br><br>
+
+  </body>
 </html>

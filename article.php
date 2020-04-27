@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Allows to find search icon for search bar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>index</title>
   </head>
   <body>
@@ -15,6 +17,8 @@
         <li style="float:right"><a class="button" href="#compte">Mon compte</a></li>
       </ul>
     </nav>
+
+    <div class="container">
 
     <table class="itemSelection">
       <!-- Purely here for aesthetic purposes -->
@@ -135,9 +139,7 @@
     </table>
 
     <br><br>
-    <div class="lstArticle">
-      <table style="width=100%">
 
-      </table>
+        </div>
   </body>
 </html>

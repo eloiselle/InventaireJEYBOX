@@ -40,7 +40,7 @@
       </tr>
 
       <!-- En-tête de table -->
-      <tr>
+      <tr class="item">
         <th>Sélection</th>
         <th>Identifiant</th>
         <th>Nom</th>
@@ -49,7 +49,7 @@
       </tr>
 
       <!-- Article #1 -->
-      <tr>
+      <tr class="item">
         <th>
           <form action="/action_page.php">
             <input type="number" id="quantity" name="quantity" min="0" max="5" value="0">
@@ -63,7 +63,7 @@
       </tr>
 
       <!-- Article #2 -->
-      <tr>
+      <tr class="item">
         <th>
           <form action="/action_page.php">
             <input type="number" id="quantity" name="quantity" min="0" max="2" value="0">
@@ -77,7 +77,7 @@
       </tr>
 
       <!-- Article #3 -->
-      <tr>
+      <tr class="item">
         <th>
           <form action="/action_page.php">
             <input type="number" id="quantity" name="quantity" min="0" max="0" value="0" disabled>
@@ -91,7 +91,7 @@
       </tr>
 
       <!-- Article #4 -->
-      <tr>
+      <tr class="item">
         <th>
           <form action="/action_page.php">
             <input type="number" id="quantity" name="quantity" min="0" max="42" value="0">
@@ -105,7 +105,7 @@
       </tr>
 
       <!-- Article #5 -->
-      <tr>
+      <tr class="item">
         <th>
           <form action="/action_page.php">
             <input type="number" id="quantity" name="quantity" min="0" max="5" value="0">
@@ -119,7 +119,7 @@
       </tr>
 
       <!-- Article #6 -->
-      <tr>
+      <tr class="item">
         <th>
           <form action="/action_page.php">
             <input type="number" id="quantity" name="quantity" min="0" max="0" value="0" disabled>

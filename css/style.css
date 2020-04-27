@@ -168,7 +168,7 @@ nav ul li img {
 }
 
 .itemSelection tr {
-  border-left: 2px solid var(--grey-color);
+  border-left: 2px solid grey;
   text-align: left;
 }
 
@@ -180,6 +180,14 @@ nav ul li img {
   width: 20%;
   padding-bottom: 10px;
   padding-left: 20px;
+}
+
+.itemSelection .item {
+  border-bottom: 2px solid var(--grey-color);
+}
+
+.itemSelection .item th {
+  padding-top: 10px;
 }
 
 .itemSelection .button {
@@ -194,9 +202,8 @@ nav ul li img {
   border-radius: 30px;
 }
 
-/* Purely here for aesthetic purposes */
 .halfBorderTop {
-  border-top: 2px solid var(--grey-color);
+  border-top: 2px solid grey;
   position: absolute;
   right: 40%;
   left: 10%;

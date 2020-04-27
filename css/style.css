@@ -11,6 +11,7 @@ color: var(--red-color);
   --red-color: #d64439;
   --green-color: #3aa68a;
   --grey-color: #dce2e2;
+  --beige-color: #FFFFE0;
 }
 
 /* Code snippet that allows consistency between browsers. */
@@ -324,7 +325,7 @@ nav ul li img {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: white;
+  background-color:var(--beige-color);
   color: black;
   text-align: center;
   padding: 5px 0;

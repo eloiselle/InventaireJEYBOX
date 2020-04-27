@@ -26,7 +26,7 @@
 
       <!-- Title -->
       <tr>
-        <th><h1>Réservations</h1></th>
+        <th><h1>Gestion des réservations</h1></th>
       </tr>
 
       <!-- Search bar -->
@@ -41,13 +41,15 @@
         </th>
       </tr>
 
-      <tr class="entete">
-        <th style="width: 20%">Identifiant</th>
-        <th style="width: 20%">Date</th>
-        <th style="width: 20%">Utilisateur</th>
-        <th style="width: 30%">Identifiant Article</th>
-        <th style="width: 10%">En cours</th>
-      </tr>
+      <!-- En-tête de table -->
+            <tr class="entete">
+              <th style="width: 10%">Identifiant</th>
+              <th style="width: 10%">Date</th>
+              <th style="width: 20%">Utilisateur</th>
+              <th style="width: 30%">Identifiant Article</th>
+              <th style="width: 10%">En cours</th>
+              <th style="width: 20%"></th>
+            </tr>
 
       <!-- Réservation #1 -->
       <tr class="item">
@@ -60,6 +62,7 @@
             <input type="checkbox" id="inprogress" name="inprogress" disabled>
           </form>
         </th>
+        <th><a class="button" href="">Supprimer</a></th>
       </tr>
 
       <!-- Réservation #2 -->
@@ -73,6 +76,7 @@
             <input type="checkbox" id="inprogress" name="inprogress" disabled>
           </form>
         </th>
+        <th><a class="button" href="">Supprimer</a></th>
       </tr>
 
       <!-- Réservation #3 -->
@@ -86,6 +90,7 @@
             <input type="checkbox" id="inprogress" name="inprogress" disabled>
           </form>
         </th>
+        <th><a class="button" href="">Supprimer</a></th>
       </tr>
 
       <!-- Réservation #4 -->
@@ -99,6 +104,7 @@
             <input type="checkbox" id="inprogress" name="inprogress" disabled>
           </form>
         </th>
+        <th><a class="button" href="">Supprimer</a></th>
       </tr>
 
       <!-- Réservation #5 -->
@@ -112,6 +118,7 @@
             <input type="checkbox" id="inprogress" name="inprogress" disabled>
           </form>
         </th>
+        <th><a class="button" href="">Supprimer</a></th>
       </tr>
 
       <!-- Réservation #6 -->
@@ -125,6 +132,7 @@
             <input type="checkbox" id="inprogress" class="checkboxprog" name="inprogress" disabled>
           </form>
         </th>
+        <th><a class="button" href="">Supprimer</a></th>
       </tr>
 
     </table>

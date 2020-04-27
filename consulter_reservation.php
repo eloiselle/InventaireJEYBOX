@@ -42,12 +42,12 @@
       </tr>
 
       <!-- En-tête de table -->
-      <tr class="item">
-        <th>Identifiant</th>
-        <th>Date</th>
-        <th>Utilisateur</th>
-        <th>Identifiant Article</th>
-        <th>En cours</th>
+      <tr class="entete">
+        <th style="width: 20%">Identifiant</th>
+        <th style="width: 20%">Date</th>
+        <th style="width: 20%">Utilisateur</th>
+        <th style="width: 30%">Identifiant Article</th>
+        <th style="width: 10%">En cours</th>
       </tr>
 
       <!-- Réservation #1 -->

@@ -41,16 +41,13 @@
         </th>
       </tr>
 
-      <!-- En-tête de table -->
-            <tr class="entete">
-              <th style="width: 10%">Identifiant</th>
-              <th style="width: 10%">Date</th>
-              <th style="width: 20%">Utilisateur</th>
-              <th style="width: 30%">Identifiant Article</th>
-              <th style="width: 10%">En cours</th>
-              <th style="width: 20%"></th>
-
-            </tr>
+      <tr class="entete">
+        <th style="width: 20%">Identifiant</th>
+        <th style="width: 20%">Date</th>
+        <th style="width: 20%">Utilisateur</th>
+        <th style="width: 30%">Identifiant Article</th>
+        <th style="width: 10%">En cours</th>
+      </tr>
 
       <!-- Réservation #1 -->
       <tr class="item">

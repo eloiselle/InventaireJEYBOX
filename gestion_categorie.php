@@ -10,9 +10,9 @@
     <nav>
       <ul>
         <li><a href="index.html"><img src="images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></a></li>
-        <li><a class="active_button" href="categorie.php">Catégories</a></li>
-        <li><a class="button" href="consulter_article.php">Articles</a></li>
-        <li><a class="button" href="consulter_reservation.php">Réservations</a></li>
+        <li><a class="active_button" href="gestion_categorie.php">Catégories</a></li>
+        <li><a class="button" href="gestion_article.php">Articles</a></li>
+        <li><a class="button" href="gestion_reservation.php">Réservations</a></li>
         <li style="float:right"><a class="button" href="#compte">Mon compte</a></li>
       </ul>
     </nav>
@@ -40,7 +40,7 @@
       </tr>
 
       <!-- En-tête de table -->
-      <tr class="lstCategorie">
+      <tr class="entete">
         <th>Identifiant</th>
         <th>Nom</th>
         <th>Description</th>
@@ -48,7 +48,7 @@
       </tr>
 
       <!-- Catégorie #1 -->
-      <tr class="lstCategorie">
+      <tr class="item">
         <th>RPI</th>
         <th>Micro Ordinateur</th>
         <th>Ordinateur de format "Carte de crédit"</th>
@@ -57,7 +57,7 @@
       </tr>
 
       <!-- Catégorie #2 -->
-      <tr class="lstCategorie">
+      <tr class="item">
         <th>LED</th>
         <th>Composante Électronique - LED</th>
         <th>Lumière usant de la technologie LED</th>
@@ -66,7 +66,7 @@
       </tr>
 
       <!-- Catégorie #3 -->
-      <tr class="lstCategorie">
+      <tr class="item">
         <th>BTR</th>
         <th>Électricité - Batterie</th>
         <th>Batteries de capacité variés</th>

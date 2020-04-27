@@ -40,7 +40,7 @@
       </tr>
 
       <!-- En-tête de table -->
-      <tr class="lstCategorie">
+      <tr class="itemSelection">
         <th>Identifiant</th>
         <th>Nom</th>
         <th>Description</th>
@@ -48,7 +48,7 @@
       </tr>
 
       <!-- Catégorie #1 -->
-      <tr class="lstCategorie">
+      <tr class="item">
         <th>RPI</th>
         <th>Micro Ordinateur</th>
         <th>Ordinateur de format "Carte de crédit"</th>
@@ -57,7 +57,7 @@
       </tr>
 
       <!-- Catégorie #2 -->
-      <tr class="lstCategorie">
+      <tr class="item">
         <th>LED</th>
         <th>Composante Électronique - LED</th>
         <th>Lumière usant de la technologie LED</th>
@@ -66,7 +66,7 @@
       </tr>
 
       <!-- Catégorie #3 -->
-      <tr class="lstCategorie">
+      <tr class="item">
         <th>BTR</th>
         <th>Électricité - Batterie</th>
         <th>Batteries de capacité variés</th>

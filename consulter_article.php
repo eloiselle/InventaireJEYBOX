@@ -17,8 +17,6 @@
       </ul>
     </nav>
 
-    <div class="container">
-
     <table class="itemSelection">
       <!-- Purely here for aesthetic purposes -->
       <tr>
@@ -140,6 +138,5 @@
 
     <br><br>
 
-        </div>
   </body>
 </html>

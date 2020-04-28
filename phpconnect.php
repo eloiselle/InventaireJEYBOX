@@ -19,16 +19,20 @@
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
+
+    echo "Establishing connection";
     // Check connection
     if ($conn->connect_error) {
        die("Connection failed: " . $conn->connect_error);
     }
 
+    echo "Preparing query";
     $sql = "SELECT id_etat, nom, description FROM etat";
     $result = $conn->query($sql);
+    echo "Executed query";
 
     if ($result->num_rows > 0) {
-
+      echo "Inside IF";
        // output data of each row
        while($row = $result->fetch_assoc()) {
            echo "id: " . $row["id_etat"]. " - Nom: " . $row["nom"]. " - Description: " . $row["description"]. "<br>";
@@ -37,6 +41,7 @@
        echo "0 results";
     }
     $conn->close();
+    echo "Reached end of PHP";
     ?>
   </body>
 </html>

@@ -14,7 +14,7 @@
       <li><a class="button" href="gestion_categorie.php">Catégories</a></li>
       <li><a class="button" href="gestion_article.php">Articles</a></li>
       <li><a class="button" href="gestion_reservation.php">Réservations</a></li>
-      <li><a class="button" href="gestion_utilisateurs.php">Utilisateurs</a></li>
+      <li><a class="button" href="gestion_utilisateur.php">Utilisateurs</a></li>
       <li style="float:right"><a class="button" href="">Mon compte</a></li>
     </ul>
   </nav>

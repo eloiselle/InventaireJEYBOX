@@ -10,17 +10,30 @@
     <h3>Welcome to the PHP Connect Test</h3>
 
     <?php
-    $dbname = 'inventaire_jeybox';
-    $dbuser = 'deltahit';
-    $dbpass = '';
-    $dbhost = '127.0.0.1';
-    $connect = mysql_connect($dbhost, $dbuser, $dbpass) or die("Unable to connect to '$dbhost'");
-    mysql_select_db($dbname) or die("Could not open the database '$dbname'");
+    $servername = "localhost";
+    $username = "deltahit";
+    $password = "";
+    $dbname = "inventaire_jeybox";
 
-    $result = mysql_query("SELECT id_etat, nom, description FROM etat");
-    while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
-        printf("ID: %s  Nom: %s Description: %s <br>", $row[0], $row[1], $row[2]);
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+       die("Connection failed: " . $conn->connect_error);
     }
+
+    $sql = "SELECT id_etat, nom, description FROM etat";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+       // output data of each row
+       while($row = $result->fetch_assoc()) {
+           echo "id: " . $row["id_etat"]. " - Nom: " . $row["nom"]. " - Description: " . $row["description"]. "<br>";
+       }
+    } else {
+       echo "0 results";
+    }
+    $conn->close();
     ?>
   </body>
 </html>

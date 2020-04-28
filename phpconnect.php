@@ -12,7 +12,7 @@
     <?php
 
     echo "PHP is working!";
-    $servername = "localhost";
+    $servername = "localhost:3306";
     $username = "deltahit";
     $password = "";
     $dbname = "inventaire_jeybox";

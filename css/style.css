@@ -158,6 +158,7 @@ nav ul li img {
 }
 /* End of nav bar */
 
+
 /* Start of itemSelection table */
 .itemSelection {
   display:inline-block;
@@ -378,6 +379,12 @@ transition: opacity 1s;
   cursor: pointer;
 }
 /*End of search bar*/
+
+/*Utilisateur*/
+.util input{
+  border: 0;
+}
+/*End of utilisateur*/
 
 /*Responsive*/
 [class*="col-"] {

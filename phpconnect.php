@@ -12,11 +12,11 @@
     <?php
 
     echo "PHP is working!";
-    $servername = "127.0.0.1:3306";
-    $username = "deltahit";
-    $password = "";
-    $dbname = "inventaire_jeybox";
-
+    $servername = 'localhost';
+    $username = 'deltahit';
+    $password = '';
+    $dbname = 'inventaire_jeybox';
+    echo "Establishing connection";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -10,6 +10,11 @@
     <h3>Welcome to the PHP Connect Test</h3>
 
     <?php
+      phpinfo();
+    ?>
+
+    <!--
+    <?php
     $servername = "localhost";
     $username = "deltahit";
     $password = "";
@@ -26,6 +31,7 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
+
        // output data of each row
        while($row = $result->fetch_assoc()) {
            echo "id: " . $row["id_etat"]. " - Nom: " . $row["nom"]. " - Description: " . $row["description"]. "<br>";
@@ -35,5 +41,6 @@
     }
     $conn->close();
     ?>
+  -->
   </body>
 </html>

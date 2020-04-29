@@ -10,6 +10,7 @@
     <h3>Welcome to the PHP Connect Test</h3>
 
     <?php
+
     $servername = 'localhost';
     $username = 'deltahit';
     $password = '';

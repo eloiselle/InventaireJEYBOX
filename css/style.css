@@ -82,7 +82,41 @@ body {
 }
 
 .container{
+  box-sizing: border-box;
   background-color: white;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container label{
+  float: left;
+  width: 150px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 50px;
+  display: inline-block;
+
+  color:#808080;
+  font-weight: bold;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.container input{
+  float: left;
+  width: 200px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 50px;
+
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+
+  border-color:  var(--grey-color);
+  cursor: auto;
 }
 
 nav {
@@ -245,6 +279,15 @@ nav ul li img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.floatrightpadded{
+  float: right;
+  padding-right: 100px;
+}
+
+.floatright{
+  float: right;
 }
 
 .logo {

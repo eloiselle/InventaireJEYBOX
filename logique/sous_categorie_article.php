@@ -4,7 +4,7 @@
    * Auteur: Émile, Jérôme et Yannick
    * Date: 29 avril 2020
    */
-  class sous_categorie_article
+  public class sous_categorie_article
   {
     // Variables
     private var $int_id_sous_categorie;

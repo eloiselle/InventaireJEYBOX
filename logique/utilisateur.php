@@ -4,7 +4,7 @@
    * Auteur: Émile, Jérôme et Yannick
    * Date: 29 avril 2020
    */
-  class utilisateur
+  public class utilisateur
   {
     // Variables
     private var $string_nom_utilisateur;

@@ -1,6 +1,6 @@
 <?php
   /**
-   * Objet: Permissions
+   * Objet: Utilisateur
    * Auteur: Émile, Jérôme et Yannick
    * Date: 29 avril 2020
    */
@@ -14,13 +14,20 @@
     var $string_courriel;
     var $string_telephone;
     var $date_naissance;
-    var $int_id_permission;
+    var $int_id_permission_fk;
 
     // Constructor
-    function __construct($new_id, $new_nom)
+    function __construct($new_nom_utilisateur, $new_mot_de_passe, $new_prenom,
+        $new_nom, $new_courriel, $new_telephone, $new_naissance, $new_id_permission)
     {
-      set_id($new_id);
+      set_nom_utilisateur($new_nom_utilisateur);
+      set_mot_de_passe($new_mot_de_passe);
+      set_prenom($new_prenom);
       set_nom($new_nom);
+      set_courriel($new_courriel);
+      set_telephone($new_telephone);
+      set_naissance($new_naissance);
+      set_id_permission($new_id_permission);
     }
 
     // Setters
@@ -48,12 +55,12 @@
       $this->$string_telephone = $new_telephone;
     }
 
-    function set_telephone($new_naissance) {
+    function set_naissance($new_naissance) {
       $this->$date_naissance = $new_naissance;
     }
 
     function set_id_permission($new_id_permission) {
-      $this->$int_id_permission = $new_id_permission;
+      $this->$int_id_permission_fk = $new_id_permission;
     }
 
     // Getters
@@ -86,7 +93,7 @@
     }
 
     function get_id_permission() {
-      return $this->$int_id_permission;
+      return $this->$int_id_permission_fk;
     }
   }
  ?>

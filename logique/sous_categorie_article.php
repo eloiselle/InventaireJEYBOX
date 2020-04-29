@@ -47,7 +47,7 @@
       return $this->$string_nom;
     }
 
-    public function get_nom() {
+    public function get_description() {
       return $this->$string_description;
     }
 

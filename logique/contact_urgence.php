@@ -16,10 +16,10 @@
     private var $string_nom_utilisateur_fk;
 
     // Constructor
-    public function __construct($new_nom_utilisateur, $new_mot_de_passe, $new_prenom,
-        $new_nom, $new_courriel, $new_telephone, $new_naissance, $new_id_permission)
+    public function __construct($new_id_contact_urgence, $new_prenom, $new_nom,
+        $new_relation, $new_telephone, $new_nom_utilisateur)
     {
-      set_id_contact_urgence($new_id_contact_urgence);
+      set_id($new_id_contact_urgence);
       set_prenom($new_prenom);
       set_nom($new_nom);
       set_relation($new_relation);
@@ -28,7 +28,7 @@
     }
 
     // Setters
-    public function set_id_contact_urgence($new_id_contact_urgence) {
+    public function set_id($new_id_contact_urgence) {
       $this->$int_id_contact_urgence = $new_id_contact_urgence;
     }
 
@@ -53,7 +53,7 @@
     }
 
     // Getters
-    public function get_id_contact_urgence() {
+    public function get_id() {
       return $this->$int_id_contact_urgence;
     }
 

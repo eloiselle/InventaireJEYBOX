@@ -41,10 +41,13 @@
 
       <!-- En-tête de table -->
       <tr class="entete">
-        <th>Identifiant</th>
-        <th>Nom</th>
-        <th>Description</th>
-        <th>Nombres d'éléments</th>
+        <th style="width: 20%">Identifiant</th>
+        <th style="width: 20%">Nom</th>
+        <th style="width: 20%">Description</th>
+        <th style="width: 10%">Nombres d'éléments</th>
+        <th style="width: 10%"></th>
+        <th style="width: 10%"></th>
+
       </tr>
 
       <!-- Catégorie #1 -->

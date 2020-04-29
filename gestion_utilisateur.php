@@ -42,10 +42,12 @@
 
       <!-- En-tête de table -->
       <tr class="entete">
-        <th>Identifiant</th>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Type</th>
+        <th style="width: 20%">Identifiant</th>
+        <th style="width: 20%">Nom</th>
+        <th style="width: 20%">Prenom</th>
+        <th style="width: 10%">Type</th>
+        <th style="width: 5%"></th>
+        <th style="width: 5%"></th>
       </tr>
 
       <!-- Utilisateur #1 -->

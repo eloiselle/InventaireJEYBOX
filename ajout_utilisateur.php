@@ -18,38 +18,44 @@
       </ul>
     </nav>
 
+<div class="container">
+
+<i class="fa fa-question-circle tooltip floatrightpadded"><span class="tooltiptext">This better work</span></i>
+  <h1 class="floatright">PlaMar94</h1><br><br>
+
     <form>
       <label for="fperm">Permission</label>
-      <input type="text" id="fperm" name="fperm"><br>
+      <input type="text" id="fperm" name="fperm"><br><br>
 
       <label for="fnom">Nom</label>
-      <input type="text" id="fnom" name="fnom"><br>
+      <input type="text" id="fnom" name="fnom"><br><br>
 
       <label for="fprenom">Prénom</label>
-      <input type="text" id="fprenom" name="fprenom"><br>
+      <input type="text" id="fprenom" name="fprenom"><br><br>
 
       <label for="ftel">Téléphone</label>
       <input type="text" id="ftel" name="ftel">
       <label for="fmobile">Mobile</label>
-      <input type="text" id="fmobile" name="fmobile"><br>
+      <input type="text" id="fmobile" name="fmobile"><br><br>
 
       <label for="fcourriel">Courriel</label>
-      <input type="text" id="fcourriel" name="fcourriel"><br>
+      <input type="text" id="fcourriel" name="fcourriel"><br><br>
 
       <label for="fadr">Adresse</label>
       <input type="text" id="fadr" name="fadr">
       <label for="fappart">Appartement</label>
-      <input type="text" id="fappart" name="fappart">
+      <input type="text" id="fappart" name="fappart"><br><br>
       <label for="fcp">Code Postal</label>
-      <input type="text" id="fcp" name="fcp"><br>
+      <input type="text" id="fcp" name="fcp"><br><br>
 
       <label for="fdaten">Date de naissance</label>
-      <input type="text" id="fdaten" name="fdaten"><br>
+      <input type="text" id="fdaten" name="fdaten"><br><br>
 
       <label for="fcontact">Contact d'urgence</label>
       <input type="text" id="fcontact" name="fcontact">
       <label for="frelation">Relation</label>
-      <input type="text" id="frelation" name="frelation"><br>
+      <input type="text" id="frelation" name="frelation"><br><br>
     </form>
+    </div>
   </body>
 </html>

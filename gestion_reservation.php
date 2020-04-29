@@ -12,8 +12,9 @@
     <nav class="col-m-12 col-12">
       <ul>
         <li><a href="index.html"><img src="images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></a></li>
+        <li><a class="button" href="gestion_categorie.php">Catégories</a></li>
         <li><a class="button" href="consulter_article.php">Articles</a></li>
-        <li><a class="active_button" href="consulter_reservation.php">Réservations</a></li>
+        <li><a class="active_button" href="gestion_reservation.php">Réservations</a></li>
         <li style="float:right"><a class="button" href="#compte">Mon compte</a></li>
       </ul>
     </nav>
@@ -43,10 +44,10 @@
 
       <!-- En-tête de table -->
             <tr class="entete">
-              <th style="width: 10%">Identifiant</th>
+              <th style="width: 20%">Identifiant</th>
               <th style="width: 10%">Date</th>
               <th style="width: 20%">Utilisateur</th>
-              <th style="width: 30%">Identifiant Article</th>
+              <th style="width: 20%">Identifiant Article</th>
               <th style="width: 10%">En cours</th>
               <th style="width: 20%"></th>
             </tr>

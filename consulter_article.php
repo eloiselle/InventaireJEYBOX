@@ -42,8 +42,8 @@
 
       <!-- En-tête de table -->
       <tr class="entete">
-        <th style="width: 10%">Sélection</th>
-        <th style="width: 20%">Identifiant</th>
+        <th style="width: 20%">Sélection</th>
+        <th style="width: 10%">Identifiant</th>
         <th style="width: 30%">Nom</th>
         <th style="width: 20%">Catégorie</th>
         <th style="width: 10%" class="dispo">Disponibles</th>

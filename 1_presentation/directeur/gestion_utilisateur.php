@@ -38,12 +38,12 @@
         <!-- Link to "Consulter Article" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('gestion_utilisateur.php')) {
-          echo '<li><a class="button" href="gestion_utilisateur.php">Utilisateurs</a></li>';
+          echo '<li><a class="active_button" href="gestion_utilisateur.php">Utilisateurs</a></li>';
         } else {
           echo '<li><div class="inactive_button">Utilisateurs</div></li>';
         } ?>
 
-        <li style="float:right"><div class="navigator">Employé</div></li>
+        <li style="float:right"><div class="navigator">Directeur</div></li>
       </ul>
     </nav>
 

@@ -14,7 +14,7 @@
         <!-- Link to "Consulter Article" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('gestion_categorie.php')) {
-          echo '<li><a class="button" href="gestion_categorie.php">Catégories</a></li>';
+          echo '<li><a class="active_button" href="gestion_categorie.php">Catégories</a></li>';
         } else {
           echo '<li><div class="inactive_button">Catégories</div></li>';
         } ?>

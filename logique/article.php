@@ -58,11 +58,11 @@
       return $this->$file_fichier;
     }
 
-    public function get_telephone() {
+    public function get_id_sous_categorie_fk() {
       return $this->$int_id_sous_categorie_fk;
     }
 
-    public function get_nom_utilisateur() {
+    public function get_id_etat_fk() {
       return $this->$int_id_etat_fk;
     }
   }

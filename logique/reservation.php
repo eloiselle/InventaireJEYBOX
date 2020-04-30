@@ -50,12 +50,15 @@
 
     public function set_date_retour_effectif($new_date_retour_effectif) {
       $this->$date_date_retour_effectif = $new_date_retour_effectif;
+    }
 
     public function set_commentaire($new_commentaire) {
       $this->$string_commentaire = $new_commentaire;
+    }
 
     public function set_id_nom_utilisateur_fk($new_id_nom_utilisateur_fk) {
       $this->$int_id_nom_utilisateur_fk = $new_id_nom_utilisateur_fk;
+    }
 
     public function set_id_article_fk($new_id_article_fk) {
       $this->$int_id_article_fk = $new_id_article_fk;

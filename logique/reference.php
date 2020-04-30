@@ -41,7 +41,7 @@
       $this->$string_description = $new_description;
     }
 
-    public function   set_id_article_fk($new_id_article_fk) {
+    public function set_id_article_fk($new_id_article_fk) {
       $this->$int_id_article_fk = $new_id_article_fk;
     }
 
@@ -54,15 +54,15 @@
       return $this->$string_nom;
     }
 
-    public function get_relation() {
+    public function get_url() {
       return $this->$string_url;
     }
 
-    public function get_telephone() {
+    public function get_description() {
       return $this->$string_description;
     }
 
-    public function get_nom_utilisateur() {
+    public function get_id_article_fk() {
       return $this->$int_id_article_fk;
     }
   }

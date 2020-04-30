@@ -43,7 +43,7 @@
           echo '<li><div class="inactive_button">Utilisateurs</div></li>';
         } ?>
 
-        <li style="float:right"><div class="navigator">Employé</div></li>
+        <li style="float:right"><div class="navigator">Directeur</div></li>
       </ul>
     </nav>
 

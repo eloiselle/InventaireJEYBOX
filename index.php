@@ -47,6 +47,14 @@
           echo '<li><div class="inactive_button">Directeur</div></li>';
         } ?>
 
+        <!-- Link to "php_main.php" -->
+        <?php // Check if page exists, if it does, create a link to it, otherwise disable it
+        if (file_exists('1_presentation/directeur/gestion_utilisateur.php')) {
+          echo '<li><a class="button" href="3_acces_bd/php_main.php">PHP Tests</a></li>';
+        } else {
+          echo '<li><div class="inactive_button">PHP Tests</div></li>';
+        } ?>
+
     </ul>
   </nav>
   <br>

@@ -186,7 +186,7 @@ nav ul li .inactive_button {
   text-decoration: none;
   font-size: 22px;
   background-color: var(--red-color);
-  color: var(--blue-color);
+  color: white;
   padding: 14px 16px;
 }
 

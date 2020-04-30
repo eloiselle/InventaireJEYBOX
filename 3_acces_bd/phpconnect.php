@@ -12,8 +12,8 @@
     <?php
 
     $servername = 'localhost';
-    $username = 'root';
-    $password = 'qweasd';
+    $username = 'deltahit';
+    $password = '';
     $dbname = 'inventaire_jeybox';
 
     // Create connection

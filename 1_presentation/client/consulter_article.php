@@ -10,10 +10,10 @@
   <body>
     <nav>
       <ul>
-        <li><a href="index.html"><img src="../../images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></a></li>
+        <li><a href="../../index.html"><img src="../../images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></a></li>
         <li><a class="active_button" href="consulter_article.php">Articles</a></li>
         <li><a class="button" href="consulter_reservation.php">Réservations</a></li>
-        <li style="float:right"><a class="button" href="#compte">Mon compte</a></li>
+        <li style="float:right"><div class="navigator">Client</div></li>
       </ul>
     </nav>
 

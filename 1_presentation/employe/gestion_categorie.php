@@ -13,7 +13,7 @@
         <li><a class="active_button" href="gestion_categorie.php">Catégories</a></li>
         <li><a class="button" href="gestion_article.php">Articles</a></li>
         <li><a class="button" href="gestion_reservation.php">Réservations</a></li>
-        <li style="float:right"><a class="button" href="#compte">Mon compte</a></li>
+        <li style="float:right"><div class="navigator">Employé</div></li>
       </ul>
     </nav>
 

@@ -58,3 +58,128 @@
     </div>
   </body>
 </html>
+
+<script>
+function formulaireComplet(){
+  var ok = true;
+  var permission = document.getElementById("fperm");
+  var nom = document.getElementById("fnom");
+  var prenom = document.getElementById("fprenom");
+  var tel = document.getElementById("ftel");
+  var mobile = document.getElementById("fmobile");
+  var cp = document.getElementById("fcp");
+  var birth = document.getElementById("fdaten");
+  var mail = document.getElementById("fcourriel");
+
+  while( ok == true)
+  {
+    if(permission.value == ""){
+      permission.focus();
+      break;
+    }
+    if(nom.value == ""){
+      nom.focus();
+      break;
+    }
+    if(prenom.value == ""){
+      prenom.focus();
+      break;
+    }
+    if(tel.value == ""){
+      tel.focus();
+      break;
+    }
+    if(mobile.value == ""){
+      mobile.focus();
+      break;
+    }
+    if(cp.value == ""){
+      cp.focus();
+      break;
+    }
+    if(birth.value == ""){
+      birth.focus();
+      break;
+    }
+    if(mail.value == ""){
+      mail.focus();
+      break;
+    }
+
+  }
+  alert("Le formulaire doit être rempli au complet");
+}
+  function validate(entry){
+    var tocheck = document.getElementById(entry);
+    switch(tocheck)
+    {
+      case document.getElementById("fnom"):
+      var model = /^([A-Z]\S+)([-]([A-Z]\S+))?[ ]([A-Z]\S+)([-]([A-Z]\S+))?$/;
+      if(tocheck.value.match(model))
+      {
+      }
+      else
+      {
+        tocheck.innerHTML="Entrée invalide. Le nom doit comprter une majuscule et peut être composé";
+      }
+        break;
+      case document.getElementById("fprenom"):
+      var model = /^([A-Z]\S+)([-]([A-Z]\S+))?[ ]([A-Z]\S+)([-]([A-Z]\S+))?$/;
+      if(tocheck.value.match(model))
+      {
+      }
+      else
+      {
+        tocheck.innerHTML="Entrée invalide. Le nom doit comprter une majuscule et peut être composé";
+      }
+        break;
+      case document.getElementById("ftel"):
+        var model = /^\(?([0-9]{3})?\)?[- .]([0-9]{3})[- .]?([0-9]{4})$|/;
+        if(tocheck.value.match(model))
+        {
+        }
+        else
+        {
+          tocheck.innerHTML="Entrée invalide. Le résultat attendu est: (999) 999-9999 | (999)999-9999 | (999) 999.9999 | (999)999.9999 | 999.999.9999 | 999-999-9999 | 999.9999 | 999-9999";
+        }
+        break;
+      case document.getElementById("fmobile"):
+        var model = /^\(?([0-9]{3})?\)?[- .]([0-9]{3})[- .]?([0-9]{4})$|/;
+        if(tocheck.value.match(model))
+        {
+        }
+        else
+        {
+          tocheck.innerHTML="Entrée invalide. Le résultat attendu est: (999) 999-9999 | (999)999-9999 | (999) 999.9999 | (999)999.9999 | 999.999.9999 | 999-999-9999 | 999.9999 | 999-9999";
+        }
+        break;
+      case document.getElementById("fcp"):
+        var model = /^([A-Z][0-9][A-Z])[- ]?([0-9][A-Z][0-9])$/;
+        if(tocheck.value.match(model))
+        {
+        }
+        else
+        {
+          tocheck.insertAdjacentHTML("afterend","Entrée invalide. Le résultat attendu est: J1G 5H4");
+        }
+        break;
+      case document.getElementById("fdaten"):
+        var model = /^([1-31][1-31])([1-31][1-31])?[-/ ]$/;
+        if(tocheck.value.match(model))
+        {
+        }
+        else
+        {
+          tocheck.innerHTML="Entrée invalide. Le résultat attendu est: AAAA-MM-JJ | AAAA/MM/JJ | JJ MMMM AAAA";
+        }
+        break;
+      case document.getElementById("fcourriel"):
+        var model = /\S+@\S+\.\S+$/;
+        if(tocheck.value.match(model))
+        {
+        }
+        else
+        {
+          tocheck.innerHTML="Entrée invalide. Le résultat attendu est: exemple@hello.hi";
+        }
+        break;

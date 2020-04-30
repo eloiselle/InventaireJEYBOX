@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
     <!-- Allows to find search icon for search bar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>JEYBOX - Réservations</title>
@@ -11,9 +11,25 @@
 
     <nav class="col-m-12 col-12">
       <ul>
-        <li><div><a href="index.html"><img src="images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></a></div></li>
-        <li><a class="button" href="consulter_article.php">Articles</a></li>
-        <li><a class="active_button" href="consulter_reservation.php">Réservations</a></li>
+        <li><a href="../../index.html"><img src="../../images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></a></li>
+
+        <!-- Link to "Consulter Article" -->
+        <?php // Check if page exists, if it does, create a link to it, otherwise disable it
+        if (file_exists('consulter_article.php')) {
+          echo '<li><a class="button" href="consulter_article.php">Articles</a></li>';
+        } else {
+          echo '<li><div class="inactive_button">Article</div></li>';
+        } ?>
+
+        <!-- Link to "Consulter Réservation" -->
+        <?php // Check if page exists, if it does, create a link to it, otherwise disable it
+        if (file_exists('consulter_reservation.php')) {
+          echo '<li><a class="button" href="consulter_reservation.php">Réservations</a></li>';
+        } else {
+          echo '<li><div class="inactive_button">Articles</div></li>';
+        } ?>
+
+        <li style="float:right"><div class="navigator">Client</div></li>
       </ul>
     </nav>
 

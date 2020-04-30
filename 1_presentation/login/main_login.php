@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     <title>S'authentifier</title>
   </head>
@@ -10,7 +10,7 @@
 <main>
 
   <article class="paddingTop">
-    <img src="images/JEYBOX_Logo_1037x300.png" class="logo center" alt="Jey Box" >
+    <img src="../../images/JEYBOX_Logo_1037x300.png" class="logo center" alt="Jey Box" >
   </article>
 
   <div class="window">
@@ -32,7 +32,7 @@
       <input type="submit" name="btnlogin" class="btnLog" value="Se connecter">
       <br>
       <br>
-      <a href="forgotPass.php" title = "Récupérez votre mot de passe" class="forgot">Mot de passe oublié ?</a>
+      <a href="password_forgotten.php" title = "Récupérez votre mot de passe" class="forgot">Mot de passe oublié ?</a>
     </form>
   </div>
 

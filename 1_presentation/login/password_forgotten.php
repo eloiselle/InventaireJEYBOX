@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     <script src="Script/script.js"></script>
     <title>Mot de passe oublié</title>
@@ -10,7 +10,7 @@
   <body>
 <main>
   <article class="paddingTop">
-    <img src="images/JEYBOX_Logo_1037x300.png" class="logo center" alt="Jey Box">
+    <img src="../../images/JEYBOX_Logo_1037x300.png" class="logo center" alt="Jey Box">
   </article>
   <div class="window">
     <form class="login" action="#" method="post">

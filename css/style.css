@@ -177,7 +177,16 @@ nav ul li .active_button {
   font-size: 22px;
   background-color: var(--grey-color);
   color: var(--blue-color);
+  padding: 14px 16px;
+}
 
+nav ul li .inactive_button {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 22px;
+  background-color: var(--red-color);
+  color: white;
   padding: 14px 16px;
 }
 
@@ -198,6 +207,14 @@ nav ul li a {
     margin: 0;
     padding: 0;
   }
+}
+
+nav ul li .navigator {
+  display: block;
+  color: var(--yellow-color);;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 22px;
 }
 /* End of nav bar */
 

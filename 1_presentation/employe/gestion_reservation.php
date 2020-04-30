@@ -32,7 +32,7 @@
         <!-- Link to "Consulter Article" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('gestion_reservation.php')) {
-          echo '<li><a class="button" href="gestion_reservation.php">Réservations</a></li>';
+          echo '<li><a class="active_button" href="gestion_reservation.php">Réservations</a></li>';
         } else {
           echo '<li><div class="inactive_button">Réservations</div></li>';
         } ?>

@@ -24,7 +24,7 @@
         <!-- Link to "Consulter Réservation" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('consulter_reservation.php')) {
-          echo '<li><a class="button" href="consulter_reservation.php">Réservations</a></li>';
+          echo '<li><a class="active_button" href="consulter_reservation.php">Réservations</a></li>';
         } else {
           echo '<li><div class="inactive_button">Articles</div></li>';
         } ?>

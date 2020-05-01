@@ -13,7 +13,7 @@
       <ul>
         <li><a href="../../index.html"><img src="../../images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></a></li>
 
-        <!-- Link to "Consulter Article" -->
+        <!-- Link to "Consulter Catégories" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('gestion_categorie.php')) {
           echo '<li><a class="button" href="gestion_categorie.php">Catégories</a></li>';
@@ -29,7 +29,7 @@
           echo '<li><div class="inactive_button">Articles</div></li>';
         } ?>
 
-        <!-- Link to "Consulter Article" -->
+        <!-- Link to "Consulter Réservations" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('gestion_reservation.php')) {
           echo '<li><a class="active_button" href="gestion_reservation.php">Réservations</a></li>';

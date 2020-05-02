@@ -75,6 +75,7 @@
         $this->get_password(),
         $this->get_dbname()
       );
+      $this->connection->set_charset('utf8');
     }
   }
 ?>

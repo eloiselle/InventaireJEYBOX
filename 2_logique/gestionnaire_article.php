@@ -1,40 +1,45 @@
 <?php
 
-  //Gestion des articles
-  public function creerArticle($idArticle) {
+include '../3_acces_bd/moteur_requetes_bd.php';
 
-        $unArticle = new article();
-        $infoArticle = moteurRBD.selectArticle($idArticle);
+class gestionnaireArticle {
+
+  //Gestion des articles
+  public static function creerArticle($moteurRequetes, $idArticle) {
+
+        $infoArticle = $moteurRequetes->selectFromID("article", $idArticle);
 
         if ($infoArticle == null) {
             return null;
         }
 
-        $unArticle.set_id($infoArticle[0].toString());
-        $unArticle.set_nom($infoArticle[1]);
-        $unArticle.set_fichier($infoArticle[2]);
-        $unArticle.set_id_sous_categorie_fk($infoArticle[3].toString());
-        $unArticle.set_id_etat_fk($infoArticle[4].toString());
+        $unArticle = new article(
+          $infoArticle["id_article"],
+          $infoArticle["nom"],
+          $infoArticle["fiche_url"],
+          $infoArticle["id_sous_categorie"],
+          $infoArticle["id_etat"]
+        );
 
         return $unArticle;
     }
 
-    public function obtenirArticle($idArticle) {
-        $infoArticle = new [5];
-        $unArticle = creerArticle($idArticle);
+    public function obtenirArticle($moteurRequetes, $idArticle) {
+
+        $unArticle = creerArticle($moteurRequetes, $idArticle);
         if ($unArticle == null) {
             return null;
         }
 
-        $infoArticle[0] = $unArticle.get_id();
-        $infoArticle[1] = $unArticle.get_nom();
-        $infoArticle[2] = $unArticle.get_fichier();
-        $infoArticle[3] = $unArticle.get_id_sous_categorie_fk();
-        $infoArticle[4] = $unArticle.get_id_etat_fk();
+        $infoArticle[] = $unArticle.get_id();
+        $infoArticle[] = $unArticle.get_nom();
+        $infoArticle[] = $unArticle.get_fichier();
+        $infoArticle[] = $unArticle.get_id_sous_categorie_fk();
+        $infoArticle[] = $unArticle.get_id_etat_fk();
 
         return $infoArticle;
     }
-
+/*
     //Gestion des references
     public function creerReference($idRef) {
 
@@ -100,3 +105,5 @@
 
             return $infoEtat;
           }
+*/
+}

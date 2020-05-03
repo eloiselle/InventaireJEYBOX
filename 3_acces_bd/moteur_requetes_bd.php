@@ -68,7 +68,6 @@
           // Préparer la requête SQL
           if ($stmt = $conn->prepare($this->sqlQueriesSelectID[$lowerObjectName])) {
               $stmt->bind_param("s", $id);
-
           } else {
               die("Erreur: la préparation de la requête SQL a échoué: (" . $stmt->errno . ") " . $stmt->error);
           }
@@ -106,7 +105,6 @@
           // Préparer la requête SQL
           if ($stmt = $conn->prepare($this->$sqlQueriesDeleteID[$lowerObjectName])) {
               $stmt->bind_param("s", $id);
-
           } else {
               die("Erreur: la préparation de la requête SQL a échoué: (" . $stmt->errno . ") " . $stmt->error);
           }
@@ -132,7 +130,6 @@
       //                    INSERT
       // ==============================================
 
-      // Article
       public function insertFromArray($objectName, $array)
       {
           // Initialise la connexion à la BD
@@ -182,120 +179,10 @@
           return $row["LAST_INSERT_ID()"];
       }
 
-      // ==============================================
-      //                    REMOVERS
-      // ==============================================
-
-      // Article
-      public function deleteArticleFromID($id_article)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'DELETE FROM article WHERE id_article = ' . $id_article;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Categorie
-      public function deleteCategorieFromID($id_categorie)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'DELETE FROM categorie_article WHERE id_categorie = ' . $id_categorie;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Contact Urgence
-      public function deleteContactUrgenceFromID($id_contact_urgence)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'DELETE  FROM contact_urgence WHERE id_contact_urgence = ' . $id_contact_urgence;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Etat
-      public function deleteEtatFromID($id_etat)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'DELETE  FROM etat WHERE id_etat = ' . $id_etat;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Permission
-      public function deletePermissionFromID($id_permission)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'DELETE  FROM permission WHERE id_permission = ' . $id_permission;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Reference
-      public function deleteReferenceFromID($id_reference)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'DELETE  FROM reference WHERE id_reference = ' . $id_reference;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Reservation
-      public function deleteReservationFromID($id_reservation)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'DELETE  FROM reservation WHERE id_reservation = ' . $id_reservation;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Sous Catégorie Article
-      public function deleteSousCategorieFromID($id_sous_categorie)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'DELETE  FROM sous_categorie_article WHERE id_sous_categorie = ' . $id_sous_categorie;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Utilisateur
-      public function deleteUtilisateurFromID($nom_utilisateur)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'DELETE  FROM utilisateur WHERE nom_utilisateur = ' . $nom_utilisateur;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
+      // Appelle les instructions dans le fichier "recreer_bd.sql" pour recréer la base de données au complet
       public function recreateDatabase()
       {
+          $this->mySqlManager->init_connection();
           $sqlFile = file_get_contents("recreer_bd.sql");
           $result =  $this->mySqlManager->get_connection()->multi_query($sqlFile);
           return $result;

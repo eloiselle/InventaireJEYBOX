@@ -10,7 +10,8 @@
     <nav>
       <ul>
         <li><a href="../index.html"><img src="../images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></a></li>
-        <li><a class="button" href="php_main.php">PHP Operations</a></li>
+        <li><a class="active_button" href="gestion_operations.php">Opérations</a></li>
+        <li><a class="button" href="../2_logique/gestion_gestionnaires.php">Gestionnaires</a></li>
         <li style="float:right"><div class="navigator">PHP</div></li>
       </ul>
     </nav>

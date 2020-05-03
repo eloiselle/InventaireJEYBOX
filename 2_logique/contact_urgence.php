@@ -12,9 +12,9 @@
       private $string_nom;
       private $string_relation;
       private $string_telephone;
-      private $string_nom_utilisateur_fk;
+      private $string_nom_utilisateur;
 
-      // Constructor
+      // Override __construct
       public function __construct(
           $new_id_contact_urgence,
           $new_prenom,
@@ -30,6 +30,21 @@
           $this->set_relation($new_relation);
           $this->set_telephone($new_telephone);
           $this->set_nom_utilisateur($new_nom_utilisateur);
+      }
+
+      // Override __toString
+      public function __toString()
+      {
+          $string_return = '';
+
+          $string_return .= "ID: " . $this->get_id();
+          $string_return .= " prenom: " . $this->get_prenom();
+          $string_return .= " nom: " . $this->get_nom();
+          $string_return .= " relation: " . $this->get_relation();
+          $string_return .= " telephone: " . $this->get_telephone();
+          $string_return .= " nom_utilisateur: " . $this->get_nom_utilisateur();
+
+          return $string_return;
       }
 
       // Setters
@@ -60,7 +75,7 @@
 
       public function set_nom_utilisateur($new_nom_utilisateur)
       {
-          $this->string_nom_utilisateur_fk = $new_nom_utilisateur;
+          $this->string_nom_utilisateur = $new_nom_utilisateur;
       }
 
       // Getters
@@ -91,6 +106,6 @@
 
       public function get_nom_utilisateur()
       {
-          return $this->string_nom_utilisateur_fk;
+          return $this->string_nom_utilisateur;
       }
   }

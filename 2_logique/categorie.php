@@ -11,7 +11,7 @@
       private $string_nom;
       private $string_description;
 
-      // Constructor
+      // Override __construct
       public function __construct(
           $new_id_categorie,
           $new_nom,
@@ -21,6 +21,18 @@
           $this->set_id($new_id_categorie);
           $this->set_nom($new_nom);
           $this->set_description($new_description);
+      }
+
+      // Override __toString
+      public function __toString()
+      {
+          $string_return = '';
+
+          $string_return .= "ID: " . $this->get_id();
+          $string_return .= " nom: " . $this->get_nom();
+          $string_return .= " description: " . $this->get_description();
+
+          return $string_return;
       }
 
       // Setters

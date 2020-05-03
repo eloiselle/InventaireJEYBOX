@@ -2,108 +2,73 @@
 
 include '../3_acces_bd/moteur_requetes_bd.php';
 
-class gestionnaireArticle {
+class gestionnaireArticle
+{
 
-  //Gestion des articles
-  public static function creerArticle($moteurRequetes, $idArticle) {
-
+    //Gestion des articles
+    public static function creerArticle($moteurRequetes, $idArticle)
+    {
+        // Récupérer les données de la BD dans un tableau
         $infoArticle = $moteurRequetes->selectFromID("article", $idArticle);
-
         if ($infoArticle == null) {
             return null;
         }
 
+        // Générer des clés pour accéder au tableau avec des INT
+        $keyArticle = array_keys($infoArticle);
+
+        // Ajouter chaque élément du tableau dans un objet
         $unArticle = new article(
-          $infoArticle["id_article"],
-          $infoArticle["nom"],
-          $infoArticle["fiche_url"],
-          $infoArticle["id_sous_categorie"],
-          $infoArticle["id_etat"]
+            $infoArticle[$keyArticle[0]],
+            $infoArticle[$keyArticle[1]],
+            $infoArticle[$keyArticle[2]],
+            $infoArticle[$keyArticle[3]],
+            $infoArticle[$keyArticle[4]]
         );
 
+        // Retourner l'objet
         return $unArticle;
     }
 
-    public function obtenirArticle($moteurRequetes, $idArticle) {
-
-        $unArticle = creerArticle($moteurRequetes, $idArticle);
-        if ($unArticle == null) {
+    //Gestion des references
+    public function creerReference($moteurRequetes, $idRef)
+    {
+        // Récupérer les données de la BD dans un tableau
+        $infoRef = $moteurRequetes->selectFromID("reference", $idRef);
+        if ($infoRef == null) {
             return null;
         }
 
-        $infoArticle[] = $unArticle.get_id();
-        $infoArticle[] = $unArticle.get_nom();
-        $infoArticle[] = $unArticle.get_fichier();
-        $infoArticle[] = $unArticle.get_id_sous_categorie_fk();
-        $infoArticle[] = $unArticle.get_id_etat_fk();
+        // Générer des clés pour accéder au tableau avec des INT
+        $keyRef = array_keys($infoRef);
 
-        return $infoArticle;
+        // Ajouter chaque élément du tableau dans un objet
+        $uneRef = new reference(
+            $infoRef[$keyRef[0]],
+            $infoRef[$keyRef[1]],
+            $infoRef[$keyRef[2]],
+            $infoRef[$keyRef[3]],
+            $infoRef[$keyRef[4]]
+        );
+
+        // Retourner l'objet
+        return $uneRef;
     }
-/*
-    //Gestion des references
-    public function creerReference($idRef) {
 
-          $uneRef = new reference();
-          $infoRef = moteurRBD.selectReference($idRef);
+    //Gestion des états
+    public function creerEtat($moteurRequetes, $idEtat)
+    {
+        $unEtat = new etat();
+        $infoEtat = moteurRBD.selectEtat($idEtat);
 
-          if ($infoRef == null) {
-              return null;
-          }
+        if ($infoEtat == null) {
+            return null;
+        }
 
-          $uneRef.set_id($infoRef[0].toString());
-          $uneRef.set_nom($infoRef[1]);
-          $uneRef.set_url($infoRef[2]);
-          $uneRef.set_description($infoRef[3]);
-          $uneRef.set_id_article_fk($infoRef[4].toString());
+        $unEtat.set_id(infoEtat[0].toString());
+        $unEtat.set_nom(infoEtat[1]);
+        $unEtat.set_description(infoEtat[2]);
 
-          return $uneRef;
-      }
-
-      public function obtenirReference($idRef) {
-          $infoRef = new [5];
-          $uneRef = creerReference($idRef);
-          if ($uneRef == null) {
-              return null;
-          }
-
-          $infoRef[0] = $uneRef.get_id();
-          $infoRef[1] = $uneRef.get_nom();
-          $infoRef[2] = $uneRef.get_url();
-          $infoRef[3] = $uneRef.get_description();
-          $infoRef[4] = $uneRef.get_id_article_fk();
-
-          return $infoRef;
-      }
-
-      //Gestion des états
-      public function creerEtat($idEtat) {
-
-            $unEtat = new etat();
-            $infoEtat = moteurRBD.selectEtat($idEtat);
-
-            if ($infoEtat == null) {
-                return null;
-            }
-
-            $unEtat.set_id(infoEtat[0].toString());
-            $unEtat.set_nom(infoEtat[1]);
-            $unEtat.set_description(infoEtat[2]);
-
-            return $unEtat;
-          }
-
-        public function obtenirEtat($idEtat) {
-            $infoEtat = new [3];
-            $unEtat = creerEtat($idEtat);
-            if ($unEtat == null) {
-                return null;
-            }
-
-            $infoEtat[0] = $unEtat.get_id();
-            $infoEtat[1] = $unEtat.get_nom();
-            $infoEtat[2] = $unEtat.get_description();
-
-            return $infoEtat;
-          }
-*/
+        return $unEtat;
+    }
 }

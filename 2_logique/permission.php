@@ -10,11 +10,22 @@
       private $int_id_permission;
       private $string_nom;
 
-      // Constructor
+      // Override __construct
       public function __construct($new_id, $new_nom)
       {
           $this->set_id($new_id);
           $this->set_nom($new_nom);
+      }
+
+      // Override __toString
+      public function __toString()
+      {
+          $string_return = '';
+
+          $string_return .= "ID: " . $this->get_id();
+          $string_return .= " nom: " . $this->get_nom();
+
+          return $string_return;
       }
 
       // Setters

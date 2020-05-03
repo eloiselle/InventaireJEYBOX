@@ -10,15 +10,28 @@
       private $int_id_sous_categorie;
       private $string_nom;
       private $string_description;
-      private $int_id_categorie_fk;
+      private $int_id_categorie;
 
-      // Constructor
+      // Override __construct
       public function __construct($new_id, $new_nom, $new_description, $new_id_categorie)
       {
           $this->set_id($new_id);
           $this->set_nom($new_nom);
           $this->set_description($new_description);
           $this->set_id_categorie($new_id_categorie);
+      }
+
+      // Override __toString
+      public function __toString()
+      {
+          $string_return = '';
+
+          $string_return .= "ID: " . $this->get_id();
+          $string_return .= " nom: " . $this->get_nom();
+          $string_return .= " description: " . $this->get_description();
+          $string_return .= " id_categorie: " . $this->get_id_categorie();
+
+          return $string_return;
       }
 
       // Setters
@@ -39,7 +52,7 @@
 
       public function set_id_categorie($new_id_categorie)
       {
-          $this->int_id_categorie_fk = $new_id_categorie;
+          $this->int_id_categorie = $new_id_categorie;
       }
 
       // Getters
@@ -60,6 +73,6 @@
 
       public function get_id_categorie()
       {
-          return $this->int_id_categorie_fk;
+          return $this->int_id_categorie;
       }
   }

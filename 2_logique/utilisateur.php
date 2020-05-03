@@ -14,9 +14,9 @@
       private $string_courriel;
       private $string_telephone;
       private $date_naissance;
-      private $int_id_permission_fk;
+      private $int_id_permission;
 
-      // Constructor
+      // Override __construct
       public function __construct(
           $new_nom_utilisateur,
           $new_mot_de_passe,
@@ -35,6 +35,23 @@
           $this->set_telephone($new_telephone);
           $this->set_naissance($new_naissance);
           $this->set_id_permission($new_id_permission);
+      }
+
+      // Override __toString
+      public function __toString()
+      {
+          $string_return = '';
+
+          $string_return .= "nom_utilisateur: " . $this->get_nom_utilisateur();
+          $string_return .= " mot_de_passe: " . $this->get_mot_de_passe();
+          $string_return .= " prenom: " . $this->get_prenom();
+          $string_return .= " nom: " . $this->get_nom();
+          $string_return .= " courriel: " . $this->get_courriel();
+          $string_return .= " telephone: " . $this->get_telephone();
+          $string_return .= " naissance: " . $this->get_naissance();
+          $string_return .= " id_permission: " . $this->get_id_permission();
+
+          return $string_return;
       }
 
       // Setters
@@ -75,7 +92,7 @@
 
       public function set_id_permission($new_id_permission)
       {
-          $this->int_id_permission_fk = $new_id_permission;
+          $this->int_id_permission = $new_id_permission;
       }
 
       // Getters
@@ -116,6 +133,6 @@
 
       public function get_id_permission()
       {
-          return $this->int_id_permission_fk;
+          return $this->int_id_permission;
       }
   }

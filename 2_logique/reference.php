@@ -11,22 +11,36 @@
       private $string_nom;
       private $string_url;
       private $string_description;
-      private $int_id_article_fk;
+      private $int_id_article;
 
-      // Constructor
+      // Override __construct
       public function __construct(
           $new_id_reference,
           $new_nom,
           $new_url,
           $new_description,
-          $new_id_article_fk
+          $new_id_article
       )
       {
           $this->set_id($new_id_reference);
           $this->set_nom($new_nom);
           $this->set_url($new_url);
           $this->set_description($new_description);
-          $this->set_id_article_fk($new_id_article_fk);
+          $this->set_id_article($new_id_article);
+      }
+
+      // Override __toString
+      public function __toString()
+      {
+          $string_return = '';
+
+          $string_return .= "ID: " . $this->get_id();
+          $string_return .= " nom: " . $this->get_nom();
+          $string_return .= " url: " . $this->get_url();
+          $string_return .= " description: " . $this->get_description();
+          $string_return .= " id_article: " . $this->get_id_article();
+
+          return $string_return;
       }
 
       // Setters
@@ -50,9 +64,9 @@
           $this->string_description = $new_description;
       }
 
-      public function set_id_article_fk($new_id_article_fk)
+      public function set_id_article($new_id_article)
       {
-          $this->int_id_article_fk = $new_id_article_fk;
+          $this->int_id_article = $new_id_article;
       }
 
       // Getters
@@ -76,8 +90,8 @@
           return $this->string_description;
       }
 
-      public function get_id_article_fk()
+      public function get_id_article()
       {
-          return $this->int_id_article_fk;
+          return $this->int_id_article;
       }
   }

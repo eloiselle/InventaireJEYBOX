@@ -13,10 +13,10 @@
       private $date_date_retour_prevue;
       private $date_date_retour_effectif;
       private $string_commentaire;
-      private $int_id_nom_utilisateur_fk;
-      private $int_id_article_fk;
+      private $string_nom_utilisateur;
+      private $int_id_article;
 
-      // Constructor
+      // Override __construct
       public function __construct(
           $new_id_reservation,
           $new_date_prevue,
@@ -24,8 +24,8 @@
           $new_date_retour_prevue,
           $new_date_retour_effectif,
           $new_commentaire,
-          $new_id_nom_utilisateur_fk,
-          $new_id_article_fk
+          $new_nom_utilisateur,
+          $new_id_article
       ) {
           $this->set_id($new_id_reservation);
           $this->set_date_prevue($new_date_prevue);
@@ -33,8 +33,25 @@
           $this->set_date_retour_prevue($new_date_retour_prevue);
           $this->set_date_retour_effectif($new_date_retour_effectif);
           $this->set_commentaire($new_commentaire);
-          $this->set_id_nom_utilisateur_fk($new_id_nom_utilisateur_fk);
-          $this->set_id_article_fk($new_id_article_fk);
+          $this->set_nom_utilisateur($new_nom_utilisateur);
+          $this->set_id_article($new_id_article);
+      }
+
+      // Override __toString
+      public function __toString()
+      {
+          $string_return = '';
+
+          $string_return .= "ID: " . $this->get_id();
+          $string_return .= " date_prevue: " . $this->get_date_prevue();
+          $string_return .= " date_prise_possession: " . $this->get_date_prise_possession();
+          $string_return .= " date_retour_prevue: " . $this->get_date_retour_prevue();
+          $string_return .= " date_retour_effectif: " . $this->get_date_retour_effectif();
+          $string_return .= " commentaire: " . $this->get_commentaire();
+          $string_return .= " nom_utilisateur: " . $this->get_nom_utilisateur();
+          $string_return .= " id_article: " . $this->get_id_article();
+
+          return $string_return;
       }
 
       // Setters
@@ -68,14 +85,14 @@
           $this->string_commentaire = $new_commentaire;
       }
 
-      public function set_id_nom_utilisateur_fk($new_id_nom_utilisateur_fk)
+      public function set_nom_utilisateur($new_nom_utilisateur)
       {
-          $this->int_id_nom_utilisateur_fk = $new_id_nom_utilisateur_fk;
+          $this->string_nom_utilisateur = $new_nom_utilisateur;
       }
 
-      public function set_id_article_fk($new_id_article_fk)
+      public function set_id_article($new_id_article)
       {
-          $this->int_id_article_fk = $new_id_article_fk;
+          $this->int_id_article = $new_id_article;
       }
 
       // Getters
@@ -109,13 +126,13 @@
           return $this->string_commentaire;
       }
 
-      public function get_id_nom_utilisateur_fk()
+      public function get_nom_utilisateur()
       {
-          return $this->int_id_nom_utilisateur_fk;
+          return $this->string_nom_utilisateur;
       }
 
-      public function get_id_article_fk()
+      public function get_id_article()
       {
-          return $this->int_id_article_fk;
+          return $this->int_id_article;
       }
   }

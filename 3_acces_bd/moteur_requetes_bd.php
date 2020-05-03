@@ -1,6 +1,6 @@
 <?php
 
-  include 'gestionnaire_connexion_bd.php';
+  include 'gestion_connexion_bd.php';
 
   class moteurRequetesBD
   {

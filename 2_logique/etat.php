@@ -7,16 +7,28 @@
   class etat
   {
       // Variables
-      private $int_id_etat = null;
-      private $string_nom = null;
-      private $string_description = null;
+      private $int_id_etat;
+      private $string_nom;
+      private $string_description;
 
-      // Constructor
+      // Override __construct
       public function __construct($id, $nom, $description)
       {
           $this->set_id($id);
           $this->set_nom($nom);
           $this->set_description($description);
+      }
+
+      // Override __toString
+      public function __toString()
+      {
+          $string_return = '';
+
+          $string_return .= "ID: " . $this->get_id();
+          $string_return .= " nom: " . $this->get_nom();
+          $string_return .= " description: " . $this->get_description();
+
+          return $string_return;
       }
 
       // Setters

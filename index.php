@@ -49,10 +49,10 @@
 
         <!-- Link to "php_main.php" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
-        if (file_exists('3_acces_bd/php_main.php')) {
-            echo '<li><a class="button" href="3_acces_bd/php_main.php">PHP Operations</a></li>';
+        if (file_exists('3_acces_bd/gestion_operations.php')) {
+            echo '<li><a class="button" href="3_acces_bd/gestion_operations.php">Opérations</a></li>';
         } else {
-            echo '<li><div class="inactive_button">PHP Operations</div></li>';
+            echo '<li><div class="inactive_button">Opérations</div></li>';
         } ?>
 
     </ul>

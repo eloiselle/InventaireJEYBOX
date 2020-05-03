@@ -7,6 +7,7 @@
   <body>
     <?php
       include 'moteur_requetes_bd.php';
+      include '../2_logique/gestipnnaire_categorie.php'
 
       $moteurRequetes = new moteurRequetesBD();
       $result = $moteurRequetes->selectEtatFromID(1);

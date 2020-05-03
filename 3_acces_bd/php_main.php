@@ -16,7 +16,16 @@
     </nav>
 
     <?php
-    // Variables
+
+    // ===================
+    //     Variables
+    // ===================
+
+    // Objets d'accès à la BD
+    include 'moteur_requetes_bd.php';
+    $moteurRequetes = new moteurRequetesBD();
+
+    // Associe les numéros aux noms des items
     $listElementsNumbers = [
       0 => "Article",
       1 => "CategorieArticle",
@@ -29,6 +38,7 @@
       8 => "Utilisateur"
     ];
 
+    // Associe les noms des itmes à leurs équivalent bien écrit
     $listElementsTitles = [
       "Article" => "Article",
       "CategorieArticle" => "Catégorie",
@@ -41,6 +51,7 @@
       "Utilisateur" => "Utilisateur"
     ];
 
+    // Associe les noms des items à leurs propriétés de noms dans la base de données
     $listeNomPropriete = [
       "Article" => [
         "size" => 4,
@@ -107,6 +118,7 @@
       ],
     ];
 
+    // Associe les noms des items à leurs propriétés de types dans la base de données
     $listeTypePropriete = [
         "Article" => [
           "size" => 4,
@@ -173,6 +185,9 @@
         ],
       ];
 
+      echo '  <form id="formResetDB" method="post">';
+      echo '    <input type="submit" name="resetBD" value="Reset BD"/>';
+      echo '  </form>';
       for ($x = 0; $x < 8; $x++) {
         $activeCategory = $listElementsNumbers[$x];
         echo '<button onclick="myFunction' . $activeCategory . '()">' . $activeCategory . '</button>';
@@ -238,9 +253,6 @@
         echo '  }';
         echo '</script>';
       }
-
-      include 'moteur_requetes_bd.php';
-      $moteurRequetes = new moteurRequetesBD();
 
       for ($x = 0; $x < 8; $x++) {
         $activeCategory = $listElementsNumbers[$x];
@@ -378,6 +390,10 @@
           }
 
           echo 'ID du nouvel élément dans la table ' . $activeCategory . ': ' . $result;
+        }
+
+        if(isset($_POST['resetBD'])) {
+          $result = $moteurRequetes->recreateDatabase();
         }
       }
     ?>

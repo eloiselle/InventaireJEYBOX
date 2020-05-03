@@ -9,6 +9,7 @@
     // Constructor
     public function __construct(){
       $this->mySqlManager = new sqlManager();
+      $this->mySqlManager->init_connection();
     }
 
     // ==============================================
@@ -434,6 +435,12 @@
       $result = $this->mySqlManager->get_connection()->query($sql);
 
       $this->mySqlManager->get_connection()->close();
+      return $result;
+    }
+
+    public function recreateDatabase(){
+      $sqlFile = file_get_contents("recreer_bd.sql");
+      $result =  $this->mySqlManager->get_connection()->multi_query($sqlFile);
       return $result;
     }
   }

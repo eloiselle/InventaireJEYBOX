@@ -27,45 +27,45 @@
 
     // Associe les numéros aux noms des items
     $listElementsNumbers = [
-      0 => "Article",
-      1 => "CategorieArticle",
-      2 => "ContactUrgence",
-      3 => "Etat",
-      4 => "Permission",
-      5 => "Reference",
-      6 => "Reservation",
-      7 => "SousCategorieArticle",
-      8 => "Utilisateur"
+      0 => "article",
+      1 => "categorie_article",
+      2 => "contact_urgence",
+      3 => "etat",
+      4 => "permission",
+      5 => "reference",
+      6 => "reservation",
+      7 => "sous_categorie_article",
+      8 => "utilisateur"
     ];
 
-    // Associe les noms des itmes à leurs équivalent bien écrit
+    // Associe les noms des items à leurs équivalent bien écrit
     $listElementsTitles = [
-      "Article" => "Article",
-      "CategorieArticle" => "Catégorie",
-      "ContactUrgence" => "Contact Urgence",
-      "Etat" => "État",
-      "Permission" => "Permission",
-      "Reference" => "Référence",
-      "Reservation" => "Réservation",
-      "SousCategorieArticle" => "Sous-Catégorie",
-      "Utilisateur" => "Utilisateur"
+      0 => "Article",
+      1 => "Catégorie",
+      2 => "Contact Urgence",
+      3 => "État",
+      4 => "Permission",
+      5 => "Référence",
+      6 => "Réservation",
+      7 => "Sous-Catégorie",
+      8 => "Utilisateur"
     ];
 
     // Associe les noms des items à leurs propriétés de noms dans la base de données
     $listeNomPropriete = [
-      "Article" => [
+      0 => [
         "size" => 4,
         1 => "nom",
         2 => "fiche_url",
         3 => "id_sous_categorie",
         4 => "id_etat",
       ],
-      "CategorieArticle" => [
+      1 => [
         "size" => 2,
         1 => "nom",
         2 => "description",
       ],
-      "ContactUrgence" => [
+      2 => [
         "size" => 5,
         1 => "nom",
         2 => "prenom",
@@ -73,23 +73,23 @@
         4 => "telephone",
         5 => "nom_utilisateur"
       ],
-      "Etat" => [
+      3 => [
         "size" => 2,
         1 => "nom",
         2 => "description",
       ],
-      "Permission" => [
+      4 => [
         "size" => 1,
         1 => "nom",
       ],
-      "Reference" => [
+      5 => [
         "size" => 4,
         1 => "nom",
         2 => "prenom",
         3 => "relation",
         4 => "telephone",
       ],
-      "Reservation" => [
+      6 => [
         "size" => 7,
         1 => "date_prevue",
         2 => "date_prise_possession",
@@ -99,13 +99,13 @@
         6 => "nom_utilisateur",
         7 => "id_article"
       ],
-      "SousCategorieArticle" => [
+      7 => [
         "size" => 3,
         1 => "nom",
         2 => "description",
         3 => "id_categorie",
       ],
-      "Utilisateur" => [
+      8 => [
         "size" => 8,
         1 => "nom_utilisateur",
         2 => "mot_de_passe",
@@ -120,19 +120,19 @@
 
     // Associe les noms des items à leurs propriétés de types dans la base de données
     $listeTypePropriete = [
-        "Article" => [
+        0 => [
           "size" => 4,
           1 => "text",
           2 => "text",
           3 => "number",
           4 => "number",
         ],
-        "CategorieArticle" => [
+        1 => [
           "size" => 2,
           1 => "text",
           2 => "text",
         ],
-        "ContactUrgence" => [
+        2 => [
           "size" => 5,
           1 => "text",
           2 => "text",
@@ -140,23 +140,23 @@
           4 => "text",
           5 => "number"
         ],
-        "Etat" => [
+        3 => [
           "size" => 2,
           1 => "text",
           2 => "text",
         ],
-        "Permission" => [
+        4 => [
           "size" => 1,
           1 => "text",
         ],
-        "Reference" => [
+        5 => [
           "size" => 4,
           1 => "text",
           2 => "text",
           3 => "text",
           4 => "text",
         ],
-        "Reservation" => [
+        6 => [
           "size" => 7,
           1 => "date",
           2 => "date",
@@ -166,13 +166,13 @@
           6 => "text",
           7 => "number"
         ],
-        "SousCategorieArticle" => [
+        7 => [
           "size" => 3,
           1 => "text",
           2 => "text",
           3 => "number",
         ],
-        "Utilisateur" => [
+        8 => [
           "size" => 8,
           1 => "text",
           2 => "text",
@@ -199,7 +199,7 @@
       for ($x = 0; $x < 8; $x++) {
           $activeCategory = $listElementsNumbers[$x];
           echo '  <form id="form' . $activeCategory . '" method="post" style="display: none;">';
-          echo '    <h1> ' . $listElementsTitles[$activeCategory] . ' </h1>';
+          echo '    <h1> ' . $listElementsTitles[$x] . ' </h1>';
           echo '    <table id="table' . $activeCategory . '">';
           echo '      <tr>';
           echo '        <td colspan="2" style="text-align:center;"><h2>Select</h2></td>';
@@ -219,20 +219,20 @@
           echo '      </tr>';
 
           // Pour chaque élément, pour chacun de leur nombre d'éléments
-          for ($i=0; $i < $listeNomPropriete[$activeCategory]["size"]; $i++) {
+          for ($i=0; $i < $listeNomPropriete[$x]["size"]; $i++) {
               echo '    <tr>';
-              echo '        <td><label for="fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1] . '">' . $listeNomPropriete[$activeCategory][$i+1] . ': </label></td>';
+              echo '        <td><label for="fInsert' . $activeCategory . $listeNomPropriete[$x][$i+1] . '">' . $listeNomPropriete[$x][$i+1] . ': </label></td>';
 
               // Détermine le type d'élément
-              switch ($listeTypePropriete[$activeCategory][$i+1]) {
+              switch ($listeTypePropriete[$x][$i+1]) {
             case 'text':
-              echo '    <td><input type="text" name="fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1] . '"></td>';
+              echo '    <td><input type="text" name="fInsert' . $activeCategory . $listeNomPropriete[$x][$i+1] . '"></td>';
               break;
             case 'number':
-              echo '    <td><input type="number" name="fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1] . '" value=1 min=1></td>';
+              echo '    <td><input type="number" name="fInsert' . $activeCategory . $listeNomPropriete[$x][$i+1] . '" value=1 min=1></td>';
               break;
             case 'date':
-              echo '    <td><input type="date" name="fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1] . '"></td>';
+              echo '    <td><input type="date" name="fInsert' . $activeCategory . $listeNomPropriete[$x][$i+1] . '"></td>';
               break;
 
             default:
@@ -263,48 +263,8 @@
           // Show result of select statement
           if (isset($_POST['select' . $activeCategory])) {
               $id = $_POST['fSelect'. $activeCategory . 'ID'];
-              switch ($activeCategory) {
-            case 'Article':
-              $result = $moteurRequetes->selectArticleFromID($id);
-              break;
-            case 'CategorieArticle':
-              $result = $moteurRequetes->selectCategorieFromID($id);
-              break;
-            case 'ContactUrgence':
-              $result = $moteurRequetes->selectContactUrgenceFromID($id);
-              break;
-            case 'Etat':
-              $result = $moteurRequetes->selectEtatFromID($id);
-              break;
-            case 'Permission':
-              $result = $moteurRequetes->selectPermissionFromID($id);
-              break;
-            case 'Reference':
-              $result = $moteurRequetes->selectReferenceFromID($id);
-              break;
-            case 'Reservation':
-              $result = $moteurRequetes->selectReservationFromID($id);
-              break;
-            case 'SousCategorieArticle':
-              $result = $moteurRequetes->selectSousCategorieFromID($id);
-              break;
-            case 'Utilisateur':
-              $result = $moteurRequetes->selectUtilisateurFromID($id);
-              break;
-
-            default:
-              break;
-          }
-
-              if ($result->num_rows > 0) {
-                  // output data of each row
-                  while ($row = $result->fetch_assoc()) {
-                      print_r($row);
-                  }
-              } else {
-                  echo "<p>The SelectID for " . $activeCategory . " returned no results. Please select another ID.</p>";
-              }
-          }
+              return $moteurRequetes->selectFromID($id, $activeCategory);
+            }
 
           // Delete element from ID
           if (isset($_POST['delete' . $activeCategory])) {

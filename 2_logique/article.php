@@ -21,11 +21,11 @@
            $new_id_sous_categorie_fk,
            $new_id_etat_fk
        ) {
-           set_id($new_id_article);
-           set_nom($new_nom);
-           set_fichier($new_fichier);
-           set_id_sous_categorie_fk($new_id_sous_categorie_fk);
-           set_id_etat_fk($new_id_etat_fk);
+           $this->set_id($new_id_article);
+           $this->set_nom($new_nom);
+           $this->set_fichier($new_fichier);
+           $this->set_id_sous_categorie_fk($new_id_sous_categorie_fk);
+           $this->set_id_etat_fk($new_id_etat_fk);
        }
 
        // Setters

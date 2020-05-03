@@ -7,6 +7,19 @@
       // Variables
       private $mySqlManager = null;
 
+      // Liste de requêtes SQL pour sélectionner un ID, reste à concaténer le ID
+      private $sqlQueriesSelectID = [
+        "article" => 'SELECT * FROM article WHERE id_article = ',
+        "categorie_article" => 'SELECT * FROM categorie_article WHERE id_categorie = ',
+        "contact_urgence" => 'SELECT * FROM contact_urgence WHERE id_contact_urgence = ',
+        "etat" => 'SELECT * FROM etat WHERE id_etat = ',
+        "permission" => 'SELECT * FROM permission WHERE id_permission = ',
+        "reference" => 'SELECT * FROM reference WHERE id_reference = ',
+        "reservation" => 'SELECT * FROM reservation WHERE id_reservation = ',
+        "sous_categorie_article" => 'SELECT * FROM sous_categorie_article WHERE id_sous_categorie = ',
+        "utilisateur" => 'SELECT * FROM utilisateur WHERE nom_utilisateur = ',
+      ];
+
       // Constructor
       public function __construct()
       {
@@ -15,115 +28,25 @@
       }
 
       // ==============================================
-      //                    SELECTORS
+      //                    SELECTOR
       // ==============================================
 
-      // Article
-      public function selectArticleFromID($id_article)
+      public function selectFromID($objectName, $id)
       {
+          // Initialiser une connexion à la BD
           $this->mySqlManager->init_connection();
 
-          $sql = 'SELECT * FROM article WHERE id_article = ' . $id_article;
+          // Créer la requête SQL
+          $sql = $this->sqlQueriesSelectID[$objectName] . $id;
+
+          // Exécute la requête et ferme la connexion SQL
           $result = $this->mySqlManager->get_connection()->query($sql);
-
+          $nbChamps = $this->mySqlManager->get_connection()->field_count;
           $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
 
-      // Categorie
-      public function selectCategorieFromID($id_categorie)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'SELECT * FROM categorie_article WHERE id_categorie = ' . $id_categorie;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Contact Urgence
-      public function selectContactUrgenceFromID($id_contact_urgence)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'SELECT * FROM contact_urgence WHERE id_contact_urgence = ' . $id_contact_urgence;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Etat
-      public function selectEtatFromID($id_etat)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'SELECT * FROM etat WHERE id_etat = ' . $id_etat;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Permission
-      public function selectPermissionFromID($id_permission)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'SELECT * FROM permission WHERE id_permission = ' . $id_permission;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Reference
-      public function selectReferenceFromID($id_reference)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'SELECT * FROM reference WHERE id_reference = ' . $id_reference;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Reservation
-      public function selectReservationFromID($id_reservation)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'SELECT * FROM reservation WHERE id_reservation = ' . $id_reservation;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Sous Catégorie Article
-      public function selectSousCategorieFromID($id_sous_categorie)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'SELECT * FROM sous_categorie_article WHERE id_sous_categorie = ' . $id_sous_categorie;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
-      }
-
-      // Utilisateur
-      public function selectUtilisateurFromID($nom_utilisateur)
-      {
-          $this->mySqlManager->init_connection();
-
-          $sql = 'SELECT * FROM utilisateur WHERE nom_utilisateur = ' . $nom_utilisateur;
-          $result = $this->mySqlManager->get_connection()->query($sql);
-
-          $this->mySqlManager->get_connection()->close();
-          return $result;
+          // Retourner la ligne
+          $row = $result->fetch_assoc();
+          return $row;
       }
 
       // ==============================================

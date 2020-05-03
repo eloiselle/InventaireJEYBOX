@@ -7,7 +7,7 @@
       // Variables
       private $mySqlManager = null;
 
-      // Liste de requêtes SQL pour sélectionner un ID, reste à concaténer le ID
+      // Liste de requêtes SQL pour sélectionner un ID
       private $sqlQueriesSelectID = [
         "article" => 'SELECT * FROM article WHERE id_article = ?',
         "categorie_article" => 'SELECT * FROM categorie_article WHERE id_categorie = ?',
@@ -20,7 +20,20 @@
         "utilisateur" => 'SELECT * FROM utilisateur WHERE nom_utilisateur = ?',
       ];
 
-      // Liste de requêtes SQL pour insérer un array, reste à concaténer les items
+      // Liste de requêtes SQL pour supprimer à partir d'un ID
+      private $sqlQueriesDeleteID = [
+        "article" => 'DELETE FROM article WHERE id_article = ?',
+        "categorie_article" => 'DELETE FROM categorie_article WHERE id_categorie = ?',
+        "contact_urgence" => 'DELETE FROM contact_urgence WHERE id_contact_urgence = ?',
+        "etat" => 'DELETE FROM etat WHERE id_etat = ?',
+        "permission" => 'DELETE FROM permission WHERE id_permission = ?',
+        "reference" => 'DELETE FROM reference WHERE id_reference = ?',
+        "reservation" => 'DELETE FROM reservation WHERE id_reservation = ?',
+        "sous_categorie_article" => 'DELETE FROM sous_categorie_article WHERE id_sous_categorie = ?',
+        "utilisateur" => 'DELETE FROM utilisateur WHERE nom_utilisateur = ?',
+      ];
+
+      // Liste de requêtes SQL pour insérer un array
       private $sqlQueriesInsertArray = [
         "article" => 'INSERT INTO article (nom, fiche_url, id_sous_categorie, id_etat) VALUES ( ?, ?, ?, ?)',
         "categorie_article" => 'INSERT INTO categorie_article (nom, description) VALUES (?, ?)',
@@ -43,8 +56,6 @@
       //                    SELECT
       // ==============================================
 
-
-
       public function selectFromID($objectName, $id)
       {
           // Initialise la connexion à la BD
@@ -56,6 +67,44 @@
 
           // Préparer la requête SQL
           if ($stmt = $conn->prepare($this->sqlQueriesSelectID[$lowerObjectName])) {
+              $stmt->bind_param("s", $id);
+
+          } else {
+              die("Erreur: la préparation de la requête SQL a échoué: (" . $stmt->errno . ") " . $stmt->error);
+          }
+
+          // Exécute la requête SQL
+          if (!$stmt->execute()) {
+              die("\r\nErreur: execute() de la requête SQL a échoué: (" . $stmt->errno . ") " . $stmt->error);
+          }
+
+          // Récupérer les résultats
+          $result = $stmt->get_result();
+          $row = $result->fetch_assoc();
+
+          // Fermer les connexions établies
+          $stmt->close();
+          $conn->close();
+
+          // Retourner les résultats
+          return $row;
+      }
+
+      // ==============================================
+      //                    DELETE
+      // ==============================================
+
+      public function deleteFromID($objectName, $id)
+      {
+          // Initialise la connexion à la BD
+          $this->mySqlManager->init_connection();
+
+          // Variables utiles
+          $conn = $this->mySqlManager->get_connection();
+          $lowerObjectName = strtolower($objectName);
+
+          // Préparer la requête SQL
+          if ($stmt = $conn->prepare($this->$sqlQueriesDeleteID[$lowerObjectName])) {
               $stmt->bind_param("s", $id);
 
           } else {
@@ -133,59 +182,6 @@
           return $row["LAST_INSERT_ID()"];
       }
 
-      // Categorie
-      public function insertCategorieFromArray($array_categorie)
-      {
-          $this->mySqlManager->init_connection();
-
-          // Insert data into table from array
-          $sql = 'INSERT INTO categorie_article (nom, description) VALUES (
-        "' . $array_categorie["nom"] . '",
-        "' . $array_categorie["description"] . '");' ;
-          $this->mySqlManager->get_connection()->query($sql);
-
-          // Fetch last inserted ID
-          $sql = 'SELECT LAST_INSERT_ID()';
-          $result = $this->mySqlManager->get_connection()->query($sql);
-          $this->mySqlManager->get_connection()->close();
-
-          // Extract ID from result set
-          $row = $result -> fetch_assoc();
-          $newid = $row["LAST_INSERT_ID()"];
-
-          return $newid;
-      }
-
-
-      // Utilisateur
-      public function insertUtilisateurFromArray($array_utilisateur)
-      {
-          $this->mySqlManager->init_connection();
-
-          // Insert data into table from array
-          $sql = 'INSERT INTO utilisateur (nom_utilisateur , mot_de_passe , nom , prenom , courriel , telephone , date_naissance , id_permission) VALUES (
-        "' . $array_utilisateur["nom_utilisateur"] . '",
-        "' . $array_utilisateur["mot_de_passe"] . '",
-        "' . $array_utilisateur["nom"] . '",
-        "' . $array_utilisateur["prenom"] . '",
-        "' . $array_utilisateur["courriel"] . '",
-        "' . $array_utilisateur["telephone"] . '",
-        "' . $array_utilisateur["date_naissance"] . '",
-        ' . $array_utilisateur["id_permission"] . ')' ;
-          $this->mySqlManager->get_connection()->query($sql);
-
-          // Fetch last inserted ID
-          $sql = 'SELECT LAST_INSERT_ID()';
-          $result = $this->mySqlManager->get_connection()->query($sql);
-          $this->mySqlManager->get_connection()->close();
-
-          // Extract ID from result set
-          $row = $result -> fetch_assoc();
-          $newid = $row["LAST_INSERT_ID()"];
-
-          return $newid;
-      }
-
       // ==============================================
       //                    REMOVERS
       // ==============================================
@@ -207,7 +203,7 @@
       {
           $this->mySqlManager->init_connection();
 
-          $sql = 'DELETE  FROM categorie_article WHERE id_categorie = ' . $id_categorie;
+          $sql = 'DELETE FROM categorie_article WHERE id_categorie = ' . $id_categorie;
           $result = $this->mySqlManager->get_connection()->query($sql);
 
           $this->mySqlManager->get_connection()->close();

@@ -272,46 +272,10 @@
               print_r($moteurRequetes->selectFromID($activeCategory, $id));
           }
 
-          // Delete element from ID
+          // Show result of delete statement
           if (isset($_POST['delete' . $activeCategory])) {
               $id = $_POST['fSelect'. $activeCategory . 'ID'];
-              switch ($activeCategory) {
-            case 'Article':
-              $result = $moteurRequetes->deleteArticleFromID($id);
-              break;
-            case 'CategorieArticle':
-              $result = $moteurRequetes->deleteCategorieFromID($id);
-              break;
-            case 'ContactUrgence':
-              $result = $moteurRequetes->deleteContactUrgenceFromID($id);
-              break;
-            case 'Etat':
-              $result = $moteurRequetes->deleteEtatFromID($id);
-              break;
-            case 'Permission':
-              $result = $moteurRequetes->deletePermissionFromID($id);
-              break;
-            case 'Reference':
-              $result = $moteurRequetes->deleteReferenceFromID($id);
-              break;
-            case 'Reservation':
-              $result = $moteurRequetes->deleteReservationFromID($id);
-              break;
-            case 'SousCategorieArticle':
-              $result = $moteurRequetes->deleteSousCategorieFromID($id);
-              break;
-            case 'Utilisateur':
-              $result = $moteurRequetes->deleteUtilisateurFromID($id);
-              break;
-
-            default:
-              break;
-          }
-              if ($result == 1) {
-                  echo "L'entrée avec le ID " . $id . " a été supprimée avec succès.";
-              } else {
-                  echo "Une erreur s'est produite. Code d'erreur: " . $result;
-              }
+              print_r($moteurRequetes->deleteFromID($activeCategory, $id));
           }
 
           // Insérer élément dans la BD avec un tableau d'objets

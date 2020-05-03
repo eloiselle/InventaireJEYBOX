@@ -96,7 +96,7 @@
 
       public function get_relation()
       {
-          return $this->string_courriel;
+          return $this->string_relation;
       }
 
       public function get_telephone()

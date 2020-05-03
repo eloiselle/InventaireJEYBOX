@@ -1,12 +1,9 @@
 <?php
-
-include '../3_acces_bd/moteur_requetes_bd.php';
-
 class gestionnaireArticle
 {
 
-    //Gestion des articles
-    public static function creerArticle($moteurRequetes, $idArticle)
+    // Gestion des articles
+    public static function fetchArticleFromBD($moteurRequetes, $idArticle)
     {
         // Récupérer les données de la BD dans un tableau
         $infoArticle = $moteurRequetes->selectFromID("article", $idArticle);
@@ -30,8 +27,8 @@ class gestionnaireArticle
         return $unArticle;
     }
 
-    //Gestion des references
-    public function creerReference($moteurRequetes, $idRef)
+    // Gestion des references
+    public static function fetchReferenceFromBD($moteurRequetes, $idRef)
     {
         // Récupérer les données de la BD dans un tableau
         $infoRef = $moteurRequetes->selectFromID("reference", $idRef);
@@ -55,12 +52,12 @@ class gestionnaireArticle
         return $uneRef;
     }
 
-    //Gestion des états
-    public function creerEtat($moteurRequetes, $idEtat)
+    // Gestion des états
+    public static function fetchEtatFromBD($moteurRequetes, $idEtat)
     {
         // Récupérer les données de la BD dans un tableau
         $infoEtat = $moteurRequetes->selectFromID("etat", $idEtat);
-        if ($infoRef == null) {
+        if ($infoEtat == null) {
             return null;
         }
 

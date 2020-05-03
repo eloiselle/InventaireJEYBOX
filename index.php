@@ -18,41 +18,41 @@
         <!-- Link to "Login page" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('1_presentation/login/main_login.php')) {
-          echo '<li><a class="button" href="1_presentation/login/main_login.php">Login page</a></li>';
+            echo '<li><a class="button" href="1_presentation/login/main_login.php">Login page</a></li>';
         } else {
-          echo '<li><div class="inactive_button">Login page</div></li>';
+            echo '<li><div class="inactive_button">Login page</div></li>';
         } ?>
 
         <!-- Link to "Client" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('1_presentation/client/consulter_article.php')) {
-          echo '<li><a class="button" href="1_presentation/client/consulter_article.php">Client</a></li>';
+            echo '<li><a class="button" href="1_presentation/client/consulter_article.php">Client</a></li>';
         } else {
-          echo '<li><div class="inactive_button">Client</div></li>';
+            echo '<li><div class="inactive_button">Client</div></li>';
         } ?>
 
         <!-- Link to "Employé" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('1_presentation/employe/gestion_categorie.php')) {
-          echo '<li><a class="button" href="1_presentation/employe/gestion_categorie.php">Employé</a></li>';
+            echo '<li><a class="button" href="1_presentation/employe/gestion_categorie.php">Employé</a></li>';
         } else {
-          echo '<li><div class="inactive_button">Employé</div></li>';
+            echo '<li><div class="inactive_button">Employé</div></li>';
         } ?>
 
         <!-- Link to "Directeur" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('1_presentation/directeur/gestion_utilisateur.php')) {
-          echo '<li><a class="button" href="1_presentation/directeur/gestion_utilisateur.php">Directeur</a></li>';
+            echo '<li><a class="button" href="1_presentation/directeur/gestion_utilisateur.php">Directeur</a></li>';
         } else {
-          echo '<li><div class="inactive_button">Directeur</div></li>';
+            echo '<li><div class="inactive_button">Directeur</div></li>';
         } ?>
 
         <!-- Link to "php_main.php" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('3_acces_bd/php_main.php')) {
-          echo '<li><a class="button" href="3_acces_bd/php_main.php">PHP Operations</a></li>';
+            echo '<li><a class="button" href="3_acces_bd/php_main.php">PHP Operations</a></li>';
         } else {
-          echo '<li><div class="inactive_button">PHP Operations</div></li>';
+            echo '<li><div class="inactive_button">PHP Operations</div></li>';
         } ?>
 
     </ul>

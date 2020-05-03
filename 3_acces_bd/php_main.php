@@ -185,43 +185,46 @@
         ],
       ];
 
+      // Créer les boutons pour les menus
       echo '  <form id="formResetDB" method="post">';
       echo '    <input type="submit" name="resetBD" value="Reset BD"/>';
       echo '  </form>';
       for ($x = 0; $x < 8; $x++) {
-        $activeCategory = $listElementsNumbers[$x];
-        echo '<button onclick="myFunction' . $activeCategory . '()">' . $activeCategory . '</button>';
+          $activeCategory = $listElementsNumbers[$x];
+          echo '<button onclick="myFunction' . $activeCategory . '()">' . $activeCategory . '</button>';
       }
       echo '<br>';
 
+      // Pour chaque élément
       for ($x = 0; $x < 8; $x++) {
-        $activeCategory = $listElementsNumbers[$x];
-        echo '  <form id="form' . $activeCategory . '" method="post" style="display: none;">';
-        echo '    <h1> ' . $listElementsTitles[$activeCategory] . ' </h1>';
-        echo '    <table id="table' . $activeCategory . '">';
-        echo '      <tr>';
-        echo '        <td colspan="2" style="text-align:center;"><h2>Select</h2></td>';
-        echo '      </tr>';
-        echo '      <tr>';
-        echo '        <td><label for="fSelect' . $activeCategory . 'ID">ID: </label></td>';
-        echo '        <td><input type="number" name="fSelect' . $activeCategory . 'ID" value=1 min=1></td>';
-        echo '      </tr>';
-        echo '      <tr>';
-        echo '        <td colspan="2" style="text-align:center;"><input type="submit" name="select' . $activeCategory . '" value="Select ' . $activeCategory . ' from ID"/></td>';
-        echo '      </tr>';
-        echo '      <tr>';
-        echo '        <td colspan="2" style="text-align:center;"><input type="submit" name="delete' . $activeCategory . '" value="Delete ' . $activeCategory . ' from ID"/></td>';
-        echo '      </tr>';
-        echo '      <tr>';
-        echo '        <td colspan="2" style="text-align:center;"><h2>Insert</h2></td>';
-        echo '      </tr>';
-        // Pour chaque élément, pour chacun de leur nombre d'éléments
-        for ($i=0; $i < $listeNomPropriete[$activeCategory]["size"]; $i++) {
-          echo '    <tr>';
-          echo '        <td><label for="fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1] . '">' . $listeNomPropriete[$activeCategory][$i+1] . ': </label></td>';
+          $activeCategory = $listElementsNumbers[$x];
+          echo '  <form id="form' . $activeCategory . '" method="post" style="display: none;">';
+          echo '    <h1> ' . $listElementsTitles[$activeCategory] . ' </h1>';
+          echo '    <table id="table' . $activeCategory . '">';
+          echo '      <tr>';
+          echo '        <td colspan="2" style="text-align:center;"><h2>Select</h2></td>';
+          echo '      </tr>';
+          echo '      <tr>';
+          echo '        <td><label for="fSelect' . $activeCategory . 'ID">ID: </label></td>';
+          echo '        <td><input type="number" name="fSelect' . $activeCategory . 'ID" value=1 min=1></td>';
+          echo '      </tr>';
+          echo '      <tr>';
+          echo '        <td colspan="2" style="text-align:center;"><input type="submit" name="select' . $activeCategory . '" value="Select ' . $activeCategory . ' from ID"/></td>';
+          echo '      </tr>';
+          echo '      <tr>';
+          echo '        <td colspan="2" style="text-align:center;"><input type="submit" name="delete' . $activeCategory . '" value="Delete ' . $activeCategory . ' from ID"/></td>';
+          echo '      </tr>';
+          echo '      <tr>';
+          echo '        <td colspan="2" style="text-align:center;"><h2>Insert</h2></td>';
+          echo '      </tr>';
 
-          // Détermine le type d'élément
-          switch ($listeTypePropriete[$activeCategory][$i+1]) {
+          // Pour chaque élément, pour chacun de leur nombre d'éléments
+          for ($i=0; $i < $listeNomPropriete[$activeCategory]["size"]; $i++) {
+              echo '    <tr>';
+              echo '        <td><label for="fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1] . '">' . $listeNomPropriete[$activeCategory][$i+1] . ': </label></td>';
+
+              // Détermine le type d'élément
+              switch ($listeTypePropriete[$activeCategory][$i+1]) {
             case 'text':
               echo '    <td><input type="text" name="fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1] . '"></td>';
               break;
@@ -235,32 +238,32 @@
             default:
               break;
           }
+              echo '  </tr>';
+          }
+          echo '  <tr>';
+          echo '    <td colspan="2" style="text-align:center;"><input type="submit" name="insert' . $activeCategory . '" value="Insert ' . $activeCategory . ' from fields"/></td>';
           echo '  </tr>';
-        }
-        echo '  <tr>';
-        echo '    <td colspan="2" style="text-align:center;"><input type="submit" name="insert' . $activeCategory . '" value="Insert ' . $activeCategory . ' from fields"/></td>';
-        echo '  </tr>';
-        echo '</table>';
-        echo '</form>';
-        echo '<script>';
-        echo '  function myFunction' . $activeCategory . '() {';
-        for ($y = 0; $y < 8; $y++) {
-          echo '    var element' . $listElementsNumbers[$y] . ' = document.getElementById("form' . $listElementsNumbers[$y] . '");';
-          echo '    element' . $listElementsNumbers[$y] . '.style.display = "none";';
-        }
-        echo '    var x = document.getElementById("form' . $activeCategory . '");';
-        echo '      x.style.display = "block";';
-        echo '  }';
-        echo '</script>';
+          echo '</table>';
+          echo '</form>';
+          echo '<script>';
+          echo '  function myFunction' . $activeCategory . '() {';
+          for ($y = 0; $y < 8; $y++) {
+              echo '    var element' . $listElementsNumbers[$y] . ' = document.getElementById("form' . $listElementsNumbers[$y] . '");';
+              echo '    element' . $listElementsNumbers[$y] . '.style.display = "none";';
+          }
+          echo '    var x = document.getElementById("form' . $activeCategory . '");';
+          echo '      x.style.display = "block";';
+          echo '  }';
+          echo '</script>';
       }
 
       for ($x = 0; $x < 8; $x++) {
-        $activeCategory = $listElementsNumbers[$x];
+          $activeCategory = $listElementsNumbers[$x];
 
-        // Show result of select statement
-        if(isset($_POST['select' . $activeCategory])) {
-          $id = $_POST['fSelect'. $activeCategory . 'ID'];
-          switch ($activeCategory) {
+          // Show result of select statement
+          if (isset($_POST['select' . $activeCategory])) {
+              $id = $_POST['fSelect'. $activeCategory . 'ID'];
+              switch ($activeCategory) {
             case 'Article':
               $result = $moteurRequetes->selectArticleFromID($id);
               break;
@@ -293,20 +296,20 @@
               break;
           }
 
-          if ($result->num_rows > 0) {
-             // output data of each row
-             while($row = $result->fetch_assoc()) {
-                 print_r($row);
-             }
-          } else {
-             echo "<p>The SelectID for " . $activeCategory . " returned no results. Please select another ID.</p>";
+              if ($result->num_rows > 0) {
+                  // output data of each row
+                  while ($row = $result->fetch_assoc()) {
+                      print_r($row);
+                  }
+              } else {
+                  echo "<p>The SelectID for " . $activeCategory . " returned no results. Please select another ID.</p>";
+              }
           }
-        }
 
-        // Delete element from ID
-        if(isset($_POST['delete' . $activeCategory])) {
-          $id = $_POST['fSelect'. $activeCategory . 'ID'];
-          switch ($activeCategory) {
+          // Delete element from ID
+          if (isset($_POST['delete' . $activeCategory])) {
+              $id = $_POST['fSelect'. $activeCategory . 'ID'];
+              switch ($activeCategory) {
             case 'Article':
               $result = $moteurRequetes->deleteArticleFromID($id);
               break;
@@ -338,25 +341,25 @@
             default:
               break;
           }
-          if ($result == 1) {
-            echo "L'entrée avec le ID " . $id . " a été supprimée avec succès.";
-          } else {
-            echo "Une erreur s'est produite. Code d'erreur: " . $result;
-          }
-        }
-
-        // Insert element from Array
-
-        if(isset($_POST['insert' . $activeCategory])) {
-          $id = $_POST['fSelect'. $activeCategory . 'ID'];
-          $array = [];
-
-          // Create object to be inserted
-          for ($i=0; $i < $listeNomPropriete[$activeCategory]["size"]; $i++) {
-            $array += [ $listeNomPropriete[$activeCategory][$i+1] => $_POST['fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1]]];
+              if ($result == 1) {
+                  echo "L'entrée avec le ID " . $id . " a été supprimée avec succès.";
+              } else {
+                  echo "Une erreur s'est produite. Code d'erreur: " . $result;
+              }
           }
 
-          switch ($activeCategory) {
+          // Insert element from Array
+
+          if (isset($_POST['insert' . $activeCategory])) {
+              $id = $_POST['fSelect'. $activeCategory . 'ID'];
+              $array = [];
+
+              // Create object to be inserted
+              for ($i=0; $i < $listeNomPropriete[$activeCategory]["size"]; $i++) {
+                  $array += [ $listeNomPropriete[$activeCategory][$i+1] => $_POST['fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1]]];
+              }
+
+              switch ($activeCategory) {
             case 'Article':
               $result = $moteurRequetes->insertArticleFromArray($array);
               break;
@@ -389,12 +392,12 @@
               break;
           }
 
-          echo 'ID du nouvel élément dans la table ' . $activeCategory . ': ' . $result;
-        }
+              echo 'ID du nouvel élément dans la table ' . $activeCategory . ': ' . $result;
+          }
 
-        if(isset($_POST['resetBD'])) {
-          $result = $moteurRequetes->recreateDatabase();
-        }
+          if (isset($_POST['resetBD'])) {
+              $result = $moteurRequetes->recreateDatabase();
+          }
       }
     ?>
   </body>

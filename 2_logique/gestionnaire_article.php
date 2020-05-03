@@ -58,17 +58,23 @@ class gestionnaireArticle
     //Gestion des états
     public function creerEtat($moteurRequetes, $idEtat)
     {
-        $unEtat = new etat();
-        $infoEtat = moteurRBD.selectEtat($idEtat);
-
-        if ($infoEtat == null) {
+        // Récupérer les données de la BD dans un tableau
+        $infoEtat = $moteurRequetes->selectFromID("etat", $idEtat);
+        if ($infoRef == null) {
             return null;
         }
 
-        $unEtat.set_id(infoEtat[0].toString());
-        $unEtat.set_nom(infoEtat[1]);
-        $unEtat.set_description(infoEtat[2]);
+        // Générer des clés pour accéder au tableau avec des INT
+        $keyEtat = array_keys($infoEtat);
 
+        // Ajouter chaque élément du tableau dans un objet
+        $unEtat = new etat(
+            $infoEtat[$keyEtat[0]],
+            $infoEtat[$keyEtat[1]],
+            $infoEtat[$keyEtat[2]]
+        );
+
+        // Retourner l'objet
         return $unEtat;
     }
 }

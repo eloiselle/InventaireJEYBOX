@@ -47,7 +47,7 @@
             echo '<li><div class="inactive_button">Directeur</div></li>';
         } ?>
 
-        <!-- Link to "php_main.php" -->
+        <!-- Link to "gestion_operations.php" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('3_acces_bd/gestion_operations.php')) {
             echo '<li><a class="button" href="3_acces_bd/gestion_operations.php">Opérations</a></li>';

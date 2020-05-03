@@ -9,73 +9,128 @@
 
       // Liste de requêtes SQL pour sélectionner un ID, reste à concaténer le ID
       private $sqlQueriesSelectID = [
-        "article" => 'SELECT * FROM article WHERE id_article = ',
-        "categorie_article" => 'SELECT * FROM categorie_article WHERE id_categorie = ',
-        "contact_urgence" => 'SELECT * FROM contact_urgence WHERE id_contact_urgence = ',
-        "etat" => 'SELECT * FROM etat WHERE id_etat = ',
-        "permission" => 'SELECT * FROM permission WHERE id_permission = ',
-        "reference" => 'SELECT * FROM reference WHERE id_reference = ',
-        "reservation" => 'SELECT * FROM reservation WHERE id_reservation = ',
-        "sous_categorie_article" => 'SELECT * FROM sous_categorie_article WHERE id_sous_categorie = ',
-        "utilisateur" => 'SELECT * FROM utilisateur WHERE nom_utilisateur = ',
+        "article" => 'SELECT * FROM article WHERE id_article = ?',
+        "categorie_article" => 'SELECT * FROM categorie_article WHERE id_categorie = ?',
+        "contact_urgence" => 'SELECT * FROM contact_urgence WHERE id_contact_urgence = ?',
+        "etat" => 'SELECT * FROM etat WHERE id_etat = ?',
+        "permission" => 'SELECT * FROM permission WHERE id_permission = ?',
+        "reference" => 'SELECT * FROM reference WHERE id_reference = ?',
+        "reservation" => 'SELECT * FROM reservation WHERE id_reservation = ?',
+        "sous_categorie_article" => 'SELECT * FROM sous_categorie_article WHERE id_sous_categorie = ?',
+        "utilisateur" => 'SELECT * FROM utilisateur WHERE nom_utilisateur = ?',
+      ];
+
+      // Liste de requêtes SQL pour insérer un array, reste à concaténer les items
+      private $sqlQueriesInsertArray = [
+        "article" => 'INSERT INTO article (nom, fiche_url, id_sous_categorie, id_etat) VALUES ( ?, ?, ?, ?)',
+        "categorie_article" => 'INSERT INTO categorie_article (nom, description) VALUES (?, ?)',
+        "contact_urgence" => 'INSERT INTO contact_urgence (nom, prenom, relation, telephone, nom_utilisateur) VALUES (?, ?, ?, ?, ?)',
+        "etat" => 'INSERT INTO etat (nom, description) VALUES (?, ?)',
+        "permission" => 'INSERT INTO permission (nom) VALUES (?)',
+        "reference" => 'INSERT INTO reference (nom, url, description, id_article) VALUES (?, ?, ?, ?)',
+        "reservation" => 'INSERT INTO reservation (date_prevue , date_prise_possession , date_retour_prevue , date_retour_effectif, commentaire , nom_utilisateur , id_article) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        "sous_categorie_article" => 'INSERT INTO sous_categorie_article (nom, description, id_categorie) VALUES (?, ?, ?)',
+        "utilisateur" => 'INSERT INTO utilisateur (nom_utilisateur , mot_de_passe , nom , prenom , courriel , telephone , date_naissance , id_permission) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
       ];
 
       // Constructor
       public function __construct()
       {
           $this->mySqlManager = new sqlManager();
-          $this->mySqlManager->init_connection();
       }
 
       // ==============================================
-      //                    SELECTOR
+      //                    SELECT
       // ==============================================
+
+
 
       public function selectFromID($objectName, $id)
       {
-          // Initialiser une connexion à la BD
+          // Initialise la connexion à la BD
           $this->mySqlManager->init_connection();
 
-          // Créer la requête SQL
-          $sql = $this->sqlQueriesSelectID[$objectName] . $id;
+          // Variables utiles
+          $conn = $this->mySqlManager->get_connection();
+          $lowerObjectName = strtolower($objectName);
 
-          // Exécute la requête et ferme la connexion SQL
-          $result = $this->mySqlManager->get_connection()->query($sql);
-          $nbChamps = $this->mySqlManager->get_connection()->field_count;
-          $this->mySqlManager->get_connection()->close();
+          // Préparer la requête SQL
+          if ($stmt = $conn->prepare($this->sqlQueriesSelectID[$lowerObjectName])) {
+              $stmt->bind_param("s", $id);
 
-          // Retourner la ligne
+          } else {
+              die("Erreur: la préparation de la requête SQL a échoué: (" . $stmt->errno . ") " . $stmt->error);
+          }
+
+          // Exécute la requête SQL
+          if (!$stmt->execute()) {
+              die("\r\nErreur: execute() de la requête SQL a échoué: (" . $stmt->errno . ") " . $stmt->error);
+          }
+
+          // Récupérer les résultats
+          $result = $stmt->get_result();
           $row = $result->fetch_assoc();
+
+          // Fermer les connexions établies
+          $stmt->close();
+          $conn->close();
+
+          // Retourner les résultats
           return $row;
       }
 
       // ==============================================
-      //                    CREATORS
+      //                    INSERT
       // ==============================================
 
       // Article
-      public function insertArticleFromArray($array_article)
+      public function insertFromArray($objectName, $array)
       {
+          // Initialise la connexion à la BD
           $this->mySqlManager->init_connection();
 
-          // Insert data into table from array
-          $sql = 'INSERT INTO article (nom, fiche_url, id_sous_categorie, id_etat) VALUES (
-        "' . $array_article["nom"] . '",
-        "' . $array_article["fiche_url"] . '",
-        "' . $array_article["id_sous_categorie"] . '",
-        "' . $array_article["id_etat"] . '")' ;
-          $this->mySqlManager->get_connection()->query($sql);
+          // Variables utiles
+          $conn = $this->mySqlManager->get_connection();
+          $lowerObjectName = strtolower($objectName);
 
-          // Fetch last inserted ID
-          $sql = 'SELECT LAST_INSERT_ID()';
-          $result = $this->mySqlManager->get_connection()->query($sql);
-          $this->mySqlManager->get_connection()->close();
+          // Test si le nom de l'objet est valide dans le tableau d'objets
+          if ($this->sqlQueriesInsertArray[$lowerObjectName]) {
+              // Charge la requête correspondant au numéro d'objet
+              $stmt = $this->sqlQueriesInsertArray[$lowerObjectName];
+          } else {
+              // Message d'erreur
+              die("Erreur: le nom d'objet n'est pas reconnu. Il doit exister dans la liste d'objets.");
+          }
 
-          // Extract ID from result set
+          // Préparer la requête SQL
+          if (!$stmt = $conn->prepare($this->sqlQueriesInsertArray[$lowerObjectName])) {
+              die("Erreur: la préparation de la requête SQL a échoué: (" . $conn->errno . ") " . $conn->error);
+          }
+
+          // Créer les arguments pour "bind_param" en mode intéractif
+          // Ceci permet d'utiliser la même méthode pour tous les objets
+          // (les paramètres sont ajoutés selon le nombre nécessaire)
+          $sqltype = ''; // Contiendra le type (tous "s" pour le moment (string))
+          $sqldata = []; // Contiendra les données (contenu de $array)
+          foreach ($array as $name => $data) {
+              $sqltype .= 's';
+              $sqldata[] = $data; // DOIT être une référence
+          }
+          $stmt->bind_param($sqltype, ...$sqldata);
+
+          // Exécute la requête SQL
+          if (!$stmt->execute()) {
+              print_r($stmt);
+              die("\r\nErreur: execute() de la requête SQL a échoué: (" . $stmt->errno . ") " . $stmt->error);
+          }
+
+          // Obtenir le ID du dernier élément inséré
+          $result = $this->mySqlManager->get_connection()->query('SELECT LAST_INSERT_ID()');
+          $conn->close();
+
+          // Extraire le ID du "result set"
           $row = $result -> fetch_assoc();
-          $newid = $row["LAST_INSERT_ID()"];
-
-          return $newid;
+          return $row["LAST_INSERT_ID()"];
       }
 
       // Categorie
@@ -101,153 +156,6 @@
           return $newid;
       }
 
-      // Contact Urgence
-      public function insertContactUrgenceFromArray($array_contact_urgence)
-      {
-          $this->mySqlManager->init_connection();
-
-          // Insert data into table from array
-          $sql = 'INSERT INTO contact_urgence (nom, prenom, relation, telephone, nom_utilisateur) VALUES (
-        "' . $array_contact_urgence["nom"] . '",
-        "' . $array_contact_urgence["prenom"] . '",
-        "' . $array_contact_urgence["relation"] . '",
-        "' . $array_contact_urgence["telephone"] . '",
-        "' . $array_contact_urgence["nom_utilisateur"] . '")' ;
-          $this->mySqlManager->get_connection()->query($sql);
-
-          // Fetch last inserted ID
-          $sql = 'SELECT LAST_INSERT_ID()';
-          $result = $this->mySqlManager->get_connection()->query($sql);
-          $this->mySqlManager->get_connection()->close();
-
-          // Extract ID from result set
-          $row = $result -> fetch_assoc();
-          $newid = $row["LAST_INSERT_ID()"];
-
-          return $newid;
-      }
-
-      // Etat
-      public function insertEtatFromArray($array_etat)
-      {
-          $this->mySqlManager->init_connection();
-
-          // Insert data into table from array
-          $sql = 'INSERT INTO etat (nom, description) VALUES (
-        "' . $array_etat["nom"] . '",
-        "' . $array_etat["description"] . '")' ;
-          $this->mySqlManager->get_connection()->query($sql);
-
-          // Fetch last inserted ID
-          $sql = 'SELECT LAST_INSERT_ID()';
-          $result = $this->mySqlManager->get_connection()->query($sql);
-          $this->mySqlManager->get_connection()->close();
-
-          // Extract ID from result set
-          $row = $result -> fetch_assoc();
-          $newid = $row["LAST_INSERT_ID()"];
-
-          return $newid;
-      }
-
-      // Permission
-      public function insertPermissionFromArray($array_permission)
-      {
-          $this->mySqlManager->init_connection();
-
-          // Insert data into table from array
-          $sql = 'INSERT INTO permission (nom) VALUES (
-        "' . $array_permission["nom"] . '")' ;
-          $this->mySqlManager->get_connection()->query($sql);
-
-          // Fetch last inserted ID
-          $sql = 'SELECT LAST_INSERT_ID()';
-          $result = $this->mySqlManager->get_connection()->query($sql);
-          $this->mySqlManager->get_connection()->close();
-
-          // Extract ID from result set
-          $row = $result -> fetch_assoc();
-          $newid = $row["LAST_INSERT_ID()"];
-
-          return $newid;
-      }
-
-      // Reference
-      public function insertReferenceFromArray($array_reference)
-      {
-          $this->mySqlManager->init_connection();
-
-          // Insert data into table from array
-          $sql = 'INSERT INTO reference (nom, url, description, id_article) VALUES (
-        "' . $array_reference["nom"] . '",
-        "' . $array_reference["url"] . '",
-        "' . $array_reference["description"] . '",
-        "' . $array_reference["id_article"] . '")' ;
-          $this->mySqlManager->get_connection()->query($sql);
-
-          // Fetch last inserted ID
-          $sql = 'SELECT LAST_INSERT_ID()';
-          $result = $this->mySqlManager->get_connection()->query($sql);
-          $this->mySqlManager->get_connection()->close();
-
-          // Extract ID from result set
-          $row = $result -> fetch_assoc();
-          $newid = $row["LAST_INSERT_ID()"];
-
-          return $newid;
-      }
-
-      // Reservation
-      public function insertReservationFromArray($array_reservation)
-      {
-          $this->mySqlManager->init_connection();
-
-          // Insert data into table from array
-          $sql = 'INSERT INTO reservation (date_prevue , date_prise_possession , date_retour_prevue , date_retour_effectif, commentaire , nom_utilisateur , id_article) VALUES (
-        "' . $array_reservation["date_prevue"] . '",
-        "' . $array_reservation["date_prise_possession"] . '",
-        "' . $array_reservation["date_retour_prevue"] . '",
-        "' . $array_reservation["date_retour_effectif"] . '",
-        "' . $array_reservation["commentaire"] . '",
-        "' . $array_reservation["nom_utilisateur"] . '",
-        ' . $array_reservation["id_article"] . ')' ;
-          $this->mySqlManager->get_connection()->query($sql);
-
-          // Fetch last inserted ID
-          $sql = 'SELECT LAST_INSERT_ID()';
-          $result = $this->mySqlManager->get_connection()->query($sql);
-          $this->mySqlManager->get_connection()->close();
-
-          // Extract ID from result set
-          $row = $result -> fetch_assoc();
-          $newid = $row["LAST_INSERT_ID()"];
-
-          return $newid;
-      }
-
-      // Sous Catégorie Article
-      public function insertSousCategorieFromArray($array_sous_categorie_article)
-      {
-          $this->mySqlManager->init_connection();
-
-          // Insert data into table from array
-          $sql = 'INSERT INTO sous_categorie_article (nom, description, id_categorie) VALUES (
-        "' . $array_sous_categorie_article["nom"] . '",
-        "' . $array_sous_categorie_article["description"] . '",
-        ' . $array_sous_categorie_article["id_categorie"] . ')' ;
-          $this->mySqlManager->get_connection()->query($sql);
-
-          // Fetch last inserted ID
-          $sql = 'SELECT LAST_INSERT_ID()';
-          $result = $this->mySqlManager->get_connection()->query($sql);
-          $this->mySqlManager->get_connection()->close();
-
-          // Extract ID from result set
-          $row = $result -> fetch_assoc();
-          $newid = $row["LAST_INSERT_ID()"];
-
-          return $newid;
-      }
 
       // Utilisateur
       public function insertUtilisateurFromArray($array_utilisateur)

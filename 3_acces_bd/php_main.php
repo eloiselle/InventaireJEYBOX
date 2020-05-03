@@ -40,32 +40,32 @@
 
     // Associe les noms des items à leurs équivalent bien écrit
     $listElementsTitles = [
-      0 => "Article",
-      1 => "Catégorie",
-      2 => "Contact Urgence",
-      3 => "État",
-      4 => "Permission",
-      5 => "Référence",
-      6 => "Réservation",
-      7 => "Sous-Catégorie",
-      8 => "Utilisateur"
+      "article" => "Article",
+      "categorie_article" => "Catégorie",
+      "contact_urgence" => "Contact Urgence",
+      "etat" => "État",
+      "permission" => "Permission",
+      "reference" => "Référence",
+      "reservation" => "Réservation",
+      "sous_categorie_article" => "Sous-Catégorie",
+      "utilisateur" => "Utilisateur"
     ];
 
     // Associe les noms des items à leurs propriétés de noms dans la base de données
     $listeNomPropriete = [
-      0 => [
+      "article" => [
         "size" => 4,
         1 => "nom",
         2 => "fiche_url",
         3 => "id_sous_categorie",
         4 => "id_etat",
       ],
-      1 => [
+      "categorie_article" => [
         "size" => 2,
         1 => "nom",
         2 => "description",
       ],
-      2 => [
+      "contact_urgence" => [
         "size" => 5,
         1 => "nom",
         2 => "prenom",
@@ -73,23 +73,23 @@
         4 => "telephone",
         5 => "nom_utilisateur"
       ],
-      3 => [
+      "etat" => [
         "size" => 2,
         1 => "nom",
         2 => "description",
       ],
-      4 => [
+      "permission" => [
         "size" => 1,
         1 => "nom",
       ],
-      5 => [
+      "reference" => [
         "size" => 4,
         1 => "nom",
-        2 => "prenom",
-        3 => "relation",
-        4 => "telephone",
+        2 => "url",
+        3 => "description",
+        4 => "id_article",
       ],
-      6 => [
+      "reservation" => [
         "size" => 7,
         1 => "date_prevue",
         2 => "date_prise_possession",
@@ -99,13 +99,13 @@
         6 => "nom_utilisateur",
         7 => "id_article"
       ],
-      7 => [
+      "sous_categorie_article" => [
         "size" => 3,
         1 => "nom",
         2 => "description",
         3 => "id_categorie",
       ],
-      8 => [
+      "utilisateur" => [
         "size" => 8,
         1 => "nom_utilisateur",
         2 => "mot_de_passe",
@@ -120,43 +120,43 @@
 
     // Associe les noms des items à leurs propriétés de types dans la base de données
     $listeTypePropriete = [
-        0 => [
+        "article" => [
           "size" => 4,
           1 => "text",
           2 => "text",
           3 => "number",
           4 => "number",
         ],
-        1 => [
+        "categorie_article" => [
           "size" => 2,
           1 => "text",
           2 => "text",
         ],
-        2 => [
+        "contact_urgence" => [
           "size" => 5,
           1 => "text",
           2 => "text",
           3 => "text",
           4 => "text",
-          5 => "number"
+          5 => "text"
         ],
-        3 => [
+        "etat" => [
           "size" => 2,
           1 => "text",
           2 => "text",
         ],
-        4 => [
+        "permission" => [
           "size" => 1,
           1 => "text",
         ],
-        5 => [
+        "reference" => [
           "size" => 4,
           1 => "text",
           2 => "text",
           3 => "text",
-          4 => "text",
+          4 => "number",
         ],
-        6 => [
+        "reservation" => [
           "size" => 7,
           1 => "date",
           2 => "date",
@@ -166,13 +166,13 @@
           6 => "text",
           7 => "number"
         ],
-        7 => [
+        "sous_categorie_article" => [
           "size" => 3,
           1 => "text",
           2 => "text",
           3 => "number",
         ],
-        8 => [
+        "utilisateur" => [
           "size" => 8,
           1 => "text",
           2 => "text",
@@ -189,24 +189,30 @@
       echo '  <form id="formResetDB" method="post">';
       echo '    <input type="submit" name="resetBD" value="Reset BD"/>';
       echo '  </form>';
-      for ($x = 0; $x < 8; $x++) {
+      for ($x = 0; $x < 9; $x++) {
           $activeCategory = $listElementsNumbers[$x];
           echo '<button onclick="myFunction' . $activeCategory . '()">' . $activeCategory . '</button>';
       }
       echo '<br>';
 
       // Pour chaque élément
-      for ($x = 0; $x < 8; $x++) {
+      for ($x = 0; $x < 9; $x++) {
           $activeCategory = $listElementsNumbers[$x];
           echo '  <form id="form' . $activeCategory . '" method="post" style="display: none;">';
-          echo '    <h1> ' . $listElementsTitles[$x] . ' </h1>';
+          echo '    <h1> ' . $listElementsTitles[$activeCategory] . ' </h1>';
           echo '    <table id="table' . $activeCategory . '">';
           echo '      <tr>';
           echo '        <td colspan="2" style="text-align:center;"><h2>Select</h2></td>';
           echo '      </tr>';
           echo '      <tr>';
+
+          if ($activeCategory != "utilisateur") {
           echo '        <td><label for="fSelect' . $activeCategory . 'ID">ID: </label></td>';
           echo '        <td><input type="number" name="fSelect' . $activeCategory . 'ID" value=1 min=1></td>';
+          } else {
+          echo '        <td><label for="fSelect' . $activeCategory . 'ID">Nom utilisateur: </label></td>';
+          echo '        <td><input type="text" name="fSelect' . $activeCategory . 'ID"></td>';
+          }
           echo '      </tr>';
           echo '      <tr>';
           echo '        <td colspan="2" style="text-align:center;"><input type="submit" name="select' . $activeCategory . '" value="Select ' . $activeCategory . ' from ID"/></td>';
@@ -219,20 +225,20 @@
           echo '      </tr>';
 
           // Pour chaque élément, pour chacun de leur nombre d'éléments
-          for ($i=0; $i < $listeNomPropriete[$x]["size"]; $i++) {
+          for ($i=0; $i < $listeNomPropriete[$activeCategory]["size"]; $i++) {
               echo '    <tr>';
-              echo '        <td><label for="fInsert' . $activeCategory . $listeNomPropriete[$x][$i+1] . '">' . $listeNomPropriete[$x][$i+1] . ': </label></td>';
+              echo '        <td><label for="fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1] . '">' . $listeNomPropriete[$activeCategory][$i+1] . ': </label></td>';
 
               // Détermine le type d'élément
-              switch ($listeTypePropriete[$x][$i+1]) {
+              switch ($listeTypePropriete[$activeCategory][$i+1]) {
             case 'text':
-              echo '    <td><input type="text" name="fInsert' . $activeCategory . $listeNomPropriete[$x][$i+1] . '"></td>';
+              echo '    <td><input type="text" name="fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1] . '"></td>';
               break;
             case 'number':
-              echo '    <td><input type="number" name="fInsert' . $activeCategory . $listeNomPropriete[$x][$i+1] . '" value=1 min=1></td>';
+              echo '    <td><input type="number" name="fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1] . '" value=1 min=1></td>';
               break;
             case 'date':
-              echo '    <td><input type="date" name="fInsert' . $activeCategory . $listeNomPropriete[$x][$i+1] . '"></td>';
+              echo '    <td><input type="date" name="fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1] . '"></td>';
               break;
 
             default:
@@ -247,7 +253,7 @@
           echo '</form>';
           echo '<script>';
           echo '  function myFunction' . $activeCategory . '() {';
-          for ($y = 0; $y < 8; $y++) {
+          for ($y = 0; $y < 9; $y++) {
               echo '    var element' . $listElementsNumbers[$y] . ' = document.getElementById("form' . $listElementsNumbers[$y] . '");';
               echo '    element' . $listElementsNumbers[$y] . '.style.display = "none";';
           }
@@ -257,14 +263,14 @@
           echo '</script>';
       }
 
-      for ($x = 0; $x < 8; $x++) {
+      for ($x = 0; $x < 9; $x++) {
           $activeCategory = $listElementsNumbers[$x];
 
           // Show result of select statement
           if (isset($_POST['select' . $activeCategory])) {
               $id = $_POST['fSelect'. $activeCategory . 'ID'];
-              return $moteurRequetes->selectFromID($id, $activeCategory);
-            }
+              print_r($moteurRequetes->selectFromID($activeCategory, $id));
+          }
 
           // Delete element from ID
           if (isset($_POST['delete' . $activeCategory])) {
@@ -308,53 +314,40 @@
               }
           }
 
-          // Insert element from Array
-
+          // Insérer élément dans la BD avec un tableau d'objets
           if (isset($_POST['insert' . $activeCategory])) {
-              $id = $_POST['fSelect'. $activeCategory . 'ID'];
+
+              // Tableau vide prêt à être populé
               $array = [];
 
-              // Create object to be inserted
+              // Insérer dans le tableau les éléments à insérer dans la BD
               for ($i=0; $i < $listeNomPropriete[$activeCategory]["size"]; $i++) {
-                  $array += [ $listeNomPropriete[$activeCategory][$i+1] => $_POST['fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1]]];
+
+                  // Condition pour filtrer les champs de dates
+                  if ($listeTypePropriete[$activeCategory][$i+1] !== "date") {
+
+                    // Si ce n'est pas une date, on ajoute le contenu du champ dans le tableau
+                    $array += [ $listeNomPropriete[$activeCategory][$i+1] =>
+                      $_POST['fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1]]];
+                  } else {
+
+                    // Si c'est une date, on converti l'entrée en format date pour SQL avant de l'intégrer dans le tableau
+                    $array += [ $listeNomPropriete[$activeCategory][$i+1] =>
+                      date("Y-m-d H:i:s",strtotime($_POST['fInsert' . $activeCategory . $listeNomPropriete[$activeCategory][$i+1]]))];
+                  }
               }
 
-              switch ($activeCategory) {
-            case 'Article':
-              $result = $moteurRequetes->insertArticleFromArray($array);
-              break;
-            case 'CategorieArticle':
-              $result = $moteurRequetes->insertCategorieFromArray($array);
-              break;
-            case 'ContactUrgence':
-              $result = $moteurRequetes->insertContactUrgenceFromArray($array);
-              break;
-            case 'Etat':
-              $result = $moteurRequetes->insertEtatFromArray($array);
-              break;
-            case 'Permission':
-              $result = $moteurRequetes->insertPermissionFromArray($array);
-              break;
-            case 'Reference':
-              $result = $moteurRequetes->insertReferenceFromArray($array);
-              break;
-            case 'Reservation':
-              $result = $moteurRequetes->insertReservationFromArray($array);
-              break;
-            case 'SousCategorieArticle':
-              $result = $moteurRequetes->insertSousCategorieFromArray($array);
-              break;
-            case 'Utilisateur':
-              $result = $moteurRequetes->insertUtilisateurFromArray($array);
-              break;
+              // Exécuter la requête
+              $result = $moteurRequetes->insertFromArray($activeCategory, $array);
+              if ($activeCategory !== "utilisateur") {
+                echo 'ID du nouvel élément dans la table ' . $activeCategory . ': ' . $result;
+              } else {
+                echo 'Utilisateur ' . $array["nom_utilisateur"] . ' créer avec succès.';
+              }
 
-            default:
-              break;
           }
 
-              echo 'ID du nouvel élément dans la table ' . $activeCategory . ': ' . $result;
-          }
-
+          // Requête pour recréer la BD
           if (isset($_POST['resetBD'])) {
               $result = $moteurRequetes->recreateDatabase();
           }

@@ -39,7 +39,7 @@ class gestionnaireArticle {
 
         return $infoArticle;
     }
-
+/*
     //Gestion des references
     public function creerReference($idRef) {
 

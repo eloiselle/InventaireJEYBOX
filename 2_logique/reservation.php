@@ -26,8 +26,7 @@
           $new_commentaire,
           $new_id_nom_utilisateur_fk,
           $new_id_article_fk
-      )
-      {
+      ) {
           $this->set_id($new_id_reservation);
           $this->set_date_prevue($new_date_prevue);
           $this->set_date_prise_possession($new_date_prise_possession);

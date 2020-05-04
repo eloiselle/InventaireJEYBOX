@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-    <script src="Script/script.js"></script>
+    <script src="../../Script/script.js"></script>
     <title>Mot de passe oublié</title>
   </head>
   <body>

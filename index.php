@@ -72,11 +72,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">DO NOT PRESS THAT LINK</h4>
+          <h4 class="modal-title">Visualisation de la pièce</h4>
         </div>
         <div class="modal-body">
-          <iframe src="https://www.youtube.com/embed/L989S2QxXUU" allow="accelerometer;" allowfullscreen></iframe><br><br>
-          <a href="https://witcher.fandom.com/wiki/Geralt_of_Rivia" target="_blank">Explore the world</a>
+          <iframe width="500" height="300" src="https://www.youtube.com/embed/y3CA5ZUXAfg" allowfullscreen></iframe><br><br>
+          <a href="https://www.01net.com/actualites/quelle-difference-entre-pc-ordinateur-et-micro-ordinateur-517958.html" target="_blank">Vous voulez plus de détails ?</a>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

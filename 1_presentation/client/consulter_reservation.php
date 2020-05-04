@@ -8,7 +8,6 @@
     <title>JEYBOX - Réservations</title>
   </head>
   <body>
-
     <nav class="col-m-12 col-12">
       <ul>
         <li><a href="../../index.html"><img src="../../images/JEYBOX_Logo_1037x300.png" alt="Logo JEYBOX" width="173" height="50"></a></li>
@@ -16,7 +15,7 @@
         <!-- Link to "Consulter Article" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('../controleurs/CTRL_article.php')) {
-            echo '<li><a class="active_button" href="../controleurs/CTRL_article.php">Articles</a></li>';
+            echo '<li><a class="button" href="../controleurs/CTRL_article.php">Articles</a></li>';
         } else {
             echo '<li><div class="inactive_button">Article</div></li>';
         } ?>
@@ -24,7 +23,7 @@
         <!-- Link to "Consulter Réservation" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
         if (file_exists('../controleurs/CTRL_reservation.php')) {
-            echo '<li><a class="button" href="../controleurs/CTRL_reservation.php">Réservations</a></li>';
+            echo '<li><a class="active_button" href="../controleurs/CTRL_reservation.php">Réservations</a></li>';
         } else {
             echo '<li><div class="inactive_button">Réservations</div></li>';
         } ?>
@@ -32,127 +31,72 @@
         <li style="float:right"><div class="navigator">Client</div></li>
       </ul>
     </nav>
+    <div class="container">
+      <table class="itemSelection">
+        <!-- Purely here for aesthetic purposes -->
+        <tr>
+          <th><div class="halfBorderTop"></div></th>
+        </tr>
 
-    <table class="itemSelection">
-      <!-- Purely here for aesthetic purposes -->
-      <tr>
-        <th><div class="halfBorderTop"></div></th>
-      </tr>
+        <!-- Title -->
+        <tr>
+          <th colspan="8"><h1>Réservations</h1></th>
+        </tr>
 
-      <!-- Title -->
-      <tr>
-        <th><h1>Réservations</h1></th>
-      </tr>
-
-      <!-- Search bar -->
-      <tr>
-        <th>
-          <div class="search-container">
-            <form action="/action_page.php" class="searchformh">
-              <input type="text" placeholder="Recherche.." name="search" class="searchtxt">
-              <button type="submit" class="searchbtn"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
-        </th>
-      </tr>
-
-      <tr class="entete">
-        <th style="width: 10%">Identifiant</th>
-        <th style="width: 20%">Date</th>
-        <th style="width: 20%">Utilisateur</th>
-        <th style="width: 30%">Identifiant Article</th>
-        <th style="width: 10%"></th>
-        <th style="width: 10%">En cours</th>
-      </tr>
-
-      <!-- Réservation #1 -->
-      <tr class="item">
-        <th>1-0085</th>
-        <th>19-04-2020</th>
-        <th>JspanLeto</th>
-        <th><i class="fa fa-question-circle tooltip"><span class="tooltiptext">ID :  RPI-2010</span></i>   ITM-URPI2010-10001</th>
-          <th></th>
-          <th>
-            <form action="/action_page.php">
-              <input type="checkbox" id="inprogress" name="inprogress" disabled>
-            </form>
+        <!-- Search bar -->
+        <tr>
+          <th colspan="8">
+            <div class="search-container" >
+              <form action="/action_page.php" class="searchformh">
+                <input type="text" placeholder="Recherche.." name="search" class="searchtxt">
+                <button type="submit" class="searchbtn"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
           </th>
+        </tr>
 
-      </tr>
+        <!-- En-tête de table -->
+        <tr class="entete">
+          <th style="width: 5%">ID</th>
+          <th style="width: 10%">Date prise prévue</th>
+          <th style="width: 10%">Date prise effectif</th>
+          <th style="width: 10%">Date retour prévue</th>
+          <th style="width: 10%">Date retour effectif</th>
+          <th style="width: 10%">Utilisateur</th>
+          <th style="width: 13%">Identifiant Article</th>
+          <th style="width: 2%">En cours</th>
+        </tr>
 
-      <!-- Réservation #2 -->
-      <tr class="item">
-        <th>1-0086</th>
-        <th>19-04-2020</th>
-        <th>RogueIMvader</th>
-        <th><i class="fa fa-question-circle tooltip"><span class="tooltiptext">ID :  BTR-5010</span></i>   ITM-URPI2010-10003</th>
-        <th></th>
-        <th>
-          <form action="/action_page.php">
-            <input type="checkbox" id="inprogress" name="inprogress" disabled>
-          </form>
-        </th>
-      </tr>
+          <?php
+          sort($listeReservation);
+          for ($i=0; $i < count($listeReservation); $i++) {
+              $associatedArticle = gestionnaireArticle::fetchArticleFromBD($moteurRequetes, $listeReservation[$i]->get_id_article());
 
-      <!-- Réservation #3 -->
-      <tr class="item">
-        <th>1-0087</th>
-        <th>19-04-2020</th>
-        <th>BaclavaAreGud</th>
-        <th><i class="fa fa-question-circle tooltip"><span class="tooltiptext">ID :  LED-2030</span></i>   ITM-URPI2010-10006</th>
-        <th></th>
-        <th>
-          <form action="/action_page.php">
-            <input type="checkbox" id="inprogress" name="inprogress" disabled>
-          </form>
-        </th>
-      </tr>
+              echo '<!-- Réservation #' . ($i+1) . ' -->';
+              echo '<tr class="item">';
+              echo '  <th>' . $listeReservation[$i]->get_id() . '</th>';
+              echo '  <th>' . $listeReservation[$i]->get_date_prevue() . '</th>';
+              echo '  <th>' . $listeReservation[$i]->get_date_prise_possession() . '</th>';
+              echo '  <th>' . $listeReservation[$i]->get_date_retour_prevue() . '</th>';
+              echo '  <th>' . $listeReservation[$i]->get_date_retour_effectif() . '</th>';
+              echo '  <th>' . $listeReservation[$i]->get_nom_utilisateur() . '</th>';
+              echo '  <th><i class="fa fa-question-circle tooltip"><span class="tooltiptext">' . $associatedArticle->get_nom() . '</span></i>   ' . $associatedArticle->get_identifiant() .  '</th>';
+              echo '  <th>';
+              echo '    <form action="/action_page.php">';
+              echo '      <input style="width: auto" type="checkbox" id="inprogress" name="inprogress" disabled>';
+              echo '    </form>';
+              echo '  </th>';
+              echo '</tr>';
+          }
+          ?>
+      </table>
 
-      <!-- Réservation #4 -->
-      <tr class="item">
-        <th>1-0088</th>
-        <th>20-04-2020</th>
-        <th>HumptyDumpty</th>
-        <th><i class="fa fa-question-circle tooltip"><span class="tooltiptext">ID :  RPI-3020</span></i>   ITM-URPI3010-10055</th>
-        <th></th>
-        <th>
-          <form action="/action_page.php">
-            <input type="checkbox" id="inprogress" name="inprogress" disabled>
-          </form>
-        </th>
-      </tr>
+      <table class="tblOptions">
+        <tr>
+          <th style="width: 10%"><a class="btnRetour" href="../../index.html">Précédent</a></th>
+        </tr>
+      </table>
 
-      <!-- Réservation #5 -->
-      <tr class="item">
-        <th>1-0089</th>
-        <th>20-04-2020</th>
-        <th>RetroQCbuyer</th>
-        <th><i class="fa fa-question-circle tooltip"><span class="tooltiptext">ID :  RPI-2010</span></i>   ITM-URPI2020-10062</th>
-        <th></th>
-        <th>
-          <form action="/action_page.php">
-            <input type="checkbox" id="inprogress" name="inprogress" disabled>
-          </form>
-        </th>
-      </tr>
-
-      <!-- Réservation #6 -->
-      <tr class="item">
-        <th>1-0090</th>
-        <th>22-04-2020</th>
-        <th>UnforgivingForgiver</th>
-        <th><i class="fa fa-question-circle tooltip"> <span class="tooltiptext">ID :  RPI-3020</span> </i>   ITM-URPI3020-10081</th>
-        <th></th>
-        <th>
-          <form action="/action_page.php">
-            <input type="checkbox" id="inprogress" name="inprogress" disabled>
-          </form>
-        </th>
-      </tr>
-
-    </table>
-
-    <br><br>
-
+    </div>
   </body>
 </html>

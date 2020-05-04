@@ -65,89 +65,25 @@
         <th style="width: 10%"></th>
       </tr>
 
-      <!-- Article #1 -->
-      <tr class="item">
-        <th>
-          <form action="/action_page.php">
-            <input class="amountSelection" type="number" id="quantity" name="quantity" min="0" max="5" value="0">
-          </form>
-        </th>
-        <th>RPI-3020</th>
-        <th>Raspberry Pi 3 - Model B</th>
-        <th>Micro-ordinateur</th>
-        <th class="dispo">5</th>
-        <th><a class="button" href="article.php">Visionner</a></th>
-      </tr>
+      <?php
+      for ($i=0; $i < count($listeArticles); $i++) {
+          $keyListeArticles = array_keys($listeArticles);
 
-      <!-- Article #2 -->
-      <tr class="item">
-        <th>
-          <form action="/action_page.php">
-            <input class="amountSelection" type="number" id="quantity" name="quantity" min="0" max="2" value="0">
-          </form>
-        </th>
-        <th>RPI-2020</th>
-        <th>Raspberry Pi 2 - Model B</th>
-        <th>Micro-ordinateur</th>
-        <th class="dispo">2</th>
-        <th><a class="button" href="">Visionner</a></th>
-      </tr>
-
-      <!-- Article #3 -->
-      <tr class="item">
-        <th>
-          <form action="/action_page.php">
-            <input class="amountSelection" type="number" id="quantity" name="quantity" min="0" max="0" value="0" disabled>
-          </form>
-        </th>
-        <th>RPI-2010</th>
-        <th>Raspberry Pi 2</th>
-        <th>Micro-ordinateur</th>
-        <th class="dispo">0</th>
-        <th><a class="button" href="">Visionner</a></th>
-      </tr>
-
-      <!-- Article #4 -->
-      <tr class="item">
-        <th>
-          <form action="/action_page.php">
-            <input class="amountSelection" type="number" id="quantity" name="quantity" min="0" max="42" value="0">
-          </form>
-        </th>
-        <th>LED-2030</th>
-        <th>Adafruit LED Sequins - Warm White</th>
-        <th>Composante électronique - LED</th>
-        <th class="dispo">42</th>
-        <th><a class="button" href="">Visionner</a></th>
-      </tr>
-
-      <!-- Article #5 -->
-      <tr class="item">
-        <th>
-          <form action="/action_page.php">
-            <input class="amountSelection" type="number" id="quantity" name="quantity" min="0" max="5" value="0">
-          </form>
-        </th>
-        <th>BTR-5010</th>
-        <th>Batterie PiJuice 500mAh</th>
-        <th>Électricité - Batterie</th>
-        <th class="dispo">5</th>
-        <th><a class="button" href="">Visionner</a></th>
-      </tr>
-
-      <!-- Article #6 -->
-      <tr class="item">
-        <th>
-          <form action="/action_page.php">
-            <input class="amountSelection" type="number" id="quantity" name="quantity" min="0" max="0" value="0" disabled>
-          </form>
-        </th>
-        <th>BTR-6010</th>
-        <th>Batterie Compact Rechargeable 10400mAh</th>
-        <th>Électricité - Batterie</th>
-        <th class="dispo">0</th>
-        <th><a class="button" href="">Visionner</a></th>
-      </tr>
+          echo '<!-- Article #' . $i . ' -->';
+          echo '<tr class="item">';
+          echo '  <th>';
+          echo '    <form action="/action_page.php">';
+          echo '      <input class="amountSelection" type="number" id="quantity" name="quantity" min="0" max="5" value="0">';
+          echo '    </form>';
+          echo '  </th>';
+          echo '  <th>' . $listeArticles[$keyListeArticles[$i]]->get_identifiant() . '</th>';
+          echo '  <th>' . $listeArticles[$keyListeArticles[$i]]->get_nom() . '</th>';
+          echo '  <th>' . $listeArticles[$keyListeArticles[$i]]->get_id_sous_categorie() . '</th>';
+          echo '  <th class="dispo">0</th>';
+          echo '  <th><a class="button" href="article.php">Visionner</a></th>';
+          echo '</tr>';
+      }
+       ?>
 
     </table>
 

@@ -20,7 +20,8 @@ class gestionnaireArticle
             $infoArticle[$keyArticle[1]],
             $infoArticle[$keyArticle[2]],
             $infoArticle[$keyArticle[3]],
-            $infoArticle[$keyArticle[4]]
+            $infoArticle[$keyArticle[4]],
+            $infoArticle[$keyArticle[5]]
         );
 
         // Retourner l'objet

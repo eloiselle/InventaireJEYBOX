@@ -55,11 +55,12 @@
     // Associe les noms des items à leurs propriétés de noms dans la base de données
     $listeNomPropriete = [
       "article" => [
-        "size" => 4,
+        "size" => 5,
         1 => "nom",
-        2 => "fiche_url",
-        3 => "id_sous_categorie",
-        4 => "id_etat",
+        2 => "identifiant",
+        3 => "fiche_url",
+        4 => "id_sous_categorie",
+        5 => "id_etat",
       ],
       "categorie_article" => [
         "size" => 2,
@@ -122,19 +123,17 @@
     // Associe les noms des items à leurs propriétés de types dans la base de données
     $listeTypePropriete = [
         "article" => [
-          "size" => 4,
           1 => "text",
           2 => "text",
-          3 => "number",
+          3 => "text",
           4 => "number",
+          5 => "number",
         ],
         "categorie_article" => [
-          "size" => 2,
           1 => "text",
           2 => "text",
         ],
         "contact_urgence" => [
-          "size" => 5,
           1 => "text",
           2 => "text",
           3 => "text",
@@ -142,23 +141,19 @@
           5 => "text"
         ],
         "etat" => [
-          "size" => 2,
           1 => "text",
           2 => "text",
         ],
         "permission" => [
-          "size" => 1,
           1 => "text",
         ],
         "reference" => [
-          "size" => 4,
           1 => "text",
           2 => "text",
           3 => "text",
           4 => "number",
         ],
         "reservation" => [
-          "size" => 7,
           1 => "date",
           2 => "date",
           3 => "date",
@@ -168,13 +163,11 @@
           7 => "number"
         ],
         "sous_categorie_article" => [
-          "size" => 3,
           1 => "text",
           2 => "text",
           3 => "number",
         ],
         "utilisateur" => [
-          "size" => 8,
           1 => "text",
           2 => "text",
           3 => "text",

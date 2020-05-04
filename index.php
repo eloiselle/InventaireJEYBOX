@@ -25,8 +25,8 @@
 
         <!-- Link to "Client" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
-        if (file_exists('1_presentation/client/consulter_article.php')) {
-            echo '<li><a class="button" href="1_presentation/client/consulter_article.php">Client</a></li>';
+        if (file_exists('1_presentation/controleurs/CTRL_general.php')) {
+            echo '<li><a class="button" href="1_presentation/controleurs/CTRL_general.php">Client</a></li>';
         } else {
             echo '<li><div class="inactive_button">Client</div></li>';
         } ?>

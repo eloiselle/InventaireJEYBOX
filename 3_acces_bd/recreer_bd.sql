@@ -73,8 +73,9 @@ create table etat (
 
 create table article (
 	id_article int primary key auto_increment,
+	identifiant varchar(50) not null,
 	nom varchar(50) not null,
-	fiche_url varchar(255) not null,
+	fiche_url varchar(255),
 
 	id_sous_categorie int not null,
 	constraint `fk_sous-categorie_article`
@@ -228,11 +229,19 @@ values
 );
 
 
-insert into article (nom, fiche_url, id_sous_categorie, id_etat)
+insert into article (nom, identifiant, fiche_url, id_sous_categorie, id_etat)
 values
 (
 	"Raspberry Pi 3 - Modèle B",
-	"lien_vers_la_fiche_local.pdf",
+	"RPI 3020"
+	"raspi3_modB_specs.pdf",
+	(select id_sous_categorie from sous_categorie_article where nom = "Micro-Ordinateur"),
+	(select id_etat from etat where nom = "Prêt")
+),
+(
+	"Raspberry Pi 2 - Modèle B",
+	"RPI 2020"
+	"raspi2_modB_specs.pdf",
 	(select id_sous_categorie from sous_categorie_article where nom = "Micro-Ordinateur"),
 	(select id_etat from etat where nom = "Prêt")
 );

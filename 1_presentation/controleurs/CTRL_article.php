@@ -1,8 +1,10 @@
 <?php
 
-  $ui_gestionArticle = new gestion_article();
-  $ge = new gestionnaire_article();
+$monArticle = gestionnaireArticle::fetchArticleFromBD($moteurRequetes, 1);
 
-  $infoArticle = $ge.obtenirArticle($idArticle);
-  $infoReference = $ge.obtenirReference($idReference);
-  $infoEtat = $ge.obtenirEtat($idEtat);
+$listeArticles[] = $monArticle;
+
+$maReference = gestionnaireArticle::fetchReferenceFromBD($moteurRequetes, 1);
+$monEtat = gestionnaireArticle::fetchEtatFromBD($moteurRequetes, 1);
+
+include '../client/consulter_article.php';

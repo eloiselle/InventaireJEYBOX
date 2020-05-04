@@ -35,7 +35,7 @@
 
       // Liste de requêtes SQL pour insérer un array
       private $sqlQueriesInsertArray = [
-        "article" => 'INSERT INTO article (nom, fiche_url, id_sous_categorie, id_etat) VALUES ( ?, ?, ?, ?)',
+        "article" => 'INSERT INTO article (nom, identifiant, fiche_url, id_sous_categorie, id_etat) VALUES ( ?, ?, ?, ?, ?)',
         "categorie_article" => 'INSERT INTO categorie_article (nom, description) VALUES (?, ?)',
         "contact_urgence" => 'INSERT INTO contact_urgence (nom, prenom, relation, telephone, nom_utilisateur) VALUES (?, ?, ?, ?, ?)',
         "etat" => 'INSERT INTO etat (nom, description) VALUES (?, ?)',
@@ -44,6 +44,19 @@
         "reservation" => 'INSERT INTO reservation (date_prevue , date_prise_possession , date_retour_prevue , date_retour_effectif, commentaire , nom_utilisateur , id_article) VALUES (?, ?, ?, ?, ?, ?, ?)',
         "sous_categorie_article" => 'INSERT INTO sous_categorie_article (nom, description, id_categorie) VALUES (?, ?, ?)',
         "utilisateur" => 'INSERT INTO utilisateur (nom_utilisateur , mot_de_passe , nom , prenom , courriel , telephone , date_naissance , id_permission) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+      ];
+
+      // Liste de requêtes SQL pour mettre-à-jour à partir d'un array
+      private $sqlQueriesUpdateArray = [
+        "article" => 'UPDATE article SET nom = ?, identifiant = ?, fiche_url = ?, id_sous_categorie = ?, id_etat = ? WHERE id_article = ?',
+        "categorie_article" => 'UPDATE categorie_article SET nom = ?, description = ? WHERE id_categorie = ?',
+        "contact_urgence" => 'UPDATE contact_urgence SET nom = ?, prenom = ?, relation = ?, telephone = ?, nom_utilisateur = ? WHERE id_contact_urgence = ?)',
+        "etat" => 'UPDATE etat SET nom = ?, description = ? WHERE id_etat = ?',
+        "permission" => 'UPDATE permission SET nom = ? WHERE id_permission = ?',
+        "reference" => 'UPDATE reference SET nom = ?, url = ?, description = ?, id_article = ? WHERE id_reference = ?',
+        "reservation" => 'UPDATE reservation SET date_prevue = ? , date_prise_possession = ? , date_retour_prevue = ? , date_retour_effectif = ? , commentaire = ? , nom_utilisateur = ? , id_article = ? WHERE id_reservation = ?',
+        "sous_categorie_article" => 'UPDATE sous_categorie_article SET nom = ? , description = ? , id_categorie = ? WHERE id_sous_categorie = ?',
+        "utilisateur" => 'UPDATE utilisateur SET mot_de_passe = ? , nom = ? , prenom = ? , courriel = ? , telephone = ? , date_naissance = ? , id_permission = ? WHERE nom_utilisateur = ?',
       ];
 
       // Constructor
@@ -152,6 +165,62 @@
           if (!$stmt = $conn->prepare($this->sqlQueriesInsertArray[$lowerObjectName])) {
               die("Erreur: la préparation de la requête SQL a échoué: (" . $conn->errno . ") " . $conn->error);
           }
+
+          // Créer les arguments pour "bind_param" en mode intéractif
+          // Ceci permet d'utiliser la même méthode pour tous les objets
+          // (les paramètres sont ajoutés selon le nombre nécessaire)
+          $sqltype = ''; // Contiendra le type (tous "s" pour le moment (string))
+          $sqldata = []; // Contiendra les données (contenu de $array)
+          foreach ($array as $name => $data) {
+              $sqltype .= 's';
+              $sqldata[] = $data; // DOIT être une référence
+          }
+          $stmt->bind_param($sqltype, ...$sqldata);
+
+          // Exécute la requête SQL
+          if (!$stmt->execute()) {
+              print_r($stmt);
+              die("\r\nErreur: execute() de la requête SQL a échoué: (" . $stmt->errno . ") " . $stmt->error);
+          }
+
+          // Obtenir le ID du dernier élément inséré
+          $result = $this->mySqlManager->get_connection()->query('SELECT LAST_INSERT_ID()');
+          $conn->close();
+
+          // Extraire le ID du "result set"
+          $row = $result -> fetch_assoc();
+          return $row["LAST_INSERT_ID()"];
+      }
+
+      // ==============================================
+      //                    UPDATE
+      // ==============================================
+
+      public function updateFromArray($objectName, $array)
+      {
+          // Initialise la connexion à la BD
+          $this->mySqlManager->init_connection();
+
+          // Variables utiles
+          $conn = $this->mySqlManager->get_connection();
+          $lowerObjectName = strtolower($objectName);
+
+          // Test si le nom de l'objet est valide dans le tableau d'objets
+          if ($this->sqlQueriesInsertArray[$lowerObjectName]) {
+              // Charge la requête correspondant au numéro d'objet
+              $stmt = $this->sqlQueriesUpdateArray[$lowerObjectName];
+          } else {
+              // Message d'erreur
+              die("Erreur: le nom d'objet n'est pas reconnu. Il doit exister dans la liste d'objets.");
+          }
+
+          // Préparer la requête SQL
+          if (!$stmt = $conn->prepare($this->sqlQueriesUpdateArray[$lowerObjectName])) {
+              die("Erreur: la préparation de la requête SQL a échoué: (" . $conn->errno . ") " . $conn->error);
+          }
+
+          // Retourner le premier élément du tableau (le id) en arrière (pour correspondre à la structure du update)
+          $array[] = array_shift($array);
 
           // Créer les arguments pour "bind_param" en mode intéractif
           // Ceci permet d'utiliser la même méthode pour tous les objets

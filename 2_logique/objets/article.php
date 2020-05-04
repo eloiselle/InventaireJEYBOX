@@ -8,6 +8,7 @@
    {
        // Variables
        private $int_id_article;
+       private $int_identifiant;
        private $string_nom;
        private $file_fichier;
        private $int_id_sous_categorie;
@@ -16,12 +17,14 @@
        // Override __construct
        public function __construct(
            $new_id_article,
+           $new_identifiant,
            $new_nom,
            $new_fichier,
            $new_id_sous_categorie,
            $new_id_etat
        ) {
            $this->set_id($new_id_article);
+           $this->set_identifiant($new_identifiant);
            $this->set_nom($new_nom);
            $this->set_fichier($new_fichier);
            $this->set_id_sous_categorie($new_id_sous_categorie);
@@ -48,6 +51,11 @@
            $this->int_id_article = $new_id_article;
        }
 
+       public function set_identifiant($new_identifiant)
+       {
+           $this->int_identifiant = $new_identifiant;
+       }
+
        public function set_nom($new_nom)
        {
            $this->string_nom = $new_nom;
@@ -72,6 +80,11 @@
        public function get_id()
        {
            return $this->int_id_article;
+       }
+
+       public function get_identifiant()
+       {
+           return $this->int_identifiant;
        }
 
        public function get_nom()

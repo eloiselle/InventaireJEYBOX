@@ -29,4 +29,30 @@ class gestionnaireReservation
         // Retourner l'objet
         return $uneReservation;
     }
+
+    // Récupère tous les IDs existants, puis créer des objets à partir de chacun de ces IDs
+    public static function fetchAllReservationFromBD($moteurRequetes) {
+
+        // Variables
+        $arrayReservation = [];
+
+        // Récupérer les données de la BD dans un tableau
+        $infoReservation = $moteurRequetes->selectAllIDs("reservation");
+        if ($infoReservation == null) {
+            return null;
+        }
+
+        // Pour chaque ID
+        for ($i=0; $i < count($infoReservation); $i++) {
+
+            // Générer des clés pour accéder au tableau avec des INT
+            $keyReservation = array_keys($infoReservation[$i]);
+
+            // Créer un objet à partir d'un ID
+            $arrayReservation[] = gestionnaireReservation::fetchReservationFromBD($moteurRequetes, $infoReservation[$i][$keyReservation[0]]);
+        }
+
+        // Retourner le tableau
+        return $arrayReservation;
+    }
 }

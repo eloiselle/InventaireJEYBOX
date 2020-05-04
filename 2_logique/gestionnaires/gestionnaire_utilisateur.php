@@ -24,6 +24,32 @@ class gestionnaireUtilisateur
         return $unePermission;
     }
 
+    // Récupère tous les IDs existants, puis créer des objets à partir de chacun de ces IDs
+    public static function fetchAllPermissionFromBD($moteurRequetes) {
+
+        // Variables
+        $arrayPermission = [];
+
+        // Récupérer les données de la BD dans un tableau
+        $infoPermission = $moteurRequetes->selectAllIDs("permission");
+        if ($infoPermission == null) {
+            return null;
+        }
+
+        // Pour chaque ID
+        for ($i=0; $i < count($infoPermission); $i++) {
+
+            // Générer des clés pour accéder au tableau avec des INT
+            $keyPermission = array_keys($infoPermission[$i]);
+
+            // Créer un objet à partir d'un ID
+            $arrayPermission[] = gestionnairePermission::fetchPermissionFromBD($moteurRequetes, $infoPermission[$i][$keyPermission[0]]);
+        }
+
+        // Retourner le tableau
+        return $arrayPermission;
+    }
+
     // Gestion des utilisateurs
     public static function fetchUtilisateurFromBD($moteurRequetes, $idUtilisateur)
     {
@@ -52,6 +78,32 @@ class gestionnaireUtilisateur
         return $unUtilisateur;
     }
 
+    // Récupère tous les IDs existants, puis créer des objets à partir de chacun de ces IDs
+    public static function fetchAllUtilisateurFromBD($moteurRequetes) {
+
+        // Variables
+        $arrayUtilisateur = [];
+
+        // Récupérer les données de la BD dans un tableau
+        $infoUtilisateur = $moteurRequetes->selectAllIDs("utilisateur");
+        if ($infoUtilisateur == null) {
+            return null;
+        }
+
+        // Pour chaque ID
+        for ($i=0; $i < count($infoUtilisateur); $i++) {
+
+            // Générer des clés pour accéder au tableau avec des INT
+            $keyUtilisateur = array_keys($infoUtilisateur[$i]);
+
+            // Créer un objet à partir d'un ID
+            $arrayUtilisateur[] = gestionnaireUtilisateur::fetchUtilisateurFromBD($moteurRequetes, $infoUtilisateur[$i][$keyUtilisateur[0]]);
+        }
+
+        // Retourner le tableau
+        return $arrayUtilisateur;
+    }
+
     // Gestion des contacts d'urgence
     public static function fetchContactUrgenceFromBD($moteurRequetes, $idContactUrgence)
     {
@@ -76,5 +128,31 @@ class gestionnaireUtilisateur
 
         // Retourner l'objet
         return $unContactUrgence;
+    }
+
+    // Récupère tous les IDs existants, puis créer des objets à partir de chacun de ces IDs
+    public static function fetchAllContactUrgenceFromBD($moteurRequetes) {
+
+        // Variables
+        $arrayContactUrgence = [];
+
+        // Récupérer les données de la BD dans un tableau
+        $infoContactUrgence = $moteurRequetes->selectAllIDs("contact_urgence");
+        if ($infoContactUrgence == null) {
+            return null;
+        }
+
+        // Pour chaque ID
+        for ($i=0; $i < count($infoContactUrgence); $i++) {
+
+            // Générer des clés pour accéder au tableau avec des INT
+            $keyContactUrgence = array_keys($infoContactUrgence[$i]);
+
+            // Créer un objet à partir d'un ID
+            $arrayContactUrgence[] = gestionnaireContactUrgence::fetchContactUrgenceFromBD($moteurRequetes, $infoContactUrgence[$i][$keyContactUrgence[0]]);
+        }
+
+        // Retourner le tableau
+        return $arrayContactUrgence;
     }
 }

@@ -1,9 +1,18 @@
 <?php
 
-$listeArticles[] = gestionnaireArticle::fetchArticleFromBD($moteurRequetes, 1);
-$listeArticles[] = gestionnaireArticle::fetchArticleFromBD($moteurRequetes, 2);
+// Moteur requêtes
+include_once "../../3_acces_bd/moteur_requetes_bd.php";
 
-$maReference = gestionnaireArticle::fetchReferenceFromBD($moteurRequetes, 1);
-$monEtat = gestionnaireArticle::fetchEtatFromBD($moteurRequetes, 1);
+// Gestionnaires
+include_once "../../2_logique/gestionnaires/gestionnaire_article.php";
 
+// Objets
+include_once "../../2_logique/objets/article.php";
+include_once "../../2_logique/objets/reference.php";
+include_once "../../2_logique/objets/etat.php";
+
+$moteurRequetes = new moteurRequetesBD();
+$listeArticles = gestionnaireArticle::fetchAllArticleFromBD($moteurRequetes);
+
+// Charge la page
 include '../client/consulter_article.php';

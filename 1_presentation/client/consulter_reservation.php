@@ -15,18 +15,18 @@
 
         <!-- Link to "Consulter Article" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
-        if (file_exists('consulter_article.php')) {
-            echo '<li><a class="button" href="consulter_article.php">Articles</a></li>';
+        if (file_exists('../controleurs/CTRL_article.php')) {
+            echo '<li><a class="active_button" href="../controleurs/CTRL_article.php">Articles</a></li>';
         } else {
             echo '<li><div class="inactive_button">Article</div></li>';
         } ?>
 
         <!-- Link to "Consulter Réservation" -->
         <?php // Check if page exists, if it does, create a link to it, otherwise disable it
-        if (file_exists('consulter_reservation.php')) {
-            echo '<li><a class="active_button" href="consulter_reservation.php">Réservations</a></li>';
+        if (file_exists('../controleurs/CTRL_reservation.php')) {
+            echo '<li><a class="button" href="../controleurs/CTRL_reservation.php">Réservations</a></li>';
         } else {
-            echo '<li><div class="inactive_button">Articles</div></li>';
+            echo '<li><div class="inactive_button">Réservations</div></li>';
         } ?>
 
         <li style="float:right"><div class="navigator">Client</div></li>

@@ -55,12 +55,13 @@
     // Associe les noms des items à leurs propriétés de noms dans la base de données
     $listeNomPropriete = [
       "article" => [
-        "size" => 5,
-        1 => "nom",
-        2 => "identifiant",
-        3 => "fiche_url",
-        4 => "id_sous_categorie",
-        5 => "id_etat",
+        "size" => 6,
+        1 => "identifiant",
+        2 => "nom",
+        3 => "quantite",
+        4 => "fiche_url",
+        5 => "id_sous_categorie",
+        6 => "id_etat",
       ],
       "categorie_article" => [
         "size" => 2,
@@ -125,9 +126,10 @@
         "article" => [
           1 => "text",
           2 => "text",
-          3 => "text",
-          4 => "number",
+          3 => "number",
+          4 => "text",
           5 => "number",
+          6 => "number",
         ],
         "categorie_article" => [
           1 => "text",

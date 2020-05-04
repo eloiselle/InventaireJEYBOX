@@ -1,3 +1,10 @@
+<?php /****************************************
+Fichier:        consulter_article.php
+Auteur:         Émile, Jérôme et Yannick
+Fonctionnalité: FW-Item-01 - Consultation des articles
+Date:           22 avril 2020
+***********************************************/ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

@@ -1,9 +1,9 @@
-<?php
-  /**
-   * Objet: Contact Urgence
-   * Auteur: Émile, Jérôme et Yannick
-   * Date: 29 avril 2020
-   */
+<?php /****************************************
+Fichier:        contact_urgence.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Usr-01 - Gestion des utilisateurs - Objet contact_urgence
+Date:           30 avril 2020
+***********************************************/
   class contact_urgence
   {
       // Variables

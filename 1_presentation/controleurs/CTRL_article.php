@@ -1,4 +1,9 @@
-<?php
+<?php /****************************************
+Fichier:        CTRL_article.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Item-01 - Contrôleur d'articles
+Date:           2 mai 2020
+***********************************************/
 
 // Moteur requêtes
 include_once "../../3_acces_bd/moteur_requetes_bd.php";

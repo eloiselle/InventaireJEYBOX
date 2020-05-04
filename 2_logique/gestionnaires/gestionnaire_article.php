@@ -1,4 +1,9 @@
-<?php
+<?php /****************************************
+Fichier:        gestionnaire_article.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Item-01 - Gestion des articles - Objet gestionnaire_article
+Date:           1 mai 2020
+***********************************************/
 class gestionnaireArticle
 {
 

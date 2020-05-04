@@ -1,9 +1,9 @@
-<?php
-  /**
-   * Objet: Reservation
-   * Auteur: Émile, Jérôme et Yannick
-   * Date: 29 avril 2020
-   */
+<?php /****************************************
+Fichier:        reservation.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Res-02 - Gestion des reservations - Objet reservation
+Date:           30 avril 2020
+***********************************************/
   class reservation
   {
       // Variables

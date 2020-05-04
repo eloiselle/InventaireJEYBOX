@@ -1,4 +1,9 @@
-<?php
+<?php /****************************************
+Fichier:        CTRL_general.php
+Auteur:         Émile et Yannick
+Fonctionnalité: Autre - Contrôleur général
+Date:           2 mai 2020
+***********************************************/
 
 // Moteur requêtes
 include_once "../../3_acces_bd/moteur_requetes_bd.php";

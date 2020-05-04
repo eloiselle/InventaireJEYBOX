@@ -1,3 +1,9 @@
+<?php /****************************************
+Fichier:        gestion_categorie.php
+Auteur:         Émile, Jérôme et Yannick
+Fonctionnalité: FW-Cat-01 - Gestion des catégories
+Date:           22 avril 2020
+***********************************************/ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

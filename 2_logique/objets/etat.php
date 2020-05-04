@@ -1,9 +1,9 @@
-<?php
-  /**
-   * Objet: État
-   * Auteur: Émile, Jérôme et Yannick
-   * Date: 29 avril 2020
-   */
+<?php /****************************************
+Fichier:        etat.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Item-01 - Gestion des articles - Objet etat
+Date:           30 avril 2020
+***********************************************/
   class etat
   {
       // Variables

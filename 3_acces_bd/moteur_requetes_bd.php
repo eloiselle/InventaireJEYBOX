@@ -1,4 +1,9 @@
-<?php
+<?php /****************************************
+Fichier:        consulter_article.php
+Auteur:         Émile
+Fonctionnalité: Autre - Gestion des requêtes fait à la BD
+Date:           22 avril 2020
+***********************************************/
 
   include 'gestion_connexion_bd.php';
 

@@ -1,9 +1,9 @@
-<?php
-  /**
-   * Objet: Sous Categorie Article
-   * Auteur: Émile, Jérôme et Yannick
-   * Date: 29 avril 2020
-   */
+<?php /****************************************
+Fichier:        sous_categorie_article.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Cat-01 - Gestion des catégories - Objet sous_categorie_article
+Date:           30 avril 2020
+***********************************************/
   class sous_categorie_article
   {
       // Variables

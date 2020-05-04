@@ -1,4 +1,9 @@
-<?php
+<?php /****************************************
+Fichier:        CTRL_reservation.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Res-02 - Contrôleur des réservations
+Date:           2 mai 2020
+***********************************************/
 
 // Moteur requêtes
 include_once "../../3_acces_bd/moteur_requetes_bd.php";

@@ -1,3 +1,9 @@
+<?php /****************************************
+Fichier:        index.php
+Auteur:         Émile, Jérôme et Yannick
+Fonctionnalité: Autre - Menu provisoire - Remplace la page de login
+Date:           22 avril 2020
+***********************************************/ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 

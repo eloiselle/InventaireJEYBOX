@@ -1,3 +1,9 @@
+<?php /****************************************
+Fichier:        ajout_utilisateur.php
+Auteur:         Émile, Jérôme et Yannick
+Fonctionnalité: FW-Usr-02 - Ajout d'un utilisateur
+Date:           22 avril 2020
+***********************************************/ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

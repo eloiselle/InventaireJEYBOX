@@ -1,3 +1,9 @@
+<?php /****************************************
+Fichier:        gestion_reservation.php
+Auteur:         Émile, Jérôme et Yannick
+Fonctionnalité: FW-Res-02 - Gestion des réservations
+Date:           22 avril 2020
+***********************************************/ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

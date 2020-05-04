@@ -1,3 +1,9 @@
+<?php /****************************************
+Fichier:        gestion_utilisateur.php
+Auteur:         Émile, Jérôme et Yannick
+Fonctionnalité: FW-Usr-02 - Gestion des utilisateurs
+Date:           22 avril 2020
+***********************************************/ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

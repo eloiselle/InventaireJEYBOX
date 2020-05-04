@@ -1,3 +1,9 @@
+<?php /****************************************
+Fichier:        password_forgotten.php
+Auteur:         Émile, Jérôme et Yannick
+Fonctionnalité: FW-Log-02 - Gestion des mot de passes oubliés
+Date:           22 avril 2020
+***********************************************/ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

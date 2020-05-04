@@ -1,9 +1,9 @@
-<?php
-  /**
-   * Objet: Reference
-   * Auteur: Émile, Jérôme et Yannick
-   * Date: 29 avril 2020
-   */
+<?php /****************************************
+Fichier:        reference.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Item-01 - Gestion des articles - Objet reference
+Date:           30 avril 2020
+***********************************************/
   class reference
   {
       // Variables

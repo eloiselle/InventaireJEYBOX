@@ -1,3 +1,9 @@
+<?php /****************************************
+Fichier:        main_login.php
+Auteur:         Émile, Jérôme et Yannick
+Fonctionnalité: FW-Log-01 - Gestion des logins
+Date:           22 avril 2020
+***********************************************/ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

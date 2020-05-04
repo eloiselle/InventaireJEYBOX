@@ -1,3 +1,5 @@
+/* Script pour créer une BD dans MariaDB*/
+
 drop database if exists inventaire_jeybox;
 create database inventaire_jeybox;
 use inventaire_jeybox;

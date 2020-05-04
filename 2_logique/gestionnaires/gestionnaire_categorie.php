@@ -1,4 +1,9 @@
-<?php
+<?php /****************************************
+Fichier:        gestionnaire_categorie.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Cat-01 - Gestion des catégories - Objet gestionnaire_categorie
+Date:           1 mai 2020
+***********************************************/
 class gestionnaireCategorie
 {
 

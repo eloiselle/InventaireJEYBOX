@@ -1,9 +1,9 @@
-<?php
-  /**
-   * Objet: Utilisateur
-   * Auteur: Émile, Jérôme et Yannick
-   * Date: 29 avril 2020
-   */
+<?php /****************************************
+Fichier:        utilisateur.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Usr-01 - Gestion des utilisateur - Objet utilisateur
+Date:           30 avril 2020
+***********************************************/
   class utilisateur
   {
       // Variables

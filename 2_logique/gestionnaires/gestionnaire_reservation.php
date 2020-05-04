@@ -1,4 +1,9 @@
-<?php
+<?php /****************************************
+Fichier:        gestionnaire_reservation.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Res-02 - Gestion des réservations - Objet gestionnaire_reservation
+Date:           1 mai 2020
+***********************************************/
 class gestionnaireReservation
 {
 

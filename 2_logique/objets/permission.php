@@ -1,9 +1,9 @@
-<?php
-  /**
-   * Objet: Permissions
-   * Auteur: Émile, Jérôme et Yannick
-   * Date: 29 avril 2020
-   */
+<?php /****************************************
+Fichier:        permission.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Usr-01 - Gestion des utilisateurs - Objet permission
+Date:           30 avril 2020
+***********************************************/
   class permission
   {
       // Variables

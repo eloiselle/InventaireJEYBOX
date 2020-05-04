@@ -1,4 +1,9 @@
-<?php
+<?php /****************************************
+Fichier:        gestionnaire_utilisateur.php
+Auteur:         Émile et Yannick
+Fonctionnalité: FW-Usr-01 - Gestion des utilisateurs - Objet gestionnaire_utilisateur
+Date:           1 mai 2020
+***********************************************/
 class gestionnaireUtilisateur
 {
 

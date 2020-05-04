@@ -1,4 +1,9 @@
-<?php
+<?php /****************************************
+Fichier:        gestion_connexion_bd.php
+Auteur:         Émile et Yannick
+Fonctionnalité: Autre - Gestion des paramètres de connexion à la BD
+Date:           22 avril 2020
+***********************************************/
 
   class sqlManager
   {

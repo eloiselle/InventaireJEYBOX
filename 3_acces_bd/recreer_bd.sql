@@ -233,14 +233,14 @@ insert into article (nom, identifiant, fiche_url, id_sous_categorie, id_etat)
 values
 (
 	"Raspberry Pi 3 - Modèle B",
-	"RPI 3020"
+	"RPI 3020",
 	"raspi3_modB_specs.pdf",
 	(select id_sous_categorie from sous_categorie_article where nom = "Micro-Ordinateur"),
 	(select id_etat from etat where nom = "Prêt")
 ),
 (
 	"Raspberry Pi 2 - Modèle B",
-	"RPI 2020"
+	"RPI 2020",
 	"raspi2_modB_specs.pdf",
 	(select id_sous_categorie from sous_categorie_article where nom = "Micro-Ordinateur"),
 	(select id_etat from etat where nom = "Prêt")

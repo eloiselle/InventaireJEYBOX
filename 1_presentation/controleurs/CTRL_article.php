@@ -1,8 +1,7 @@
 <?php
 
-$monArticle = gestionnaireArticle::fetchArticleFromBD($moteurRequetes, 1);
-
-$listeArticles[] = $monArticle;
+$listeArticles[] = gestionnaireArticle::fetchArticleFromBD($moteurRequetes, 1);
+$listeArticles[] = gestionnaireArticle::fetchArticleFromBD($moteurRequetes, 2);
 
 $maReference = gestionnaireArticle::fetchReferenceFromBD($moteurRequetes, 1);
 $monEtat = gestionnaireArticle::fetchEtatFromBD($moteurRequetes, 1);

@@ -25,19 +25,4 @@ $moteurRequetes = new moteurRequetesBD();
 
 include 'CTRL_article.php';
 
-    /*
-    // Gestionnaire Categorie
-    $maCategorieArticle = gestionnaireCategorie::fetchCategorieArticleFromBD($moteurRequetes, 1);
-    $maSousCategorieArticle = gestionnaireCategorie::fetchSousCategorieArticleFromBD($moteurRequetes, 1);
-
-    // Gestionnaire reservation
-    $maReservation = gestionnaireReservation::fetchReservationFromBD($moteurRequetes, 1);
-
-    // Gestionnaire utilisateur
-    $maPermission = gestionnaireUtilisateur::fetchPermissionFromBD($moteurRequetes, 1);
-    $monUtilisateur = gestionnaireUtilisateur::fetchUtilisateurFromBD($moteurRequetes, "jeclient");
-    $monContactUrgence = gestionnaireUtilisateur::fetchContactUrgenceFromBD($moteurRequetes, 1);
-*/
-
-
  ?>

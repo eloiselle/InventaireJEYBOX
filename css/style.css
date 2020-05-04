@@ -272,6 +272,7 @@ nav ul li .navigator {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
+
   color: white;
   background-color: var(--red-color);
 
@@ -290,6 +291,66 @@ nav ul li .navigator {
   position: absolute;
   right: 40%;
   left: 10%;
+}
+
+.tblOptions {
+  width: 80%;
+
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.btnRetour {
+  display: block;
+  text-align: center;
+  vertical-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  background-color: var(--red-color);
+
+  width: 150px;
+  height: 8px;
+  padding: 14px 16px;
+
+  border-radius: 10px;
+}
+
+.btnEffacerSelection {
+  display: block;
+  text-align: center;
+  vertical-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  background-color: var(--red-color);
+
+  width: 150px;
+  height: 8px;
+  padding: 14px 16px;
+
+  border-radius: 10px;
+}
+
+.btnReserver {
+  display: block;
+  text-align: center;
+  vertical-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  background-color: var(--yellow-color);
+
+  width: 150px;
+  height: 8px;
+  padding: 14px 16px;
+
+  margin-left: 10%;
+  margin-right: 10%;
+
+  border-radius: 10px;
 }
 /* End of itemSelection table */
 
@@ -431,7 +492,7 @@ transition: opacity 1s;
   padding: 6px;
   border: none;
   margin-top: 8px;
-  margin-right: 16px;
+  margin-right: 8px;
   font-size: 17px;
 }
 
@@ -613,7 +674,6 @@ transition: opacity 1s;
     }
 
     .container {
-      width: 1350px;
       margin: auto;
     }
   }

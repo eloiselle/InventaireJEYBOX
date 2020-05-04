@@ -7,6 +7,19 @@
       // Variables
       private $mySqlManager = null;
 
+      // Liste de requêtes SQL pour sélectionner tous les IDs d'une table
+      private $sqlQueriesSelectAllIDs = [
+        "article" => 'SELECT id_article FROM article',
+        "categorie_article" => 'SELECT id_categorie FROM categorie_article',
+        "contact_urgence" => 'SELECT id_contact_urgence FROM contact_urgence',
+        "etat" => 'SELECT id_etat FROM etat',
+        "permission" => 'SELECT id_permission FROM permission',
+        "reference" => 'SELECT id_reference FROM reference',
+        "reservation" => 'SELECT id_reservation FROM reservation',
+        "sous_categorie_article" => 'SELECT id_sous_categorie FROM sous_categorie_article',
+        "utilisateur" => 'SELECT nom_utilisateur FROM utilisateur',
+      ];
+
       // Liste de requêtes SQL pour sélectionner un ID
       private $sqlQueriesSelectID = [
         "article" => 'SELECT * FROM article WHERE id_article = ?',
@@ -35,7 +48,7 @@
 
       // Liste de requêtes SQL pour insérer un array
       private $sqlQueriesInsertArray = [
-        "article" => 'INSERT INTO article (nom, identifiant, fiche_url, id_sous_categorie, id_etat) VALUES ( ?, ?, ?, ?, ?)',
+        "article" => 'INSERT INTO article (identifiant, nom, quantite, fiche_url, id_sous_categorie, id_etat) VALUES ( ?, ?, ?, ?, ?, ?)',
         "categorie_article" => 'INSERT INTO categorie_article (nom, description) VALUES (?, ?)',
         "contact_urgence" => 'INSERT INTO contact_urgence (nom, prenom, relation, telephone, nom_utilisateur) VALUES (?, ?, ?, ?, ?)',
         "etat" => 'INSERT INTO etat (nom, description) VALUES (?, ?)',
@@ -48,7 +61,7 @@
 
       // Liste de requêtes SQL pour mettre-à-jour à partir d'un array
       private $sqlQueriesUpdateArray = [
-        "article" => 'UPDATE article SET nom = ?, identifiant = ?, fiche_url = ?, id_sous_categorie = ?, id_etat = ? WHERE id_article = ?',
+        "article" => 'UPDATE article SET identifiant = ?, nom = ?, quantite = ? fiche_url = ?, id_sous_categorie = ?, id_etat = ? WHERE id_article = ?',
         "categorie_article" => 'UPDATE categorie_article SET nom = ?, description = ? WHERE id_categorie = ?',
         "contact_urgence" => 'UPDATE contact_urgence SET nom = ?, prenom = ?, relation = ?, telephone = ?, nom_utilisateur = ? WHERE id_contact_urgence = ?)',
         "etat" => 'UPDATE etat SET nom = ?, description = ? WHERE id_etat = ?',
@@ -63,6 +76,30 @@
       public function __construct()
       {
           $this->mySqlManager = new sqlManager();
+      }
+
+      // ==============================================
+      //                   FETCH_ALL
+      // ==============================================
+
+      public function selectAllIDs($objectName)
+      {
+          // Initialise la connexion à la BD
+          $this->mySqlManager->init_connection();
+
+          // Variables utiles
+          $conn = $this->mySqlManager->get_connection();
+          $lowerObjectName = strtolower($objectName);
+
+          // Exécuter la requête SQL
+          $result = $conn->query($this->sqlQueriesSelectAllIDs[$lowerObjectName]);
+          $resultArray = $result->fetch_all(MYSQLI_ASSOC);
+
+          // Fermer les connexions établies
+          $conn->close();
+
+          // Retourner les résultats
+          return $resultArray;
       }
 
       // ==============================================
